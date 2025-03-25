@@ -1,14 +1,13 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
 
-import { MantineProvider } from "@mantine/core";
+import { mantineHtmlProps, MantineProvider } from "@mantine/core";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import { myTheme } from "@/styles";
-import "./globals.css";
 
-const urbanist = Urbanist({ subsets: ["latin"], fallback: ["sans-serif"] });
+import "@mantine/core/styles.css";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "StandupAI - Transform Your Daily Standups with AI",
@@ -54,8 +53,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={urbanist.className}>
+    <html lang="en" {...mantineHtmlProps}>
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

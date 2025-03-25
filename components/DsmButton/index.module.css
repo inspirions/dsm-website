@@ -1,0 +1,18 @@
+.root {
+  padding-inline: 14px 16px;
+}
+
+.inner {
+  gap: 6px;
+}
+
+.section {
+  /* Apply styles only to left section */
+  &[data-position='left'] {
+    margin-inline-end: 0px;
+  }
+}
+
+.skeleton {
+  display: flex;
+}
