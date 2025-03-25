@@ -1,9 +1,10 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, MessageSquare, BarChart3, Users2 } from "lucide-react"
-import FeatureCard from "@/components/feature-card"
-import HeroAnimation from "@/components/hero-animation"
-import TestimonialCard from "@/components/testimonial-card"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, MessageSquare, BarChart3, Users2 } from "lucide-react";
+import FeatureCard from "@/components/feature-card";
+import HeroAnimation from "@/components/hero-animation";
+import TestimonialCard from "@/components/testimonial-card";
+import { DsmButton } from "@/components/DsmButton";
 
 export default function Home() {
   return (
@@ -18,18 +19,24 @@ export default function Home() {
                   Transform Your Standup Meetings with AI
                 </h1>
                 <p className="max-w-[600px] text-slate-500 md:text-xl dark:text-slate-400">
-                  Capture, summarize, and gain insights from your daily standups. Let AI do the heavy lifting.
+                  Capture, summarize, and gain insights from your daily
+                  standups. Let AI do the heavy lifting.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button asChild size="lg" className="px-8">
-                  <Link href="https://app.example.com/signup">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button variant="outline" size="lg">
+                <DsmButton
+                  size="md"
+                  bg="blue"
+                  iconProps={{ icon: "arrowRight", position: "right" }}
+                >
+                  <Link href="https://app.example.com/signup">Get Started</Link>
+                </DsmButton>
+                <DsmButton hideIcon size="md" bg="indigo">
+                  <Link href="/login">Log In</Link>
+                </DsmButton>
+                <DsmButton hideIcon size="md" variant="outline">
                   <Link href="#features">Learn More</Link>
-                </Button>
+                </DsmButton>
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">
@@ -48,7 +55,8 @@ export default function Home() {
                 Powerful Features for Productive Teams
               </h2>
               <p className="max-w-[900px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400">
-                Everything you need to streamline your standup process and keep your team aligned.
+                Everything you need to streamline your standup process and keep
+                your team aligned.
               </p>
             </div>
           </div>
@@ -77,7 +85,9 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">How It Works</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                How It Works
+              </h2>
               <p className="max-w-[900px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400">
                 Simple, intuitive, and designed for busy teams.
               </p>
@@ -85,24 +95,33 @@ export default function Home() {
           </div>
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3 mt-12">
             <div className="flex flex-col items-center space-y-2 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">1</div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
+                1
+              </div>
               <h3 className="text-xl font-bold">Record Your Standup</h3>
               <p className="text-slate-500 dark:text-slate-400">
-                Use our app during your daily standup or integrate with your meeting tools.
+                Use our app during your daily standup or integrate with your
+                meeting tools.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-2 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">2</div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
+                2
+              </div>
               <h3 className="text-xl font-bold">AI Generates Summaries</h3>
               <p className="text-slate-500 dark:text-slate-400">
-                Our AI automatically creates structured summaries of the discussion.
+                Our AI automatically creates structured summaries of the
+                discussion.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-2 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">3</div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
+                3
+              </div>
               <h3 className="text-xl font-bold">Access Insights Anytime</h3>
               <p className="text-slate-500 dark:text-slate-400">
-                Chat with the AI to get updates or view generated insights about your team.
+                Chat with the AI to get updates or view generated insights about
+                your team.
               </p>
             </div>
           </div>
@@ -118,7 +137,8 @@ export default function Home() {
                 Trusted by Teams Everywhere
               </h2>
               <p className="max-w-[900px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400">
-                See what our users are saying about how our app has transformed their workflow.
+                See what our users are saying about how our app has transformed
+                their workflow.
               </p>
             </div>
           </div>
@@ -148,7 +168,8 @@ export default function Home() {
                 Ready to Transform Your Standups?
               </h2>
               <p className="max-w-[600px] md:text-xl">
-                Join thousands of teams who have streamlined their standup process with our AI-powered platform.
+                Join thousands of teams who have streamlined their standup
+                process with our AI-powered platform.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -162,6 +183,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  )
+  );
 }
-

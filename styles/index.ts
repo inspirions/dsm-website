@@ -17,11 +17,6 @@ export const myTheme = createTheme({
         type: "bars",
       },
     },
-    Button: {
-      classNames: {
-        root: "outline outline-offset-2 outline-blue-500",
-      },
-    },
   },
   colors: {
     "dsm-primary": [
