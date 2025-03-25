@@ -29,7 +29,7 @@ export default function Home() {
                   bg="blue"
                   iconProps={{ icon: "arrowRight", position: "right" }}
                 >
-                  <Link href="https://app.example.com/signup">Get Started</Link>
+                  <Link href="/sign-up">Get Started</Link>
                 </DsmButton>
                 <DsmButton hideIcon size="md" bg="indigo">
                   <Link href="/login">Log In</Link>
