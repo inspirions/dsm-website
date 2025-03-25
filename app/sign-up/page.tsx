@@ -6,9 +6,9 @@ import DsmImage from "@/components/DsmImage";
 
 import { LOGO_URL } from "@/constants/commons";
 
-import { LoginForm } from "./viewModules/LoginForm";
+import { SignUpForm } from "./viewModules/SignUpForm";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <Flex mih="100vh" direction={{ base: "column" }} bg="#fafbfc">
       <Stack justify="center" align="center" mt="6rem">
@@ -16,17 +16,14 @@ const Login = () => {
           <Flex justify="center" mb="md">
             <DsmImage w={150} h={150} imageUrl={LOGO_URL} />
           </Flex>
-          <Text size="xl" fw={700} ta="center">
-            Log in to your account
+          <Text size="xl" fw={700} ta="center" mb="lg">
+            Create an account
           </Text>
-          <Text c="gray" ta="center" fw={500} mb="lg">
-            Please enter you details.
-          </Text>
-          <LoginForm />
+          <SignUpForm />
           <Group mt="md" justify="center" gap={2}>
-            <Text>Don't have an account?</Text>
-            <Anchor c="blue" fw="bold" component={Link} href="/sign-up">
-              Sign up
+            <Text>Already have an account?</Text>
+            <Anchor c="blue" fw="bold" component={Link} href="/login">
+              Log In
             </Anchor>
           </Group>
         </Card>
@@ -35,4 +32,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
