@@ -1,0 +1,9 @@
+.root {
+  &[data-variant='subtle'] {
+    border: none;
+  }
+}
+
+.skeleton {
+  display: flex;
+}

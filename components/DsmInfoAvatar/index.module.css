@@ -1,0 +1,14 @@
+.label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #181d27;
+  /* text-transform: capitalize; */
+}
+
+.subLabel {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  color: #535862;
+}

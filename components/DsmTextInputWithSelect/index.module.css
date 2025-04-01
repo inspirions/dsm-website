@@ -1,0 +1,36 @@
+.input {
+    border: 0;
+    padding-inline: 12px;
+}
+
+.inputWrapper {
+    width: 100%;  
+}
+
+.selectInput {
+    border: 0;
+    padding-inline-start: 12px;
+}
+
+.wrapper {
+    & > div {
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+
+        &:focus-within {
+            border-color: #023047;
+        }
+        
+    }
+    &[data-error] > div > div {
+        margin-bottom: 0;
+        
+        > input {
+            color: red;
+        }
+    }
+    &[data-error] > div {
+        border-color: red;
+        margin-bottom: 5px;
+    }
+}
