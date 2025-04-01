@@ -26,8 +26,10 @@ const PointIcon = lazy(() => import("./PointIcon"));
 const SearchIcon = lazy(() => import("./SearchIcon"));
 const SelectorIcon = lazy(() => import("./SelectorIcon"));
 const SettingsIcon = lazy(() => import("./SettingsIcon"));
+const SkipIcon = lazy(() => import("./SkipIcon"));
 const TeamsIcon = lazy(() => import("./TeamsIcon"));
 const TickIcon = lazy(() => import("./TickIcon"));
+const TrashIcon = lazy(() => import("./TrashIcon"));
 const UserCheckIcon = lazy(() => import("./UserCheckIcon"));
 const UserIcon = lazy(() => import("./UserIcon"));
 const UserGroupIcon = lazy(() => import("./UserGroupIcon"));
@@ -63,8 +65,10 @@ export const ICON_LIST = {
   search: SearchIcon,
   selector: SelectorIcon,
   settings: SettingsIcon,
+  skip: SkipIcon,
   teams: TeamsIcon,
   tick: TickIcon,
+  trash: TrashIcon,
   upload: CloudUploadIcon,
   user: UserIcon,
   userCheck: UserCheckIcon,

@@ -1,6 +1,6 @@
-import { Textarea } from '@mantine/core';
+import { Textarea } from "@mantine/core";
 
-import { DsmTextAreaInputPropsType } from './types';
+import { DsmTextAreaInputPropsType } from "./types";
 
 export const DsmTextAreaInput: React.FC<DsmTextAreaInputPropsType> = ({
   disabled,
@@ -13,7 +13,6 @@ export const DsmTextAreaInput: React.FC<DsmTextAreaInputPropsType> = ({
     required={false}
     disabled={disabled}
     withAsterisk={required}
-    inputWrapperOrder={['label', 'description', 'input', 'error']}
     {...restTextAreaInputProps}
   />
 );
