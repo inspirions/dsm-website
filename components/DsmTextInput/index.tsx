@@ -1,6 +1,6 @@
-import { TextInput } from '@mantine/core';
+import { TextInput } from "@mantine/core";
 
-import { DsmTextInputPropsType } from './types';
+import { DsmTextInputPropsType } from "./types";
 
 export const DsmTextInput = ({
   isDisabled,
@@ -10,7 +10,6 @@ export const DsmTextInput = ({
   <TextInput
     disabled={isDisabled}
     withAsterisk={isRequired}
-    inputWrapperOrder={['label', 'description', 'input', 'error']}
     required={false}
     {...inputProps}
   />
