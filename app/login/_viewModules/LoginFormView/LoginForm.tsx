@@ -19,13 +19,21 @@ import {
   LOGIN_SCHEMA,
   loginFormInitialValues,
   LoginType,
-} from "../schema/login";
+} from "../../_schema/login";
 
-export const LoginForm = () => {
+interface LoginFormPropsType {
+  handleLogin: (payload: LoginType) => Promise<void>;
+}
+
+export const LoginForm = ({ handleLogin }: LoginFormPropsType) => {
   const [loginError, setLoginError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (submitData: LoginType) => {
-    console.log(submitData);
+    setIsSubmitting(true);
+    handleLogin(submitData).finally(() => {
+      setIsSubmitting(false);
+    });
   };
 
   const handleChange =
@@ -80,7 +88,13 @@ export const LoginForm = () => {
             <Checkbox label="Remember me" radius={"sm"} />
             <Anchor c="blue">Forgot Password</Anchor>
           </Group>
-          <DsmButton hideIcon fullWidth bg="blue" type="submit">
+          <DsmButton
+            hideIcon
+            fullWidth
+            bg="blue"
+            type="submit"
+            loading={isSubmitting}
+          >
             Sign in
           </DsmButton>
         </Stack>
