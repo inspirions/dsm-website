@@ -5,8 +5,11 @@ import { Anchor, Card, Flex, Group, Stack, Text } from "@mantine/core";
 import DsmImage from "@/components/DsmImage";
 
 import { LOGO_URL } from "@/constants/commons";
+import { routes } from "@/constants/routeConstants";
 
-import { LoginForm } from "./viewModules/LoginForm";
+import { LoginFormView } from "./_viewModules/LoginFormView";
+
+const { SIGN_UP } = routes;
 
 const Login = () => {
   return (
@@ -22,10 +25,10 @@ const Login = () => {
           <Text c="gray" ta="center" fw={500} mb="lg">
             Please enter you details.
           </Text>
-          <LoginForm />
+          <LoginFormView />
           <Group mt="md" justify="center" gap={2}>
             <Text>Don't have an account?</Text>
-            <Anchor c="blue" fw="bold" component={Link} href="/sign-up">
+            <Anchor c="blue" fw="bold" component={Link} href={SIGN_UP}>
               Sign up
             </Anchor>
           </Group>
