@@ -5,8 +5,10 @@ import { mantineHtmlProps, MantineProvider } from "@mantine/core";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import { myTheme } from "@/styles";
+import { Notifications } from "@mantine/notifications";
 
 import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
 import "./globals.css";
 
 const urbanist = Urbanist({ subsets: ["latin"], fallback: ["sans-serif"] });
@@ -63,7 +65,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MantineProvider theme={myTheme}>{children}</MantineProvider>
+          <MantineProvider theme={myTheme}>
+            <Notifications />
+            {children}
+          </MantineProvider>
         </ThemeProvider>
       </body>
     </html>
