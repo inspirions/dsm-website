@@ -15,11 +15,11 @@ import {
   registerFormInitialValues,
 } from "../../_schema/signUp";
 
-interface LoginFormPropsType {
+interface SignUpFormPropsType {
   onSubmit: (payload: RegisterType) => Promise<void>;
 }
 
-export const SignUpForm = ({ onSubmit }: LoginFormPropsType) => {
+export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
   const [registerError, setRegisterError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 

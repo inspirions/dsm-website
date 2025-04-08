@@ -1,0 +1,64 @@
+import { useEffect, useState } from "react";
+
+import { Anchor, Text } from "@mantine/core";
+
+import { commons } from "@/constants/commons";
+
+const { OTP_TIME } = commons;
+
+interface OtpTimerPropsType {
+  email: string;
+  onResend: (email: string) => Promise<void>;
+}
+
+const OTP_TIMER_DURATION = 120;
+
+const getOtpTime = () => {
+  const savedTime = localStorage.getItem(OTP_TIME);
+  return savedTime ? Number(savedTime) : OTP_TIMER_DURATION;
+};
+
+export const OtpTimer = ({ email, onResend }: OtpTimerPropsType) => {
+  const [otpTime, setOtpTime] = useState(OTP_TIMER_DURATION);
+
+  useEffect(() => {
+    setOtpTime(getOtpTime());
+  }, []);
+
+  useEffect(() => {
+    if (otpTime === 0) {
+      localStorage.removeItem(OTP_TIME);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setOtpTime((prev) => {
+        const newTime = prev - 1;
+        localStorage.setItem(OTP_TIME, String(newTime));
+        return newTime;
+      });
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [otpTime]);
+
+  const handleResendClick = () => {
+    onResend(email);
+  };
+
+  return otpTime ? (
+    <Text>{otpTime} seconds remaining</Text>
+  ) : (
+    <Text>
+      Didn't receive OTP?{" "}
+      <Anchor
+        c={"blue"}
+        fw={"bold"}
+        underline="always"
+        onClick={handleResendClick}
+      >
+        Click to resend
+      </Anchor>
+    </Text>
+  );
+};
