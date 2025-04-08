@@ -13,13 +13,31 @@ import {
   REGISTER_SCHEMA,
   RegisterType,
   registerFormInitialValues,
-} from "../schema/signUp";
+} from "../../_schema/signUp";
 
-export const SignUpForm = () => {
+interface LoginFormPropsType {
+  onSubmit: (payload: RegisterType) => Promise<void>;
+}
+
+export const SignUpForm = ({ onSubmit }: LoginFormPropsType) => {
   const [registerError, setRegisterError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (submitData: RegisterType) => {
-    console.log(submitData);
+    setIsSubmitting(true);
+    const { name } = submitData;
+    const nameArr = name.trim().split(/\s+/);
+
+    const payload = {
+      ...submitData,
+      firstName: nameArr[0] || "",
+      middleName: nameArr.length > 2 ? nameArr.slice(1, -1).join(" ") : "",
+      lastName: nameArr.length > 1 ? nameArr[nameArr.length - 1] : "",
+    };
+
+    onSubmit(payload).finally(() => {
+      setIsSubmitting(false);
+    });
   };
 
   const handleChange =
@@ -86,7 +104,13 @@ export const SignUpForm = () => {
             </Text>
           )}
 
-          <DsmButton hideIcon fullWidth bg="blue" type="submit">
+          <DsmButton
+            hideIcon
+            fullWidth
+            bg="blue"
+            type="submit"
+            loading={isSubmitting}
+          >
             Sign up
           </DsmButton>
         </Stack>

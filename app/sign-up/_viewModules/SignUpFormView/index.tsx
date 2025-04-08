@@ -4,27 +4,27 @@ import { useRouter } from "next/navigation";
 
 import { notifications } from "@mantine/notifications";
 
-import { commons, DSM_TOKEN } from "@/constants/commons";
+import { commons } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
 
-import { LoginForm } from "./LoginForm";
+import { SignUpForm } from "./SignUpForm";
 
-import { login } from "../../actions";
-import { LoginType } from "../../_schema/login";
+import { RegisterType } from "../../_schema/signUp";
+
+import { signUp } from "../../actions";
 
 const { SUCCESS } = commons;
-const { ORGANIZATION } = routes;
+const { VERIFICATION } = routes;
 
-export const LoginFormView = () => {
+export const SignUpFormView = () => {
   const router = useRouter();
 
-  const handleLogin = async (payload: LoginType) => {
+  const handleSignUp = async (payload: RegisterType) => {
     try {
-      const res = await login(payload);
+      const res = await signUp(payload);
 
-      if (res.code === SUCCESS && res.data.isVerified) {
-        localStorage.setItem(DSM_TOKEN, JSON.stringify(res.data));
-        router.push(ORGANIZATION);
+      if (res.code === SUCCESS) {
+        router.push(`${VERIFICATION}?email=${payload.email}`);
       }
 
       notifications.show({
@@ -41,5 +41,5 @@ export const LoginFormView = () => {
     }
   };
 
-  return <LoginForm onSubmit={handleLogin} />;
+  return <SignUpForm onSubmit={handleSignUp} />;
 };

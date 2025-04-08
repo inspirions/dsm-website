@@ -6,7 +6,7 @@ import DsmImage from "@/components/DsmImage";
 
 import { LOGO_URL } from "@/constants/commons";
 
-import { SignUpForm } from "./viewModules/SignUpForm";
+import { SignUpFormView } from "./_viewModules/SignUpFormView";
 
 const SignUp = () => {
   return (
@@ -19,7 +19,7 @@ const SignUp = () => {
           <Text size="xl" fw={700} ta="center" mb="lg">
             Create an account
           </Text>
-          <SignUpForm />
+          <SignUpFormView />
           <Group mt="md" justify="center" gap={2}>
             <Text>Already have an account?</Text>
             <Anchor c="blue" fw="bold" component={Link} href="/login">
