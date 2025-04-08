@@ -174,7 +174,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button asChild size="lg" variant="secondary" className="px-8">
-                <Link href="https://app.example.com/signup">
+                <Link href="/sign-up">
                   Get Started Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

@@ -4,10 +4,12 @@ export const routes = Object.freeze({
   LOGIN: "/login",
   SIGN_UP: "/sign-up",
   GET_STARTED: "/get-started",
+  VERIFICATION: "/verification",
   ORGANIZATION: "/organization",
   INVITE_EMPLOYEE: "/invite-employee",
 });
 
 export const API_ROUTES = Object.freeze({
   LOGIN_API: `${API_URL}/api/login`,
+  SIGN_UP_API: `${API_URL}/api/register-admin`,
 });

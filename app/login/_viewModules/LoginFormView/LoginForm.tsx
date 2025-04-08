@@ -22,16 +22,16 @@ import {
 } from "../../_schema/login";
 
 interface LoginFormPropsType {
-  handleLogin: (payload: LoginType) => Promise<void>;
+  onSubmit: (payload: LoginType) => Promise<void>;
 }
 
-export const LoginForm = ({ handleLogin }: LoginFormPropsType) => {
+export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
   const [loginError, setLoginError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (submitData: LoginType) => {
     setIsSubmitting(true);
-    handleLogin(submitData).finally(() => {
+    onSubmit(submitData).finally(() => {
       setIsSubmitting(false);
     });
   };
