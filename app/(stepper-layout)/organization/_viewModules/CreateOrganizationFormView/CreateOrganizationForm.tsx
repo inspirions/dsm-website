@@ -10,18 +10,32 @@ import { DsmButton } from "@/components/DsmButton";
 import { DsmTextInput } from "@/components/DsmTextInput";
 import { DsmTextAreaInput } from "@/components/DsmTextAreaInput";
 
+import { useUserInfoContext } from "@/providers/UserInfoProvider";
+
 import {
   ORGANIZATION_SCHEMA,
   organizationFormInitialValues,
   OrganizationType,
-} from "../schema/organization";
+} from "../../_schema/organization";
 
-export const CreateOrganizationForm = () => {
+interface CreateOrganizationFormPropsType {
+  onSubmit: (payload: OrganizationType) => Promise<void>;
+}
+
+export const CreateOrganizationForm = ({
+  onSubmit,
+}: CreateOrganizationFormPropsType) => {
   const router = useRouter();
+
+  const { userId } = useUserInfoContext();
+
   const [organizationError, setOrganizationError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (submitData: OrganizationType) => {
-    console.log(submitData);
+    setIsSubmitting(true);
+    const payload = { ...submitData, creatorId: userId };
+    onSubmit(payload).finally(() => setIsSubmitting(false));
   };
 
   const handleChange =
@@ -109,6 +123,7 @@ export const CreateOrganizationForm = () => {
               fullWidth
               bg="blue"
               type="submit"
+              loading={isSubmitting}
               iconProps={{ icon: "plus" }}
             >
               Create

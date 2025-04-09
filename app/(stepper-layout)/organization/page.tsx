@@ -4,7 +4,7 @@ import DsmImage from "@/components/DsmImage";
 
 import { LOGO_URL } from "@/constants/commons";
 
-import { CreateOrganizationForm } from "./viewModules/CreateOrganizationForm";
+import { CreateOrganizationFormView } from "./_viewModules/CreateOrganizationFormView";
 
 const Organization = () => {
   return (
@@ -22,7 +22,7 @@ const Organization = () => {
           </Text>
         </Flex>
       </Flex>
-      <CreateOrganizationForm />
+      <CreateOrganizationFormView />
     </Flex>
   );
 };

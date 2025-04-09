@@ -1,4 +1,4 @@
-const API_URL = process.env.API_URL;
+const API_URL = process.env.NEXT_API_URL;
 
 export const routes = Object.freeze({
   LOGIN: "/login",
@@ -14,4 +14,6 @@ export const API_ROUTES = Object.freeze({
   SIGN_UP_API: `${API_URL}/api/register-admin`,
   VERIFY_OTP_API: `${API_URL}/api/account-verify`,
   RESEND_OTP_API: `${API_URL}/api/resend-otp`,
+  CREATE_ORGANIZATION_API: `${API_URL}/api/organizations/create`,
+  USER_INFO_API: `${API_URL}/api/me`,
 });

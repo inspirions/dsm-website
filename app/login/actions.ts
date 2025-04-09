@@ -22,6 +22,10 @@ export const login = async (payload: LoginType) => {
       path: "/",
       secure: true,
       maxAge: 3600,
+      domain:
+        process.env.NODE_ENV === "production"
+          ? ".dailysync.ai"
+          : "localhost:3000",
     });
   }
 
