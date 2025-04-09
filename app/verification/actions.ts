@@ -25,10 +25,6 @@ export const verifyOtp = async (payload: OtpVerificationType) => {
       path: "/",
       secure: true,
       maxAge: 3600,
-      domain:
-        process.env.NODE_ENV === "production"
-          ? ".dailysync.ai"
-          : "localhost:3000",
     });
   }
 

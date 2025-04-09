@@ -29,7 +29,7 @@ export const UserInfoProvider = ({
   children: React.ReactNode;
   userInfo: { id: string };
 }) => {
-  const CONTEXT_VALUE = useMemo(() => ({ userId: userInfo.id }), [userInfo]);
+  const CONTEXT_VALUE = useMemo(() => ({ userId: userInfo?.id }), [userInfo]);
 
   return (
     <UserInfoContext.Provider value={CONTEXT_VALUE}>

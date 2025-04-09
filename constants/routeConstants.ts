@@ -14,6 +14,7 @@ export const API_ROUTES = Object.freeze({
   SIGN_UP_API: `${API_URL}/api/register-admin`,
   VERIFY_OTP_API: `${API_URL}/api/account-verify`,
   RESEND_OTP_API: `${API_URL}/api/resend-otp`,
-  CREATE_ORGANIZATION_API: `${API_URL}/api/organizations/create`,
+  ORGANIZATION_API: `${API_URL}/api/organizations`,
   USER_INFO_API: `${API_URL}/api/me`,
+  INVITE_EMPLOYEE_API: `${API_URL}/api/mail/bulk-invite`,
 });
