@@ -1,10 +1,11 @@
 import * as Yup from "yup";
 
+//DSM-TODO: Add proper validation for email
 export const INVITE_EMPLOYEE_SCHEMA = Yup.object().shape({
-  to: Yup.array()
-    .of(Yup.string().email("Please enter a valid email address"))
+  to: Yup.string()
+    .email("Please enter a valid email address")
     .required("Email is required")
-    .default([]),
+    .default(""),
   by: Yup.string(),
   userType: Yup.string(),
 });

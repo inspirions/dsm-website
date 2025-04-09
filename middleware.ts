@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { DSM_TOKEN } from "./constants/commons";
 
-const protectedRoutes = ["/organization"];
+const protectedRoutes = ["/organization", "/invite-employee"];
 
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
