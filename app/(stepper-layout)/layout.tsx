@@ -1,8 +1,12 @@
 import { Card, Center, Container, Flex, Text } from "@mantine/core";
 
-import { OnboardStepper } from "./viewModules/OnboardStepper";
+import { getUserInfoAPI } from "@/lib/api/endpoints/root";
 
-const StepperLayout = ({ children }: { children: React.ReactNode }) => {
+import { OnboardStepper } from "./viewModules/OnboardStepper";
+import { UserInfoProvider } from "@/providers/UserInfoProvider";
+
+const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
+  const res = await getUserInfoAPI();
   return (
     <Center h={"100vh"}>
       <Container p={0} size="md" h={"65%"} w="100%">
@@ -20,7 +24,7 @@ const StepperLayout = ({ children }: { children: React.ReactNode }) => {
             <OnboardStepper />
           </Flex>
           <Flex flex={1} py={"lg"} px={"64px"} direction={"column"}>
-            {children}
+            <UserInfoProvider userInfo={res.data}>{children}</UserInfoProvider>
           </Flex>
         </Card>
       </Container>

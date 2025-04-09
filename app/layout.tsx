@@ -14,6 +14,9 @@ import "./globals.css";
 const urbanist = Urbanist({ subsets: ["latin"], fallback: ["sans-serif"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
+  ),
   title: "StandupAI - Transform Your Daily Standups with AI",
   description:
     "Capture, summarize, and gain insights from your daily standups. Let AI do the heavy lifting for your team meetings.",
