@@ -7,22 +7,24 @@ import { notifications } from "@mantine/notifications";
 import { commons } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
 
-import { LoginForm } from "./LoginForm";
+import { InviteEmployeeForm } from "./InviteEmployeeForm";
 
-import { login } from "../../actions";
-import { LoginType } from "../../_schema/login";
+import { inviteEmployee } from "../../actions";
+import { InviteEmployeeType } from "../../_schema/InviteEmployee";
 
 const { SUCCESS } = commons;
 const { GET_STARTED } = routes;
 
-export const LoginFormView = () => {
+export const InviteEmployeeFormView = () => {
   const router = useRouter();
 
-  const handleLogin = async (payload: LoginType) => {
+  const handleCreateOrganization = async (payload: InviteEmployeeType[]) => {
     try {
-      const res = await login(payload);
+      const res = await inviteEmployee(payload);
 
-      if (res.code === SUCCESS && res.data.isVerified) {
+      if (res.code === SUCCESS) {
+        sessionStorage.clear();
+        window.open("https://app.dailysync.ai", "_blank");
         router.push(GET_STARTED);
       }
 
@@ -40,5 +42,5 @@ export const LoginFormView = () => {
     }
   };
 
-  return <LoginForm onSubmit={handleLogin} />;
+  return <InviteEmployeeForm onSubmit={handleCreateOrganization} />;
 };

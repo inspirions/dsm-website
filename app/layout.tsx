@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
 import { mantineHtmlProps, MantineProvider } from "@mantine/core";
-import { ThemeProvider } from "@/components/theme-provider";
 
 import { myTheme } from "@/styles";
 import { Notifications } from "@mantine/notifications";
@@ -62,17 +61,10 @@ export default function RootLayout({
   return (
     <html lang="en" {...mantineHtmlProps}>
       <body className={urbanist.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <MantineProvider theme={myTheme}>
-            <Notifications />
-            {children}
-          </MantineProvider>
-        </ThemeProvider>
+        <MantineProvider theme={myTheme}>
+          <Notifications />
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );

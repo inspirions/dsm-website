@@ -1,187 +1,351 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageSquare, BarChart3, Users2 } from "lucide-react";
-import FeatureCard from "@/components/feature-card";
+import {
+  Container,
+  Stack,
+  Title,
+  Text,
+  Group,
+  SimpleGrid,
+  Box,
+  Paper,
+  ThemeIcon,
+  Card,
+} from "@mantine/core";
 import HeroAnimation from "@/components/hero-animation";
-import TestimonialCard from "@/components/testimonial-card";
 import { DsmButton } from "@/components/DsmButton";
+import { DsmCustomIcon } from "@/components/DsmCustomIcon";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+      <Box
+        py={{ base: 80, md: 112 }}
+        style={{
+          background: "linear-gradient(to bottom, #f8fafc, #f1f5f9)",
+          position: "relative",
+        }}
+      >
+        <Container size="1400px">
+          <SimpleGrid
+            cols={{ base: 1, lg: 2 }}
+            spacing={{ base: 24, lg: 48 }}
+            style={{ alignItems: "center" }}
+          >
+            <Stack gap="md">
+              <Stack gap="xs">
+                <Title
+                  order={1}
+                  size="h1"
+                  fw={700}
+                  style={{
+                    lineHeight: 1,
+                    fontSize: "clamp(1.875rem, 5vw, 3.75rem)",
+                    letterSpacing: "-0.025em",
+                  }}
+                >
                   Transform Your Standup Meetings with AI
-                </h1>
-                <p className="max-w-[600px] text-slate-500 md:text-xl dark:text-slate-400">
+                </Title>
+                <Text
+                  size="xl"
+                  c="dimmed"
+                  maw={600}
+                  style={{
+                    fontSize: "clamp(1rem, 2vw, 1.25rem)",
+                    lineHeight: 1.5,
+                  }}
+                >
                   Capture, summarize, and gain insights from your daily
                   standups. Let AI do the heavy lifting.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <DsmButton
-                  size="md"
-                  bg="blue"
-                  iconProps={{ icon: "arrowRight", position: "right" }}
-                >
-                  <Link href="/sign-up">Get Started</Link>
-                </DsmButton>
-                <DsmButton hideIcon size="md" bg="indigo">
-                  <Link href="/login">Log In</Link>
-                </DsmButton>
-                <DsmButton hideIcon size="md" variant="outline">
-                  <Link href="#features">Learn More</Link>
-                </DsmButton>
-              </div>
-            </div>
-            <div className="flex justify-center lg:justify-end">
+                </Text>
+              </Stack>
+              <Group gap="xs" wrap="wrap">
+                <Link href="/sign-up" style={{ textDecoration: "none" }}>
+                  <DsmButton
+                    size="md"
+                    bg="blue"
+                    iconProps={{ icon: "arrowRight", position: "right" }}
+                  >
+                    Get Started
+                  </DsmButton>
+                </Link>
+                <Link href="/login" style={{ textDecoration: "none" }}>
+                  <DsmButton hideIcon size="md" bg="indigo">
+                    Log In
+                  </DsmButton>
+                </Link>
+                <Link href="#features" style={{ textDecoration: "none" }}>
+                  <DsmButton hideIcon size="md" variant="outline">
+                    Learn More
+                  </DsmButton>
+                </Link>
+              </Group>
+            </Stack>
+            <Box
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                minHeight: "450px",
+              }}
+            >
               <HeroAnimation />
-            </div>
-          </div>
-        </div>
-      </section>
+            </Box>
+          </SimpleGrid>
+        </Container>
+      </Box>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-white dark:bg-slate-950">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+      <Box py={{ base: 80, md: 100 }} bg="white">
+        <Container size="lg" px={{ base: 16, md: 24 }}>
+          <Stack align="center" gap="md" mb={48}>
+            <Stack gap="xs" align="center">
+              <Title
+                order={2}
+                size="h2"
+                fw={700}
+                ta="center"
+                style={{ fontSize: "clamp(1.875rem, 4vw, 3rem)" }}
+              >
                 Powerful Features for Productive Teams
-              </h2>
-              <p className="max-w-[900px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400">
+              </Title>
+              <Text
+                size="xl"
+                c="dimmed"
+                maw={900}
+                ta="center"
+                style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
+              >
                 Everything you need to streamline your standup process and keep
                 your team aligned.
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 lg:gap-12 mt-12">
-            <FeatureCard
-              icon={<MessageSquare className="h-10 w-10 text-primary" />}
-              title="Standup Summaries"
-              description="Automatically capture and summarize daily standup meetings, making information accessible to everyone."
-            />
-            <FeatureCard
-              icon={<Users2 className="h-10 w-10 text-primary" />}
-              title="AI Chat Assistant"
-              description="Chat with our AI to get updates about employees, teams, and projects without digging through notes."
-            />
-            <FeatureCard
-              icon={<BarChart3 className="h-10 w-10 text-primary" />}
-              title="AI Insights"
-              description="Generate valuable insights about team productivity, blockers, and progress trends over time."
-            />
-          </div>
-        </div>
-      </section>
+              </Text>
+            </Stack>
+          </Stack>
+          <SimpleGrid
+            cols={{ base: 1, md: 3 }}
+            spacing={{ base: 24, lg: 48 }}
+            maw={1200}
+            mx="auto"
+          >
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <Stack align="center" gap="md">
+                <DsmCustomIcon icon="message" color="blue" size={40} />
+                <Title order={3} size="h3" ta="center">
+                  Standup Summaries
+                </Title>
+                <Text c="dimmed" ta="center">
+                  Automatically capture and summarize daily standup meetings,
+                  making information accessible to everyone.
+                </Text>
+              </Stack>
+            </Card>
+
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <Stack align="center" gap="md">
+                <DsmCustomIcon icon="users" color="blue" size={40} />
+                <Title order={3} size="h3" ta="center">
+                  AI Chat Assistant
+                </Title>
+                <Text c="dimmed" ta="center">
+                  Chat with our AI to get updates about employees, teams, and
+                  projects without digging through notes.
+                </Text>
+              </Stack>
+            </Card>
+
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <Stack align="center" gap="md">
+                <DsmCustomIcon icon="barChart" color="blue" size={40} />
+                <Title order={3} size="h3" ta="center">
+                  AI Insights
+                </Title>
+                <Text c="dimmed" ta="center">
+                  Generate valuable insights about team productivity, blockers,
+                  and progress trends over time.
+                </Text>
+              </Stack>
+            </Card>
+          </SimpleGrid>
+        </Container>
+      </Box>
 
       {/* How It Works */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+      <Box py={{ base: 80, md: 100 }} bg="#f8fafc">
+        <Container size="lg" px={{ base: 16, md: 24 }}>
+          <Stack align="center" gap="md" mb={48}>
+            <Stack gap="xs" align="center">
+              <Title
+                order={2}
+                size="h2"
+                fw={700}
+                ta="center"
+                style={{ fontSize: "clamp(1.875rem, 4vw, 3rem)" }}
+              >
                 How It Works
-              </h2>
-              <p className="max-w-[900px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400">
+              </Title>
+              <Text
+                size="xl"
+                c="dimmed"
+                maw={900}
+                ta="center"
+                style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
+              >
                 Simple, intuitive, and designed for busy teams.
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3 mt-12">
-            <div className="flex flex-col items-center space-y-2 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
+              </Text>
+            </Stack>
+          </Stack>
+          <SimpleGrid
+            cols={{ base: 1, md: 3 }}
+            spacing={32}
+            maw={1200}
+            mx="auto"
+          >
+            <Stack align="center" gap="xs">
+              <ThemeIcon size={48} radius="xl" color="blue">
                 1
-              </div>
-              <h3 className="text-xl font-bold">Record Your Standup</h3>
-              <p className="text-slate-500 dark:text-slate-400">
+              </ThemeIcon>
+              <Title order={3} size="h3" style={{ fontSize: "1.25rem" }}>
+                Record Your Standup
+              </Title>
+              <Text c="dimmed" ta="center">
                 Use our app during your daily standup or integrate with your
                 meeting tools.
-              </p>
-            </div>
-            <div className="flex flex-col items-center space-y-2 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
+              </Text>
+            </Stack>
+            <Stack align="center" gap="xs">
+              <ThemeIcon size={48} radius="xl" color="blue">
                 2
-              </div>
-              <h3 className="text-xl font-bold">AI Generates Summaries</h3>
-              <p className="text-slate-500 dark:text-slate-400">
+              </ThemeIcon>
+              <Title order={3} size="h3" style={{ fontSize: "1.25rem" }}>
+                AI Generates Summaries
+              </Title>
+              <Text c="dimmed" ta="center">
                 Our AI automatically creates structured summaries of the
                 discussion.
-              </p>
-            </div>
-            <div className="flex flex-col items-center space-y-2 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
+              </Text>
+            </Stack>
+            <Stack align="center" gap="xs">
+              <ThemeIcon size={48} radius="xl" color="blue">
                 3
-              </div>
-              <h3 className="text-xl font-bold">Access Insights Anytime</h3>
-              <p className="text-slate-500 dark:text-slate-400">
+              </ThemeIcon>
+              <Title order={3} size="h3" style={{ fontSize: "1.25rem" }}>
+                Access Insights Anytime
+              </Title>
+              <Text c="dimmed" ta="center">
                 Chat with the AI to get updates or view generated insights about
                 your team.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+              </Text>
+            </Stack>
+          </SimpleGrid>
+        </Container>
+      </Box>
 
       {/* Testimonials */}
-      <section className="py-20 bg-white dark:bg-slate-950">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+      <Box py={{ base: 80, md: 100 }} bg="white">
+        <Container size="lg" px={{ base: 16, md: 24 }}>
+          <Stack align="center" gap="md" mb={48}>
+            <Stack gap="xs" align="center">
+              <Title
+                order={2}
+                size="h2"
+                fw={700}
+                ta="center"
+                style={{ fontSize: "clamp(1.875rem, 4vw, 3rem)" }}
+              >
                 Trusted by Teams Everywhere
-              </h2>
-              <p className="max-w-[900px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400">
+              </Title>
+              <Text
+                size="xl"
+                c="dimmed"
+                maw={900}
+                ta="center"
+                style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
+              >
                 See what our users are saying about how our app has transformed
                 their workflow.
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-12 mt-12">
-            <TestimonialCard
-              quote="This tool has completely transformed our standup process. We save at least 30 minutes every day and everyone stays informed."
-              author="Sarah Johnson"
-              role="Engineering Manager"
-              company="TechCorp"
-            />
-            <TestimonialCard
-              quote="The AI insights have helped us identify patterns in our workflow that we never noticed before. Game changer for productivity."
-              author="Michael Chen"
-              role="Product Lead"
-              company="InnovateLabs"
-            />
-          </div>
-        </div>
-      </section>
+              </Text>
+            </Stack>
+          </Stack>
+          <SimpleGrid
+            cols={{ base: 1, md: 2 }}
+            spacing={{ base: 24, lg: 48 }}
+            maw={1200}
+            mx="auto"
+          >
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <Stack gap="md">
+                <Text size="lg" fw={500} fs="italic">
+                  "This tool has completely transformed our standup process. We
+                  save at least 30 minutes every day and everyone stays
+                  informed."
+                </Text>
+                <Stack gap={0}>
+                  <Text fw={600}>Sarah Johnson</Text>
+                  <Text size="sm" c="dimmed">
+                    Engineering Manager at TechCorp
+                  </Text>
+                </Stack>
+              </Stack>
+            </Card>
+
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <Stack gap="md">
+                <Text size="lg" fw={500} fs="italic">
+                  "The AI insights have helped us identify patterns in our
+                  workflow that we never noticed before. Game changer for
+                  productivity."
+                </Text>
+                <Stack gap={0}>
+                  <Text fw={600}>Michael Chen</Text>
+                  <Text size="sm" c="dimmed">
+                    Product Lead at InnovateLabs
+                  </Text>
+                </Stack>
+              </Stack>
+            </Card>
+          </SimpleGrid>
+        </Container>
+      </Box>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+      <Box py={{ base: 80, md: 100 }} bg="blue">
+        <Container size="lg" px={{ base: 16, md: 24 }}>
+          <Stack align="center" gap="md">
+            <Stack gap="xs" align="center">
+              <Title
+                order={2}
+                size="h2"
+                fw={700}
+                ta="center"
+                c="white"
+                style={{ fontSize: "clamp(1.875rem, 4vw, 3rem)" }}
+              >
                 Ready to Transform Your Standups?
-              </h2>
-              <p className="max-w-[600px] md:text-xl">
+              </Title>
+              <Text
+                size="xl"
+                c="white"
+                maw={600}
+                ta="center"
+                style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
+              >
                 Join thousands of teams who have streamlined their standup
                 process with our AI-powered platform.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Button asChild size="lg" variant="secondary" className="px-8">
-                <Link href="/sign-up">
-                  Get Started Free <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+              </Text>
+            </Stack>
+            <Group>
+              <Link href="/sign-up" style={{ textDecoration: "none" }}>
+                <DsmButton
+                  size="md"
+                  variant="default"
+                  iconProps={{ icon: "arrowRight" }}
+                >
+                  Get Started Free
+                </DsmButton>
+              </Link>
+            </Group>
+          </Stack>
+        </Container>
+      </Box>
     </main>
   );
 }

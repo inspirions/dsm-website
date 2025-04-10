@@ -13,7 +13,7 @@ import { RegisterType } from "../../_schema/signUp";
 
 import { signUp } from "../../actions";
 
-const { SUCCESS } = commons;
+const { SUCCESS, IS_SIGNING_UP } = commons;
 const { VERIFICATION } = routes;
 
 export const SignUpFormView = () => {
@@ -24,6 +24,7 @@ export const SignUpFormView = () => {
       const res = await signUp(payload);
 
       if (res.code === SUCCESS) {
+        sessionStorage.setItem(IS_SIGNING_UP, "true");
         router.push(`${VERIFICATION}?email=${payload.email}`);
       }
 

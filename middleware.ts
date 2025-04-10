@@ -1,9 +1,12 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-import { DSM_TOKEN } from "./constants/commons";
+import { DSM_TOKEN } from "@/constants/commons";
+import { routes } from "@/constants/routeConstants";
 
-const protectedRoutes = ["/organization", "/invite-employee"];
+const { LOGIN, GET_STARTED, ORGANIZATION, INVITE_EMPLOYEE } = routes;
+
+const protectedRoutes: string[] = [ORGANIZATION, INVITE_EMPLOYEE, GET_STARTED];
 
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
@@ -13,7 +16,7 @@ export async function middleware(request: NextRequest) {
   const token = cookieStore.get(DSM_TOKEN);
 
   if (isProtectedRoute && !token) {
-    return NextResponse.redirect(new URL("/login", request.nextUrl));
+    return NextResponse.redirect(new URL(LOGIN, request.nextUrl));
   }
 
   return NextResponse.next();

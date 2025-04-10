@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import { notifications } from "@mantine/notifications";
 
-import { commons, DSM_TOKEN } from "@/constants/commons";
+import { commons } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
 
 import { VerifyOtpForm } from "./VerifyOtpForm";
@@ -24,7 +24,6 @@ export const VerifyOtpFormView = () => {
       const res = await verifyOtp(payload);
 
       if (res.code === SUCCESS && res.data.isVerified) {
-        localStorage.setItem(DSM_TOKEN, JSON.stringify(res.data));
         router.push(ORGANIZATION);
       }
 

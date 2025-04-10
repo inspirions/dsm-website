@@ -1,6 +1,11 @@
-import { AvatarProps, FlexProps, SkeletonProps } from '@mantine/core';
+import {
+  AvatarProps,
+  FlexProps,
+  SkeletonProps,
+  TextProps,
+} from "@mantine/core";
 
-import { DsmCustomIconPropsType } from '../DsmCustomIcon';
+import { DsmCustomIconPropsType } from "../DsmCustomIcon";
 
 export interface DsmInfoAvatarSkeletonPropsType extends SkeletonProps {
   wrapperProps?: FlexProps;
@@ -11,6 +16,7 @@ export interface DsmInfoAvatarSkeletonPropsType extends SkeletonProps {
 export interface DsmInfoAvatarPropsType {
   label: string;
   subLabel?: string;
+  labelProps?: TextProps;
   wrapperProps?: FlexProps;
   avatarProps?: AvatarProps;
   iconProps?: DsmCustomIconPropsType;

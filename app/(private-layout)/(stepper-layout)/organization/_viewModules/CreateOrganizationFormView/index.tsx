@@ -7,23 +7,23 @@ import { notifications } from "@mantine/notifications";
 import { commons } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
 
-import { LoginForm } from "./LoginForm";
+import { CreateOrganizationForm } from "./CreateOrganizationForm";
 
-import { login } from "../../actions";
-import { LoginType } from "../../_schema/login";
+import { createOrganization } from "../../actions";
+import { OrganizationType } from "../../_schema/organization";
 
 const { SUCCESS } = commons;
-const { GET_STARTED } = routes;
+const { INVITE_EMPLOYEE } = routes;
 
-export const LoginFormView = () => {
+export const CreateOrganizationFormView = () => {
   const router = useRouter();
 
-  const handleLogin = async (payload: LoginType) => {
+  const handleCreateOrganization = async (payload: OrganizationType) => {
     try {
-      const res = await login(payload);
+      const res = await createOrganization(payload);
 
-      if (res.code === SUCCESS && res.data.isVerified) {
-        router.push(GET_STARTED);
+      if (res.code === SUCCESS && res.data.id) {
+        router.push(`${INVITE_EMPLOYEE}?orgId=${res.data.id}`);
       }
 
       notifications.show({
@@ -40,5 +40,5 @@ export const LoginFormView = () => {
     }
   };
 
-  return <LoginForm onSubmit={handleLogin} />;
+  return <CreateOrganizationForm onSubmit={handleCreateOrganization} />;
 };
