@@ -2,9 +2,9 @@
 
 import { cookies } from "next/headers";
 
-import { commons, DSM_TOKEN } from "@/constants/commons";
+import { resendOtpAPI, verifyOtpAPI } from "@/lib/api";
 
-import { resendOtpAPI, verifyOtpAPI } from "@/lib/api/endpoints/verify";
+import { commons, DSM_TOKEN } from "@/constants/commons";
 
 import {
   OtpVerificationType,

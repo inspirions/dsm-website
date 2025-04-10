@@ -16,6 +16,7 @@ export const DsmTextInputWithSelect = ({
     () => (
       <Select
         variant="unstyled"
+        disabled={isDisabled}
         {...selectProps}
         classNames={{ input: classes.selectInput }}
       />

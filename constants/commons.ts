@@ -6,4 +6,5 @@ export const DSM_TOKEN = "DSM_TOKEN";
 export const commons = Object.freeze({
   SUCCESS: "SUCCESS",
   OTP_TIME: "otpTime",
+  IS_SIGNING_UP: "isSigningUp",
 });
