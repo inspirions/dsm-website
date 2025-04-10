@@ -1,6 +1,6 @@
 import { API_ROUTES } from "@/constants/routeConstants";
 
-import { OrganizationType } from "@/app/(stepper-layout)/organization/_schema/organization";
+import { OrganizationType } from "@/app/(private-layout)/(stepper-layout)/organization/_schema/organization";
 
 import { apiHandler } from "../client";
 
@@ -12,6 +12,6 @@ export const createOrganizationAPI = (payload: OrganizationType) => {
   return postRequest(`${ORGANIZATION_API}/create`, payload);
 };
 
-export const getOrganizationListAPI = (orgId: string) => {
-  return getRequest(`${ORGANIZATION_API}/${orgId}`);
+export const getOrganizationListAPI = (userId: string) => {
+  return getRequest(`${ORGANIZATION_API}/created-by-user/${userId}`);
 };

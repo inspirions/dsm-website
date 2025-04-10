@@ -2,10 +2,11 @@
 
 import { cookies } from "next/headers";
 
-import { loginAPI } from "@/lib";
-import { commons } from "@/constants/commons";
+import { loginAPI } from "@/lib/api";
 
+import { commons } from "@/constants/commons";
 import { DSM_TOKEN } from "@/constants/commons";
+
 import { LoginType } from "./_schema/login";
 
 const { SUCCESS } = commons;

@@ -5,8 +5,11 @@ import { Anchor, Card, Center, Flex, Text } from "@mantine/core";
 import DsmImage from "@/components/DsmImage";
 
 import { LOGO_URL } from "@/constants/commons";
+import { routes } from "@/constants/routeConstants";
 
 import { SignUpFormView } from "./_viewModules/SignUpFormView";
+
+const { LOGIN } = routes;
 
 const SignUp = () => {
   return (
@@ -22,7 +25,7 @@ const SignUp = () => {
           <SignUpFormView />
           <Flex justify="center" gap={2}>
             <Text>Already have an account?</Text>
-            <Anchor c="blue" fw="bold" component={Link} href="/login">
+            <Anchor c="blue" fw="bold" component={Link} href={LOGIN}>
               Log In
             </Anchor>
           </Flex>

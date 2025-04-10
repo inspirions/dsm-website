@@ -1,6 +1,6 @@
 "use server";
 
-import { signUpAPI } from "@/lib/api/endpoints/signUp";
+import { signUpAPI } from "@/lib/api";
 
 import { RegisterType } from "./_schema/signUp";
 

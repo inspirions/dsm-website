@@ -1,4 +1,4 @@
-import { InviteEmployeeType } from "@/app/(stepper-layout)/invite-employee/_schema/InviteEmployee";
+import { InviteEmployeeType } from "@/app/(private-layout)/(stepper-layout)/invite-employee/_schema/InviteEmployee";
 
 import { API_ROUTES } from "@/constants/routeConstants";
 

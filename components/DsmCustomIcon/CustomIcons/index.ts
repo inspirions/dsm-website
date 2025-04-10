@@ -4,6 +4,7 @@ import { lazy } from "react";
 const AddressBookIcon = lazy(() => import("./AddressBookIcon"));
 const ApplyFilterIcon = lazy(() => import("./ApplyFilterIcon"));
 const ArrowRightIcon = lazy(() => import("./ArrowRightIcon"));
+const BarChartIcon = lazy(() => import("./BarChartIcon"));
 const BriefcaseIcon = lazy(() => import("./BriefcaseIcon"));
 const CancelIcon = lazy(() => import("./CancelIcon"));
 const ClockIcon = lazy(() => import("./ClockIcon"));
@@ -18,6 +19,7 @@ const InfoIcon = lazy(() => import("./InfoIcon"));
 const ListViewIcon = lazy(() => import("./ListViewIcon"));
 const LogoutIcon = lazy(() => import("./LogoutIcon"));
 const FilterIcon = lazy(() => import("./FilterIcon"));
+const MessageIcon = lazy(() => import("./MessageIcon"));
 const MessagePlusIcon = lazy(() => import("./MessagePlusIcon"));
 const OpenEyeIcon = lazy(() => import("./OpenEyeIcon"));
 const PencilIcon = lazy(() => import("./PencilIcon"));
@@ -32,6 +34,7 @@ const TickIcon = lazy(() => import("./TickIcon"));
 const TrashIcon = lazy(() => import("./TrashIcon"));
 const UserCheckIcon = lazy(() => import("./UserCheckIcon"));
 const UserIcon = lazy(() => import("./UserIcon"));
+const UsersIcon = lazy(() => import("./UsersIcon"));
 const UserGroupIcon = lazy(() => import("./UserGroupIcon"));
 const UserExclamationIcon = lazy(() => import("./UserExclamationIcon"));
 const UserPlusIcon = lazy(() => import("./UserPlusIcon"));
@@ -42,6 +45,7 @@ export const ICON_LIST = {
   addressBook: AddressBookIcon,
   applyFilter: ApplyFilterIcon,
   arrowRight: ArrowRightIcon,
+  barChart: BarChartIcon,
   briefcase: BriefcaseIcon,
   cancel: CancelIcon,
   clock: ClockIcon,
@@ -55,6 +59,7 @@ export const ICON_LIST = {
   addMessage: MessagePlusIcon,
   list: ListViewIcon,
   logout: LogoutIcon,
+  message: MessageIcon,
   filter: FilterIcon,
   openEye: OpenEyeIcon,
   organization: OranizationIcon,
@@ -75,5 +80,6 @@ export const ICON_LIST = {
   userExclamation: UserExclamationIcon,
   userGroup: UserGroupIcon,
   userPlus: UserPlusIcon,
+  users: UsersIcon,
   calendar: CalendarIcon,
 };

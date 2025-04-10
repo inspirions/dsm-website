@@ -1,25 +1,26 @@
-import { Avatar, Flex, Text } from '@mantine/core';
+import { Avatar, Flex, Text } from "@mantine/core";
 
-import { DsmCustomIcon } from '../DsmCustomIcon';
+import { DsmCustomIcon } from "../DsmCustomIcon";
 
-import { DsmInfoAvatarSkeleton } from './skeleton';
-import { DsmInfoAvatarPropsType } from './types';
+import { DsmInfoAvatarSkeleton } from "./skeleton";
+import { DsmInfoAvatarPropsType } from "./types";
 
-import classes from './index.module.css';
+import classes from "./index.module.css";
 
 export const DsmInfoAvatar = (props: DsmInfoAvatarPropsType) => {
   const {
-    label = 'DSM',
+    label = "DSM",
     subLabel,
+    iconProps,
+    labelProps = {},
     avatarProps = {},
     wrapperProps = {},
-    iconProps,
     skeletonProps = {},
   } = props;
   return skeletonProps?.visible ? (
     <DsmInfoAvatarSkeleton {...skeletonProps} />
   ) : (
-    <Flex gap={12} align={'center'} {...wrapperProps}>
+    <Flex gap={12} align={"center"} {...wrapperProps}>
       <Avatar
         name={label}
         size={40}
@@ -28,8 +29,10 @@ export const DsmInfoAvatar = (props: DsmInfoAvatarPropsType) => {
         children={iconProps && <DsmCustomIcon {...iconProps} />}
         {...avatarProps}
       />
-      <Flex direction={'column'}>
-        <Text className={classes.label}>{label}</Text>
+      <Flex direction={"column"}>
+        <Text className={classes.label} {...labelProps}>
+          {label}
+        </Text>
         {!!subLabel && <Text className={classes.subLabel}>{subLabel}</Text>}
       </Flex>
     </Flex>
