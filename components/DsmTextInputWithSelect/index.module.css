@@ -24,10 +24,7 @@
     }
     &[data-error] > div > div {
         margin-bottom: 0;
-        
-        > input {
-            color: red;
-        }
+        color: red;
     }
     &[data-error] > div {
         border-color: red;

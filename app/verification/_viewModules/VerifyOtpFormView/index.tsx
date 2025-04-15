@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useRouter } from "next/navigation";
 
 import { notifications } from "@mantine/notifications";
@@ -59,6 +60,8 @@ export const VerifyOtpFormView = () => {
   };
 
   return (
-    <VerifyOtpForm onSubmit={handleVerifyOtp} onResend={handleResendOtp} />
+    <Suspense>
+      <VerifyOtpForm onSubmit={handleVerifyOtp} onResend={handleResendOtp} />
+    </Suspense>
   );
 };
