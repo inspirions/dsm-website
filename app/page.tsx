@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import {
   Container,
   Stack,
@@ -7,13 +8,13 @@ import {
   Group,
   SimpleGrid,
   Box,
-  Paper,
   ThemeIcon,
   Card,
 } from "@mantine/core";
-import HeroAnimation from "@/components/hero-animation";
+
 import { DsmButton } from "@/components/DsmButton";
 import { DsmCustomIcon } from "@/components/DsmCustomIcon";
+import HeroAnimation from "@/components/hero-animation";
 
 export default function Home() {
   return (

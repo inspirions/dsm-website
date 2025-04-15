@@ -44,7 +44,11 @@ export const DsmButton = forwardRef(
                 />
               ),
             })}
-            classNames={classes}
+            classNames={{
+              root: classes.root,
+              inner: classes.inner,
+              section: classes.section,
+            }}
             {...restProps}
           >
             {children}

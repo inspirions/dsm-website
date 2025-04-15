@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useRouter } from "next/navigation";
 
 import { notifications } from "@mantine/notifications";
@@ -42,5 +43,9 @@ export const InviteEmployeeFormView = () => {
     }
   };
 
-  return <InviteEmployeeForm onSubmit={handleCreateOrganization} />;
+  return (
+    <Suspense>
+      <InviteEmployeeForm onSubmit={handleCreateOrganization} />
+    </Suspense>
+  );
 };
