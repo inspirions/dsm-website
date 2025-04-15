@@ -25,9 +25,7 @@ export const login = async (payload: LoginType) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       domain:
-        process.env.NODE_ENV === "production"
-          ? ".app.dailysync.ai"
-          : ".test.local",
+        process.env.NODE_ENV === "production" ? ".dailysync.ai" : ".test.local",
     });
   }
 
