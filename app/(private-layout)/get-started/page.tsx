@@ -49,7 +49,7 @@ const GetStarted = async () => {
         </Flex>
       </Center>
       <Center>
-        <OrganizationListView organizations={res.data} />
+        <OrganizationListView organizations={res?.data ?? []} />
       </Center>
     </Flex>
   );
