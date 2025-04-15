@@ -23,8 +23,13 @@ export const verifyOtp = async (payload: OtpVerificationType) => {
       value: JSON.stringify(response.data),
       httpOnly: true,
       path: "/",
-      secure: true,
       maxAge: 3600,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      domain:
+        process.env.NODE_ENV === "production"
+          ? ".app.dailysync.ai"
+          : ".test.local",
     });
   }
 
