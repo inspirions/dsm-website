@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 import { loginAPI } from "@/lib/api";
 
-import { commons } from "@/constants/commons";
+import { commons, IS_PROD } from "@/constants/commons";
 import { DSM_TOKEN } from "@/constants/commons";
 
 import { LoginType } from "./_schema/login";
@@ -22,10 +22,9 @@ export const login = async (payload: LoginType) => {
       httpOnly: true,
       path: "/",
       maxAge: 3600,
-      secure: process.env.NODE_ENV === "production",
+      secure: IS_PROD,
       sameSite: "lax",
-      domain:
-        process.env.NODE_ENV === "production" ? ".dailysync.ai" : ".test.local",
+      domain: IS_PROD ? ".dailysync.ai" : ".test.local",
     });
   }
 
