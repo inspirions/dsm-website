@@ -14,7 +14,7 @@ const urbanist = Urbanist({ subsets: ["latin"], fallback: ["sans-serif"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
+    process.env.NEXT_PUBLIC_WEBSITE_URL || "http://localhost:3000"
   ),
   title: "StandupAI - Transform Your Daily Standups with AI",
   description:
