@@ -20,6 +20,8 @@ import { DsmTextInputWithSelect } from "@/components/DsmTextInputWithSelect";
 
 import { useUserInfoContext } from "@/providers/UserInfoProvider";
 
+import { DSM_APP_URL } from "@/constants/commons";
+
 import {
   INVITE_EMPLOYEE_SCHEMA,
   inviteEmployeeFormInitialValues,
@@ -108,7 +110,7 @@ export const InviteEmployeeForm = ({
 
   const handleSkipClick = () => {
     sessionStorage.clear();
-    window.open("https://app.dailysync.ai", "_blank");
+    window.open(DSM_APP_URL, "_blank");
   };
 
   return (

@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 import { resendOtpAPI, verifyOtpAPI } from "@/lib/api";
 
-import { commons, DSM_TOKEN } from "@/constants/commons";
+import { commons, DSM_TOKEN, IS_PROD } from "@/constants/commons";
 
 import {
   OtpVerificationType,
@@ -24,10 +24,9 @@ export const verifyOtp = async (payload: OtpVerificationType) => {
       httpOnly: true,
       path: "/",
       maxAge: 3600,
-      secure: process.env.NODE_ENV === "production",
+      secure: IS_PROD,
       sameSite: "lax",
-      domain:
-        process.env.NODE_ENV === "production" ? ".dailysync.ai" : ".test.local",
+      domain: IS_PROD ? ".dailysync.ai" : ".test.local",
     });
   }
 

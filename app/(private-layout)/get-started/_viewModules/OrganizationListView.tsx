@@ -7,8 +7,10 @@ import { DsmIconButton } from "@/components/DsmIconButton";
 import { DsmInfoAvatar } from "@/components/DsmInfoAvatar";
 
 import { routes } from "@/constants/routeConstants";
+import { DSM_APP_URL } from "@/constants/commons";
 
 import { OrganizationListViewPropsType } from "../types";
+import { OrganizationNavBtn } from "./OrganizationNavBtn";
 
 const { LOGIN } = routes;
 
@@ -53,13 +55,7 @@ export const OrganizationListView = ({
               labelProps={{ fw: "bold", style: { fontSize: "20px" } }}
               avatarProps={{ size: 40, radius: "lg" }}
             />
-            <Link href="https://app.dailysync.ai" target="_blank">
-              <DsmIconButton
-                size={"xl"}
-                variant="subtle"
-                iconProps={{ icon: "arrowRight", size: 24 }}
-              />
-            </Link>
+            <OrganizationNavBtn orgId={indvOrg.id} />
           </Flex>
         </Card>
       ))}
