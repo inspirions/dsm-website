@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { notifications } from "@mantine/notifications";
 
-import { commons } from "@/constants/commons";
+import { commons, DSM_APP_URL } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
 
 import { InviteEmployeeForm } from "./InviteEmployeeForm";
@@ -25,7 +25,7 @@ export const InviteEmployeeFormView = () => {
 
       if (res.code === SUCCESS) {
         sessionStorage.clear();
-        window.open("https://app.dailysync.ai", "_blank");
+        window.open(DSM_APP_URL, "_blank");
         router.push(GET_STARTED);
       }
 
