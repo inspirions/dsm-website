@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 
+import { DSM_CUSTOM_ICON } from "@/constants/dataTestId";
+
 import GetSelectedIcon from "./getSelectedIcon";
 import { CustomIconPropsType, IconNameType } from "./types";
 
@@ -12,7 +14,13 @@ export const DsmCustomIcon = (props: DsmCustomIconPropsType) => {
   const { icon = "tick", ...restIconProps } = props;
 
   const RENDER_ICON = useMemo(
-    () => <GetSelectedIcon iconName={icon} {...restIconProps} />,
+    () => (
+      <GetSelectedIcon
+        iconName={icon}
+        data-testid={DSM_CUSTOM_ICON}
+        {...restIconProps}
+      />
+    ),
     [icon, restIconProps]
   );
 

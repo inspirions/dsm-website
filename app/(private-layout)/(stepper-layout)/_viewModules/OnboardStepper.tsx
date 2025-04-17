@@ -8,6 +8,7 @@ import { Stepper } from "@mantine/core";
 import { DsmCustomIcon } from "@/components/DsmCustomIcon";
 
 import { commons } from "@/constants/commons";
+import { ONBOARD_STEPPER } from "@/constants/dataTestId";
 
 const { IS_SIGNING_UP } = commons;
 
@@ -62,6 +63,7 @@ export const OnboardStepper = () => {
       radius="md"
       iconSize={32}
       orientation="vertical"
+      data-testid={ONBOARD_STEPPER.STEPPER}
       active={getActiveSteps(isSigningUp ? 1 : 0)[pathname]}
     >
       {stepperSteps.map((indvStep) => (

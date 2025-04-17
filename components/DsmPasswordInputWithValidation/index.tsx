@@ -3,6 +3,8 @@ import { Field, FieldProps } from "formik";
 
 import { PasswordInput, Progress, Text, Popover, Box } from "@mantine/core";
 
+import { DSM_PASSWORD_INPUT_WITH_VALIDATION } from "@/constants/dataTestId";
+
 import { DsmCustomIcon } from "../DsmCustomIcon";
 
 import {
@@ -16,13 +18,23 @@ const PasswordRequirement = ({
 }: PasswordRequirementPropsType) => {
   return (
     <Text
+      mt={7}
+      size="sm"
+      component="span"
       c={meets ? "teal" : "red"}
       style={{ display: "flex", alignItems: "center" }}
-      mt={7}
-      component="span"
-      size="sm"
+      data-testid={DSM_PASSWORD_INPUT_WITH_VALIDATION.VALIDATION_TEXT}
     >
-      {meets ? <DsmCustomIcon /> : <DsmCustomIcon icon="close" />}
+      {meets ? (
+        <DsmCustomIcon
+          data-testid={DSM_PASSWORD_INPUT_WITH_VALIDATION.CHECK_ICON}
+        />
+      ) : (
+        <DsmCustomIcon
+          icon="close"
+          data-testid={DSM_PASSWORD_INPUT_WITH_VALIDATION.CLOSE_ICON}
+        />
+      )}
       <Box ml={10}>{label}</Box>
     </Text>
   );
@@ -67,10 +79,11 @@ export const DsmPasswordInputWithValidation = (
 
   return (
     <Popover
-      opened={popoverOpened}
-      position="bottom"
       width="target"
+      position="bottom"
+      opened={popoverOpened}
       transitionProps={{ transition: "pop" }}
+      data-testid={DSM_PASSWORD_INPUT_WITH_VALIDATION.ROOT}
     >
       <Popover.Target>
         <div
@@ -84,6 +97,7 @@ export const DsmPasswordInputWithValidation = (
                 placeholder="Enter password"
                 withAsterisk
                 error={meta.touched && meta.error ? meta.error : ""}
+                data-testid={DSM_PASSWORD_INPUT_WITH_VALIDATION.INPUT}
                 {...field}
                 onChange={(event) => {
                   field.onChange(event);
@@ -95,7 +109,13 @@ export const DsmPasswordInputWithValidation = (
         </div>
       </Popover.Target>
       <Popover.Dropdown>
-        <Progress color={color} value={strength} size={5} mb="xs" />
+        <Progress
+          mb="xs"
+          size={5}
+          color={color}
+          value={strength}
+          data-testid={DSM_PASSWORD_INPUT_WITH_VALIDATION.PROGRESS}
+        />
         {checks}
       </Popover.Dropdown>
     </Popover>

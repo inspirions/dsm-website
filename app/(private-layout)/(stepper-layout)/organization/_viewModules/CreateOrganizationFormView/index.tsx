@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { notifications } from "@mantine/notifications";
+import { useNotification } from "@/hooks/useNotification";
 
 import { commons } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
@@ -17,6 +17,7 @@ const { INVITE_EMPLOYEE } = routes;
 
 export const CreateOrganizationFormView = () => {
   const router = useRouter();
+  const { showNotification, showErrorNotification } = useNotification();
 
   const handleCreateOrganization = async (payload: OrganizationType) => {
     try {
@@ -26,17 +27,10 @@ export const CreateOrganizationFormView = () => {
         router.push(`${INVITE_EMPLOYEE}?orgId=${res.data.id}`);
       }
 
-      notifications.show({
-        title: res.code === SUCCESS ? "Success" : "Error",
-        message: res.message,
-        color: res.code === SUCCESS ? "green" : "red",
-      });
+      showNotification(res.code, res.message);
+      return res;
     } catch (error) {
-      notifications.show({
-        title: "Error",
-        message: "An error occured",
-        color: "red",
-      });
+      showErrorNotification();
     }
   };
 
