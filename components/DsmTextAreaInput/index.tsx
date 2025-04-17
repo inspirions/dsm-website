@@ -1,5 +1,7 @@
 import { Textarea } from "@mantine/core";
 
+import { DSM_TEXT_AREA_INPUT } from "@/constants/dataTestId";
+
 import { DsmTextAreaInputPropsType } from "./types";
 
 export const DsmTextAreaInput: React.FC<DsmTextAreaInputPropsType> = ({
@@ -13,6 +15,7 @@ export const DsmTextAreaInput: React.FC<DsmTextAreaInputPropsType> = ({
     required={false}
     disabled={disabled}
     withAsterisk={required}
+    data-testid={DSM_TEXT_AREA_INPUT}
     {...restTextAreaInputProps}
   />
 );

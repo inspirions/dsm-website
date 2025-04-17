@@ -2,6 +2,8 @@ import { ForwardedRef, forwardRef } from "react";
 
 import { Button } from "@mantine/core";
 
+import { DSM_BUTTON } from "@/constants/dataTestId";
+
 import { DsmCustomIcon } from "../DsmCustomIcon";
 import { DsmTooltip } from "../DsmTooltip";
 
@@ -27,15 +29,20 @@ export const DsmButton = forwardRef(
     } = props;
     const { position = "left", ...restIconProps } = iconProps;
     return (
-      <DsmButtonSkeleton {...{ w: "inherit", ...skeletonProps }}>
-        <DsmTooltip {...tooltipProps}>
+      <DsmButtonSkeleton
+        data-testid={DSM_BUTTON.ROOT}
+        {...{ w: "inherit", ...skeletonProps }}
+      >
+        <DsmTooltip data-testid={DSM_BUTTON.TOOLTIP} {...tooltipProps}>
           <Button
             size="sm"
             ref={ref}
+            data-testid={DSM_BUTTON.BUTTON}
             {...(!hideIcon && {
               [iconPosition[position]]: (
                 <DsmCustomIcon
                   size={20}
+                  data-testid={DSM_BUTTON.ICON}
                   style={{
                     width: "var(--button-fz)",
                     height: "var(--button-fz)",

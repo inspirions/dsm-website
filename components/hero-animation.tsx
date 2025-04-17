@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+
 import { Box } from "@mantine/core";
+
+import { DSM_HERO_ANIMATION } from "@/constants/dataTestId";
 
 export default function HeroAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -148,7 +151,13 @@ export default function HeroAnimation() {
   }, []);
 
   return (
-    <Box pos="relative" w="100%" maw={600} style={{ aspectRatio: "4/3" }}>
+    <Box
+      pos="relative"
+      w="100%"
+      maw={600}
+      style={{ aspectRatio: "4/3" }}
+      data-testid={DSM_HERO_ANIMATION}
+    >
       <Box
         component="canvas"
         ref={canvasRef}

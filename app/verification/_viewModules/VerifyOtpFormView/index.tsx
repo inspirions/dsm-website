@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import { useRouter } from "next/navigation";
 
-import { notifications } from "@mantine/notifications";
+import { useNotification } from "@/hooks/useNotification";
 
 import { commons } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
@@ -19,6 +19,7 @@ const { ORGANIZATION } = routes;
 
 export const VerifyOtpFormView = () => {
   const router = useRouter();
+  const { showNotification, showErrorNotification } = useNotification();
 
   const handleVerifyOtp = async (payload: OtpVerificationType) => {
     try {
@@ -28,34 +29,20 @@ export const VerifyOtpFormView = () => {
         router.push(ORGANIZATION);
       }
 
-      notifications.show({
-        title: res.code === SUCCESS ? "Success" : "Error",
-        message: res.message,
-        color: res.code === SUCCESS ? "green" : "red",
-      });
+      showNotification(res.code, res.message);
+      return res;
     } catch (error) {
-      notifications.show({
-        title: "Error",
-        message: "An error occured",
-        color: "red",
-      });
+      showErrorNotification();
     }
   };
 
   const handleResendOtp = async (email: string) => {
     try {
       const res = await resendOtp({ email });
-      notifications.show({
-        title: res.code === SUCCESS ? "Success" : "Error",
-        message: res.message,
-        color: res.code === SUCCESS ? "green" : "red",
-      });
+      showNotification(res.code, res.message);
+      return res;
     } catch (error) {
-      notifications.show({
-        title: "Error",
-        message: "An error occured",
-        color: "red",
-      });
+      showErrorNotification();
     }
   };
 

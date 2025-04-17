@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   Formik,
   Form,
@@ -20,7 +20,13 @@ import { DsmTextInputWithSelect } from "@/components/DsmTextInputWithSelect";
 
 import { useUserInfoContext } from "@/providers/UserInfoProvider";
 
+import { handleOrganizationNav } from "@/app/(private-layout)/get-started/actions";
+
+import { useSubmitWithLoading } from "@/hooks/useSubmitWithLoading";
+
 import { DSM_APP_URL } from "@/constants/commons";
+import { INVITE_EMPLOYEE_PAGE } from "@/constants/dataTestId";
+import { routes } from "@/constants/routeConstants";
 
 import {
   INVITE_EMPLOYEE_SCHEMA,
@@ -28,31 +34,30 @@ import {
   InviteEmployeeType,
 } from "../../_schema/InviteEmployee";
 
+import { InviteEmployeeFormPropsType } from "../../types";
+
 const selectData = [
   { label: "User", value: "employee" },
   { label: "Admin", value: "admin" },
 ];
 
-interface InviteEmployeeFormPropsType {
-  onSubmit: (payload: InviteEmployeeType[]) => Promise<void>;
-}
+const { GET_STARTED } = routes;
 
 export const InviteEmployeeForm = ({
   onSubmit,
 }: InviteEmployeeFormPropsType) => {
+  const router = useRouter();
   const { userId } = useUserInfoContext();
   const searchParams = useSearchParams();
   const orgId = searchParams.get("orgId") || "";
 
+  const { isSubmitting, formSubmit } = useSubmitWithLoading();
+
   const [userType, setUserType] = useState("employee");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [invites, setInvites] = useState<InviteEmployeeType[]>([]);
 
   const handleSubmit = () => {
-    setIsSubmitting(true);
-    onSubmit(invites).finally(() => {
-      setIsSubmitting(false);
-    });
+    formSubmit(onSubmit(invites, orgId));
   };
 
   const handleChange =
@@ -108,8 +113,10 @@ export const InviteEmployeeForm = ({
     setInvites(tempEmails);
   };
 
-  const handleSkipClick = () => {
+  const handleSkipClick = async () => {
     sessionStorage.clear();
+    await handleOrganizationNav(orgId);
+    router.push(GET_STARTED);
     window.open(DSM_APP_URL, "_blank");
   };
 
@@ -119,7 +126,7 @@ export const InviteEmployeeForm = ({
       validationSchema={INVITE_EMPLOYEE_SCHEMA}
       onSubmit={handleSubmit}
     >
-      <Form style={{ height: "100%" }}>
+      <Form style={{ height: "100%" }} data-testid={INVITE_EMPLOYEE_PAGE.FORM}>
         <Flex h={"100%"} direction={"column"} justify={"space-between"}>
           <Flex direction={"column"} gap={"md"}>
             <Field name="to">
