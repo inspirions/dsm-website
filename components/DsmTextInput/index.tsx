@@ -1,5 +1,7 @@
 import { TextInput } from "@mantine/core";
 
+import { DSM_TEXT_INPUT } from "@/constants/dataTestId";
+
 import { DsmTextInputPropsType } from "./types";
 
 export const DsmTextInput = ({
@@ -8,9 +10,10 @@ export const DsmTextInput = ({
   ...inputProps
 }: DsmTextInputPropsType) => (
   <TextInput
+    required={false}
     disabled={isDisabled}
     withAsterisk={isRequired}
-    required={false}
+    data-testid={DSM_TEXT_INPUT}
     {...inputProps}
   />
 );

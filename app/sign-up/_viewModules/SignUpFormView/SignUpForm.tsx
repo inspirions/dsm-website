@@ -9,22 +9,23 @@ import { DsmButton } from "@/components/DsmButton";
 import { DsmTextInput } from "@/components/DsmTextInput";
 import { DsmPasswordInputWithValidation } from "@/components/DsmPasswordInputWithValidation";
 
+import { useSubmitWithLoading } from "@/hooks/useSubmitWithLoading";
+
+import { SIGN_UP_PAGE } from "@/constants/dataTestId";
+
 import {
   REGISTER_SCHEMA,
   RegisterType,
   registerFormInitialValues,
 } from "../../_schema/signUp";
 
-interface SignUpFormPropsType {
-  onSubmit: (payload: RegisterType) => Promise<void>;
-}
+import { SignUpFormPropsType } from "../../types";
 
 export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
   const [registerError, setRegisterError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { isSubmitting, formSubmit } = useSubmitWithLoading();
 
   const handleSubmit = (submitData: RegisterType) => {
-    setIsSubmitting(true);
     const { name } = submitData;
     const nameArr = name.trim().split(/\s+/);
 
@@ -35,9 +36,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
       lastName: nameArr.length > 1 ? nameArr[nameArr.length - 1] : "",
     };
 
-    onSubmit(payload).finally(() => {
-      setIsSubmitting(false);
-    });
+    formSubmit(onSubmit(payload));
   };
 
   const handleChange =
@@ -54,7 +53,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
       validationSchema={REGISTER_SCHEMA}
       onSubmit={handleSubmit}
     >
-      <Form>
+      <Form data-testid={SIGN_UP_PAGE.FORM}>
         <Stack gap="lg">
           <Field name="name">
             {({ field, meta }: FieldProps) => (

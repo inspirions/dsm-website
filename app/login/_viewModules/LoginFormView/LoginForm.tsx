@@ -15,25 +15,24 @@ import {
 import { DsmButton } from "@/components/DsmButton";
 import { DsmTextInput } from "@/components/DsmTextInput";
 
+import { useSubmitWithLoading } from "@/hooks/useSubmitWithLoading";
+
+import { LOGIN_PAGE } from "@/constants/dataTestId";
+
 import {
   LOGIN_SCHEMA,
   loginFormInitialValues,
   LoginType,
 } from "../../_schema/login";
 
-interface LoginFormPropsType {
-  onSubmit: (payload: LoginType) => Promise<void>;
-}
+import { LoginFormPropsType } from "../../types";
 
 export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
   const [loginError, setLoginError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { isSubmitting, formSubmit } = useSubmitWithLoading();
 
   const handleSubmit = (submitData: LoginType) => {
-    setIsSubmitting(true);
-    onSubmit(submitData).finally(() => {
-      setIsSubmitting(false);
-    });
+    formSubmit(onSubmit(submitData));
   };
 
   const handleChange =
@@ -50,7 +49,7 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
       validationSchema={LOGIN_SCHEMA}
       onSubmit={handleSubmit}
     >
-      <Form>
+      <Form data-testid={LOGIN_PAGE.FORM}>
         <Stack gap="lg">
           <Field name="email">
             {({ field, meta }: FieldProps) => (

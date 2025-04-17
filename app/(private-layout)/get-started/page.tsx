@@ -7,6 +7,7 @@ import DsmImage from "@/components/DsmImage";
 
 import { DSM_IMAGE_URL } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
+import { GET_STARTED_PAGE } from "@/constants/dataTestId";
 
 import { OrganizationListView } from "./_viewModules/OrganizationListView";
 import { getOrganizationList } from "./actions";
@@ -17,7 +18,7 @@ const GetStarted = async () => {
   const res = await getOrganizationList();
 
   return (
-    <Flex direction={"column"} gap={"xl"}>
+    <Flex direction={"column"} gap={"xl"} data-testid={GET_STARTED_PAGE.ROOT}>
       <Center pt={"xl"} bg={"#c6e0e3"} pb={"75px"}>
         <Flex gap={"xl"} align={"center"} justify={"center"}>
           <Flex gap={"lg"} w={"30%"} direction={"column"}>
@@ -32,6 +33,7 @@ const GetStarted = async () => {
               <Link
                 href={ORGANIZATION}
                 style={{ width: "100%", textDecoration: "none" }}
+                data-testid={GET_STARTED_PAGE.CREATE_ORGANIZATION_BTN}
               >
                 <DsmButton hideIcon fullWidth size="lg">
                   Create an Organization
@@ -45,6 +47,7 @@ const GetStarted = async () => {
             fit="contain"
             radius={"md"}
             imageUrl={DSM_IMAGE_URL}
+            data-testid={GET_STARTED_PAGE.STAND_UP_IMAGE}
           />
         </Flex>
       </Center>
