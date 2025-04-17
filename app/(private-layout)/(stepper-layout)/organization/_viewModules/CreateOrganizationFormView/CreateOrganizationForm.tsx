@@ -12,7 +12,10 @@ import { DsmTextAreaInput } from "@/components/DsmTextAreaInput";
 
 import { useUserInfoContext } from "@/providers/UserInfoProvider";
 
+import { useSubmitWithLoading } from "@/hooks/useSubmitWithLoading";
+
 import { routes } from "@/constants/routeConstants";
+import { ORGANIZATION_PAGE } from "@/constants/dataTestId";
 
 import {
   ORGANIZATION_SCHEMA,
@@ -20,11 +23,9 @@ import {
   OrganizationType,
 } from "../../_schema/organization";
 
-const { GET_STARTED } = routes;
+import { CreateOrganizationFormPropsType } from "../../types";
 
-interface CreateOrganizationFormPropsType {
-  onSubmit: (payload: OrganizationType) => Promise<void>;
-}
+const { GET_STARTED } = routes;
 
 export const CreateOrganizationForm = ({
   onSubmit,
@@ -34,12 +35,11 @@ export const CreateOrganizationForm = ({
   const { userId } = useUserInfoContext();
 
   const [organizationError, setOrganizationError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { isSubmitting, formSubmit } = useSubmitWithLoading();
 
   const handleSubmit = (submitData: OrganizationType) => {
-    setIsSubmitting(true);
     const payload = { ...submitData, creatorId: userId };
-    onSubmit(payload).finally(() => setIsSubmitting(false));
+    formSubmit(onSubmit(payload));
   };
 
   const handleChange =
@@ -61,7 +61,7 @@ export const CreateOrganizationForm = ({
       validationSchema={ORGANIZATION_SCHEMA}
       onSubmit={handleSubmit}
     >
-      <Form style={{ height: "inherit" }}>
+      <Form style={{ height: "inherit" }} data-testid={ORGANIZATION_PAGE.FORM}>
         <Stack h={"inherit"} justify="space-between">
           <Stack gap="xs">
             <Stack gap={"4px"}>

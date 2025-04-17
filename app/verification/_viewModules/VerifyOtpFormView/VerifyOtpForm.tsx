@@ -8,6 +8,10 @@ import { Center, PinInput, Stack, Text } from "@mantine/core";
 
 import { DsmButton } from "@/components/DsmButton";
 
+import { useSubmitWithLoading } from "@/hooks/useSubmitWithLoading";
+
+import { VERIFICATION_PAGE } from "@/constants/dataTestId";
+
 import { OtpTimer } from "./OtpTimer";
 
 import {
@@ -16,10 +20,7 @@ import {
   OtpVerificationType,
 } from "../../_schema/verifyOtp";
 
-interface VerifyOtpFormPropsType {
-  onResend: (payload: string) => Promise<void>;
-  onSubmit: (payload: OtpVerificationType) => Promise<void>;
-}
+import { VerifyOtpFormPropsType } from "../../types";
 
 const PIN_LENGTH = 6;
 
@@ -31,21 +32,11 @@ export const VerifyOtpForm = ({
   const email = searchParams.get("email") || "";
 
   const [responseError, setResponseError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { isSubmitting, formSubmit } = useSubmitWithLoading();
 
   const handleSubmit = (submitData: OtpVerificationType) => {
-    if (!email) {
-      setResponseError("Email not found");
-      return;
-    }
-    setIsSubmitting(true);
-    const payload = {
-      ...submitData,
-      email,
-    };
-    onSubmit(payload).finally(() => {
-      setIsSubmitting(false);
-    });
+    const payload = { ...submitData, email };
+    formSubmit(onSubmit(payload));
   };
 
   const handleChange =
@@ -54,6 +45,14 @@ export const VerifyOtpForm = ({
       !!responseError && setResponseError("");
     };
 
+  if (!email) {
+    return (
+      <Text c="red" size="md" ta="center">
+        Email not found
+      </Text>
+    );
+  }
+
   return (
     <Formik
       initialValues={otpVerificationFormInitialValues}
@@ -61,7 +60,7 @@ export const VerifyOtpForm = ({
       onSubmit={handleSubmit}
     >
       {({ values }) => (
-        <Form>
+        <Form data-testid={VERIFICATION_PAGE.FORM}>
           <Stack gap="md">
             <Center>
               <Field name="otp">

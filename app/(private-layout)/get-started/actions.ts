@@ -12,6 +12,8 @@ export const getOrganizationList = async () => {
   const cookieStore = await cookies();
 
   const token = cookieStore.get(DSM_TOKEN);
+  if (!token?.value) return;
+
   const userDetails = dsmParseJwt(token?.value || "");
   const userId = userDetails?.sub;
 

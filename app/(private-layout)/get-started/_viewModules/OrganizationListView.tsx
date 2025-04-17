@@ -3,11 +3,10 @@ import Link from "next/link";
 import { Anchor, Card, Flex, Text } from "@mantine/core";
 
 import { DsmButton } from "@/components/DsmButton";
-import { DsmIconButton } from "@/components/DsmIconButton";
 import { DsmInfoAvatar } from "@/components/DsmInfoAvatar";
 
 import { routes } from "@/constants/routeConstants";
-import { DSM_APP_URL } from "@/constants/commons";
+import { GET_STARTED_PAGE } from "@/constants/dataTestId";
 
 import { OrganizationListViewPropsType } from "../types";
 import { OrganizationNavBtn } from "./OrganizationNavBtn";
@@ -28,7 +27,11 @@ export const OrganizationListView = ({
             We couldn't find any existing organizations for your account
           </Text>
         </Flex>
-        <Link href={LOGIN} style={{ textDecoration: "none" }}>
+        <Link
+          href={LOGIN}
+          style={{ textDecoration: "none" }}
+          data-testid={GET_STARTED_PAGE.LOGIN_LINK}
+        >
           <DsmButton hideIcon variant="outline">
             Switch to another account
           </DsmButton>
@@ -38,7 +41,11 @@ export const OrganizationListView = ({
   }
 
   return (
-    <Flex direction={"column"} gap={"sm"}>
+    <Flex
+      gap={"sm"}
+      direction={"column"}
+      data-testid={GET_STARTED_PAGE.ORGANIZATION_LIST}
+    >
       <Flex direction={"column"} align={"center"} gap={"4px"}>
         <Text fw={"bold"} size="32px">
           Welcome back!
@@ -61,7 +68,12 @@ export const OrganizationListView = ({
       ))}
       <Flex direction={"column"} align={"center"} py={"lg"}>
         <Text c={"gray"}>Not seeing your organization?</Text>
-        <Anchor c={"blue"} component={Link} href={LOGIN}>
+        <Anchor
+          c={"blue"}
+          component={Link}
+          href={LOGIN}
+          data-testid={GET_STARTED_PAGE.LOGIN_LINK}
+        >
           Try a different email
         </Anchor>
       </Flex>

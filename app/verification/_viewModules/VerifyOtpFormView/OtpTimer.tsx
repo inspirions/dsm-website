@@ -4,12 +4,9 @@ import { Anchor, Text } from "@mantine/core";
 
 import { commons } from "@/constants/commons";
 
-const { OTP_TIME } = commons;
+import { OtpTimerPropsType } from "../../types";
 
-interface OtpTimerPropsType {
-  email: string;
-  onResend: (email: string) => Promise<void>;
-}
+const { OTP_TIME } = commons;
 
 const OTP_TIMER_DURATION = 120;
 
