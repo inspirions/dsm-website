@@ -6,7 +6,12 @@ import { dsmParseJwt } from "@/utils/parseJwt";
 
 import { getOrganizationListAPI } from "@/lib/api";
 
-import { DSM_TOKEN, IS_PROD } from "@/constants/commons";
+import {
+  DSM_COOKIE_DOMAIN,
+  DSM_ORG,
+  DSM_TOKEN,
+  IS_PROD,
+} from "@/constants/commons";
 
 export const getOrganizationList = async () => {
   const cookieStore = await cookies();
@@ -24,13 +29,13 @@ export const getOrganizationList = async () => {
 export const handleOrganizationNav = async (orgId: string) => {
   const cookieStore = await cookies();
   cookieStore.set({
-    name: "DSM_ORG",
+    name: DSM_ORG,
     value: orgId,
     httpOnly: true,
     path: "/",
     maxAge: 3600,
     secure: IS_PROD,
     sameSite: "lax",
-    domain: IS_PROD ? ".dailysync.ai" : ".test.local",
+    domain: DSM_COOKIE_DOMAIN,
   });
 };

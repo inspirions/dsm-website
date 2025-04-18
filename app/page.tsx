@@ -71,13 +71,14 @@ export default function Home() {
                   </DsmButton>
                 </Link>
                 <Link href="/login" style={{ textDecoration: "none" }}>
-                  <DsmButton hideIcon size="md" bg="indigo">
+                  <DsmButton
+                    hideIcon
+                    size="md"
+                    c={"blue"}
+                    variant="outline"
+                    style={{ borderColor: "blue" }}
+                  >
                     Log In
-                  </DsmButton>
-                </Link>
-                <Link href="#features" style={{ textDecoration: "none" }}>
-                  <DsmButton hideIcon size="md" variant="outline">
-                    Learn More
                   </DsmButton>
                 </Link>
               </Group>

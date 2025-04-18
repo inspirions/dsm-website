@@ -19,6 +19,18 @@ export const VERIFICATION_PAGE = {
   FORM: "verification-page-form",
 };
 
+export const FORGOT_PASSWORD_PAGE = {
+  ROOT: "forgot-password-page",
+  LOGO: "forgot-password-page-logo",
+  FORM: "forgot-password-page-form",
+};
+
+export const RESET_PASSWORD_PAGE = {
+  ROOT: "reset-password-page",
+  LOGO: "reset-password-page-logo",
+  FORM: "reset-password-page-form",
+};
+
 export const GET_STARTED_PAGE = {
   ROOT: "get-started-page",
   LOGIN_LINK: "get-started-page-login-link",
@@ -91,3 +103,5 @@ export const DSM_TOOLTIP = "dsm-tooltip";
 export const DSM_HERO_ANIMATION = "dsm-hero-animation";
 
 export const DSM_CUSTOM_ICON = "dsm-custom-icon";
+
+export const NO_ACCESS_PAGE = "no-access-page";

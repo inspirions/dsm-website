@@ -51,7 +51,7 @@ export const OrganizationListView = ({
           Welcome back!
         </Text>
         <Text>
-          Choose and organization below to get back to working with your team
+          Choose an organization below to get back to working with your team
         </Text>
       </Flex>
       {organizations.map((indvOrg) => (

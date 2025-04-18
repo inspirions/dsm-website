@@ -39,7 +39,7 @@ const Login = () => {
               Please enter you details.
             </Text>
           </Flex>
-          <LoginFormView data-testid={LOGIN_PAGE.FORM} />
+          <LoginFormView />
           <Flex justify="center" gap={2}>
             <Text>Don't have an account?</Text>
             <Anchor
