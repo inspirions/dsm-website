@@ -4,3 +4,5 @@ export * from "./endpoints/inviteEmployee";
 export * from "./endpoints/root";
 export * from "./endpoints/signUp";
 export * from "./endpoints/verify";
+export * from "./endpoints/forgotPassword";
+export * from "./endpoints/resetPassword";
