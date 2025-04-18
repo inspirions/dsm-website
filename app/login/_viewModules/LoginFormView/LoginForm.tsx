@@ -18,6 +18,7 @@ import { DsmTextInput } from "@/components/DsmTextInput";
 import { useSubmitWithLoading } from "@/hooks/useSubmitWithLoading";
 
 import { LOGIN_PAGE } from "@/constants/dataTestId";
+import { routes } from "@/constants/routeConstants";
 
 import {
   LOGIN_SCHEMA,
@@ -26,6 +27,8 @@ import {
 } from "../../_schema/login";
 
 import { LoginFormPropsType } from "../../types";
+
+const { FORGOT_PASSWORD } = routes;
 
 export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
   const [loginError, setLoginError] = useState("");
@@ -85,7 +88,9 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
           )}
           <Group justify="space-between">
             <Checkbox label="Remember me" radius={"sm"} />
-            <Anchor c="blue">Forgot Password</Anchor>
+            <Anchor c="blue" href={FORGOT_PASSWORD}>
+              Forgot Password
+            </Anchor>
           </Group>
           <DsmButton
             hideIcon

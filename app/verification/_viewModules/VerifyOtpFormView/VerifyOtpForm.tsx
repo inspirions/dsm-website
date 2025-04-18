@@ -30,12 +30,13 @@ export const VerifyOtpForm = ({
 }: VerifyOtpFormPropsType) => {
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || "";
+  const returnTo = searchParams.get("returnTo") || "";
 
   const [responseError, setResponseError] = useState("");
   const { isSubmitting, formSubmit } = useSubmitWithLoading();
 
   const handleSubmit = (submitData: OtpVerificationType) => {
-    const payload = { ...submitData, email };
+    const payload = { ...submitData, email, returnTo };
     formSubmit(onSubmit(payload));
   };
 

@@ -12,21 +12,26 @@ import { VerifyOtpForm } from "./VerifyOtpForm";
 
 import { verifyOtp, resendOtp } from "../../actions";
 
-import { OtpVerificationType } from "../../_schema/verifyOtp";
+import { VerifyOtpPropsType } from "../../types";
 
 const { SUCCESS } = commons;
-const { ORGANIZATION } = routes;
+const { ORGANIZATION, RESET_PASSWORD } = routes;
 
 export const VerifyOtpFormView = () => {
   const router = useRouter();
   const { showNotification, showErrorNotification } = useNotification();
 
-  const handleVerifyOtp = async (payload: OtpVerificationType) => {
+  const handleVerifyOtp = async (payload: VerifyOtpPropsType) => {
+    const { returnTo, ...restPayload } = payload;
     try {
-      const res = await verifyOtp(payload);
+      const res = await verifyOtp(restPayload);
 
       if (res.code === SUCCESS && res.data.isVerified) {
-        router.push(ORGANIZATION);
+        if (returnTo === RESET_PASSWORD) {
+          router.push(`${RESET_PASSWORD}?email=${payload.email}`);
+        } else {
+          router.push(ORGANIZATION);
+        }
       }
 
       showNotification(res.code, res.message);

@@ -1,13 +1,21 @@
-import { Flex, Stack, Card, Text, Center } from "@mantine/core";
+import { Flex, Card, Text, Center } from "@mantine/core";
 
 import DsmImage from "@/components/DsmImage";
+import { NoAccessPage } from "@/components/NoAccessPage";
 
 import { LOGO_URL } from "@/constants/commons";
 import { VERIFICATION_PAGE } from "@/constants/dataTestId";
 
 import { VerifyOtpFormView } from "./_viewModules/VerifyOtpFormView";
+import { hasOtpCookie } from "./actions";
 
-const Verification = () => {
+const Verification = async () => {
+  const hasCookie = await hasOtpCookie();
+
+  if (!hasCookie) {
+    return <NoAccessPage />;
+  }
+
   return (
     <Center h="100vh" bg="#fafbfc" data-testid={VERIFICATION_PAGE.ROOT}>
       <Card shadow="xl" radius="md" padding="30px 60px" w={500}>
