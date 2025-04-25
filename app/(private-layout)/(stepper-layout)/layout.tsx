@@ -26,7 +26,13 @@ const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
             </Text>
             <OnboardStepper />
           </Flex>
-          <Flex flex={1} py={"lg"} px={"64px"} direction={"column"}>
+          <Flex
+            flex={1}
+            my={"lg"}
+            px={"64px"}
+            direction={"column"}
+            style={{ overflow: "auto" }}
+          >
             <UserInfoProvider userInfo={res.data}>{children}</UserInfoProvider>
           </Flex>
         </Card>
