@@ -7,7 +7,7 @@ import { DSM_APP_URL } from "@/constants/commons";
 export const OrganizationNavBtn = ({ orgId }: { orgId: string }) => {
   const handleClick = async () => {
     await handleOrganizationNav(orgId);
-    window.open(DSM_APP_URL, "_blank");
+    window.location.href = DSM_APP_URL;
   };
   return (
     <DsmIconButton
