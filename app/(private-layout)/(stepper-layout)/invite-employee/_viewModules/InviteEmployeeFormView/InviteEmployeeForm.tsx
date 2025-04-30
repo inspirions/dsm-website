@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import {
   Formik,
   Form,
@@ -26,7 +26,6 @@ import { useSubmitWithLoading } from "@/hooks/useSubmitWithLoading";
 
 import { DSM_APP_URL } from "@/constants/commons";
 import { INVITE_EMPLOYEE_PAGE } from "@/constants/dataTestId";
-import { routes } from "@/constants/routeConstants";
 
 import {
   INVITE_EMPLOYEE_SCHEMA,
@@ -41,12 +40,9 @@ const selectData = [
   { label: "Admin", value: "admin" },
 ];
 
-const { GET_STARTED } = routes;
-
 export const InviteEmployeeForm = ({
   onSubmit,
 }: InviteEmployeeFormPropsType) => {
-  const router = useRouter();
   const { userId } = useUserInfoContext();
   const searchParams = useSearchParams();
   const orgId = searchParams.get("orgId") || "";
@@ -116,8 +112,7 @@ export const InviteEmployeeForm = ({
   const handleSkipClick = async () => {
     sessionStorage.clear();
     await handleOrganizationNav(orgId);
-    router.push(GET_STARTED);
-    window.open(DSM_APP_URL, "_blank");
+    window.location.href = DSM_APP_URL;
   };
 
   return (
