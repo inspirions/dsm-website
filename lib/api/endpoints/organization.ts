@@ -12,6 +12,6 @@ export const createOrganizationAPI = (payload: OrganizationType) => {
   return postRequest(`${ORGANIZATION_API}/create`, payload);
 };
 
-export const getOrganizationListAPI = (userId: string) => {
-  return getRequest(`${ORGANIZATION_API}/created-by-user/${userId}`);
+export const getOrganizationListAPI = () => {
+  return getRequest(`${ORGANIZATION_API}/my-orgs`);
 };

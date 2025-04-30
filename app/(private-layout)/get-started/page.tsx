@@ -17,6 +17,10 @@ const { ORGANIZATION } = routes;
 const GetStarted = async () => {
   const res = await getOrganizationList();
 
+  const organizations = res?.data
+    ? [...res.data.createdOrgs, ...res.data.joinedOrgs]
+    : [];
+
   return (
     <Flex direction={"column"} gap={"xl"} data-testid={GET_STARTED_PAGE.ROOT}>
       <Center pt={"xl"} bg={"#c6e0e3"} pb={"75px"}>
@@ -52,7 +56,7 @@ const GetStarted = async () => {
         </Flex>
       </Center>
       <Center>
-        <OrganizationListView organizations={res?.data ?? []} />
+        <OrganizationListView organizations={organizations} />
       </Center>
     </Flex>
   );
