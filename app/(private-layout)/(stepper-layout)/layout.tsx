@@ -1,15 +1,21 @@
-import { Card, Center, Container, Flex, Text } from "@mantine/core";
+import { cookies } from "next/headers";
 
-import { getUserInfoAPI } from "@/lib/api";
+import { Card, Center, Container, Flex, Text } from "@mantine/core";
 
 import { UserInfoProvider } from "@/providers/UserInfoProvider";
 
+import { dsmParseJwt } from "@/utils/parseJwt";
+
+import { DSM_TOKEN } from "@/constants/commons";
 import { ONBOARD_STEPPER } from "@/constants/dataTestId";
 
 import { OnboardStepper } from "./_viewModules/OnboardStepper";
 
 const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
-  const res = await getUserInfoAPI();
+  const cookieStore = await cookies();
+  const token = cookieStore.get(DSM_TOKEN);
+  const { sub: userId = "" } = dsmParseJwt(token?.value || "");
+
   return (
     <Center h={"calc(100vh - 60px)"} data-testid={ONBOARD_STEPPER.ROOT}>
       <Container p={0} size="md" h={"70%"} w="100%">
@@ -33,7 +39,9 @@ const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
             direction={"column"}
             style={{ overflow: "auto" }}
           >
-            <UserInfoProvider userInfo={res.data}>{children}</UserInfoProvider>
+            <UserInfoProvider userInfo={{ id: userId }}>
+              {children}
+            </UserInfoProvider>
           </Flex>
         </Card>
       </Container>
