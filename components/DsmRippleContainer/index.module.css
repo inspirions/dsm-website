@@ -1,0 +1,13 @@
+.parent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
