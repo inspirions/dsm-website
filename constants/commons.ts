@@ -27,3 +27,8 @@ export const commons = Object.freeze({
 export const STORAGE_FOLDER = {
   ORGANIZATION_LOGO: "organization-logo",
 };
+
+export const USER_ROLE_OPTIONS = [
+  { label: "User", value: "employee" },
+  { label: "Admin", value: "admin" },
+];

@@ -1,0 +1,21 @@
+.selectOption {
+  color: var(--mantine-color-gray-7);
+  font-weight: 600;
+  &:hover {
+    background-color: var(--mantine-color-gray-1);
+    color: var(--mantine-color-gray-9);
+  }
+  &[data-checked] {
+    background-color: var(--mantine-color-gray-2);
+    border: 1px solid var(--mantine-color-gray-3);
+  }
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
+}
+.selectOptions {
+  & svg {
+    color: var(--mantine-color-dsm-primary-9);
+    opacity: 1;
+  }
+}
