@@ -12,9 +12,6 @@ const InviteEmployee = () => {
       direction={"column"}
       data-testid={INVITE_EMPLOYEE_PAGE.ROOT}
     >
-      <Text size="xl" fw={700} ta="center">
-        Invite Employees
-      </Text>
       <InviteEmployeeFormView />
     </Flex>
   );
