@@ -26,6 +26,7 @@ const MessagePlusIcon = lazy(() => import("./MessagePlusIcon"));
 const OpenEyeIcon = lazy(() => import("./OpenEyeIcon"));
 const OranizationIcon = lazy(() => import("./OranizationIcon"));
 const PencilIcon = lazy(() => import("./PencilIcon"));
+const PhotoIcon = lazy(() => import("./PhotoIcon"));
 const PlusIcon = lazy(() => import("./PlusIcon"));
 const PointIcon = lazy(() => import("./PointIcon"));
 const SearchIcon = lazy(() => import("./SearchIcon"));
@@ -68,6 +69,7 @@ export const ICON_LIST = {
   openEye: OpenEyeIcon,
   organization: OranizationIcon,
   pencil: PencilIcon,
+  photo: PhotoIcon,
   plus: PlusIcon,
   point: PointIcon,
   search: SearchIcon,
