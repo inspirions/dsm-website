@@ -30,7 +30,7 @@ const ResetPassword = async () => {
             <DsmImage
               w={150}
               h={150}
-              imageUrl={LOGO_URL}
+              src={LOGO_URL}
               data-testid={RESET_PASSWORD_PAGE.LOGO}
             />
           </Flex>

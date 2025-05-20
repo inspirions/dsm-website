@@ -20,7 +20,7 @@ const Organization = () => {
           <DsmImage
             w={80}
             h={80}
-            imageUrl={LOGO_URL}
+            src={LOGO_URL}
             data-testid={ORGANIZATION_PAGE.LOGO}
           />
         </Flex>

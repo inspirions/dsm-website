@@ -1,0 +1,5 @@
+.lightbox {
+    & button:disabled {
+       background-color: transparent;
+    }
+}
