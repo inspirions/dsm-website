@@ -21,7 +21,7 @@ const ForgotPassword = () => {
             <DsmImage
               w={150}
               h={150}
-              imageUrl={LOGO_URL}
+              src={LOGO_URL}
               data-testid={FORGOT_PASSWORD_PAGE.LOGO}
             />
           </Flex>

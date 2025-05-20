@@ -1,0 +1,68 @@
+.dropzoneRoot {
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: var(--mantine-color-gray-4);
+  background-color: var(--mantine-color-gray-0);
+
+  &:hover {
+    background-color: var(--mantine-color-gray-1);
+  }
+}
+
+.dropzoneInner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzoneOptWrapper {
+ height: 100%;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding: 32px;
+}
+
+.badgeIcon {
+  height: 48px;
+  width: 48px;
+  background-color: var(--mantine-color-dsm-primary-5);
+  color: var(--mantine-color-white);
+  border-radius: 50%;
+  border: 2px solid var(--mantine-color-white);
+}
+
+.badgeWrapper {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  z-index: 100;
+}
+
+.imageOverlayWrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 50% !important;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--mantine-color-gray-2);
+    background-color: var(--mantine-color-gray-1);
+}
+
+.imageOverlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 50%;
+    z-index: 50;
+}
+
+.imageOverlayImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+}

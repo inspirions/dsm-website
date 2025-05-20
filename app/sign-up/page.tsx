@@ -21,7 +21,7 @@ const SignUp = () => {
             <DsmImage
               w={150}
               h={150}
-              imageUrl={LOGO_URL}
+              src={LOGO_URL}
               data-testid={SIGN_UP_PAGE.LOGO}
             />
           </Flex>

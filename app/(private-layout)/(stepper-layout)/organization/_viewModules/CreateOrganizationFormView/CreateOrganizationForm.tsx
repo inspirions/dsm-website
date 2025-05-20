@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Formik, Form, Field, FieldProps, FieldInputProps } from "formik";
 
-import { Avatar, Group, Stack, Text } from "@mantine/core";
+import { Group, Stack, Text } from "@mantine/core";
 
 import { DsmButton } from "@/components/DsmButton";
 import { DsmTextInput } from "@/components/DsmTextInput";
@@ -24,8 +24,12 @@ import {
 } from "../../_schema/organization";
 
 import { CreateOrganizationFormPropsType } from "../../types";
+import { DsmProfileImgUploader } from "@/components/DsmProfileImgUploader";
+import { STORAGE_FOLDER } from "@/constants/commons";
+import { UploadedFileType } from "@/components/DsmProfileImgUploader/types";
 
 const { GET_STARTED } = routes;
+const { ORGANIZATION_LOGO } = STORAGE_FOLDER;
 
 export const CreateOrganizationForm = ({
   onSubmit,
@@ -41,6 +45,11 @@ export const CreateOrganizationForm = ({
     const payload = { ...submitData, creatorId: userId };
     formSubmit(onSubmit(payload));
   };
+
+  const handleLogoUpload =
+    (field: FieldInputProps<OrganizationType>) => (file: UploadedFileType) => {
+      field.onChange({ target: { name: field.name, value: file.url } });
+    };
 
   const handleChange =
     (field: FieldInputProps<OrganizationType>) =>
@@ -63,12 +72,22 @@ export const CreateOrganizationForm = ({
     >
       <Form style={{ height: "inherit" }} data-testid={ORGANIZATION_PAGE.FORM}>
         <Stack h={"inherit"} justify="space-between">
-          <Stack gap="xs">
-            <Stack gap={"4px"}>
+          <Stack gap="sm">
+            <Stack gap={"4px"} justify="flex-start">
               <Text size="sm" fw={500}>
                 Organization Logo
               </Text>
-              <Avatar size="lg" />
+              <Field name="logoUrl">
+                {({ field, meta }: FieldProps) => (
+                  <DsmProfileImgUploader
+                    value={field.value}
+                    wrapperProps={{ mx: 0 }}
+                    storageFolder={ORGANIZATION_LOGO}
+                    error={meta.error && meta.touched ? meta.error : ""}
+                    onChange={handleLogoUpload(field)}
+                  />
+                )}
+              </Field>
             </Stack>
             <Field name="name">
               {({ field, meta }: FieldProps) => (
