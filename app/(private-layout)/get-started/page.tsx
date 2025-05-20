@@ -50,7 +50,7 @@ const GetStarted = async () => {
             w="auto"
             fit="contain"
             radius={"md"}
-            imageUrl={DSM_IMAGE_URL}
+            src={DSM_IMAGE_URL}
             data-testid={GET_STARTED_PAGE.STAND_UP_IMAGE}
           />
         </Flex>

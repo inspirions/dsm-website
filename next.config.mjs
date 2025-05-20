@@ -16,6 +16,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  env: {
+    API_URL: process.env.NEXT_API_URL,
+  },
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,

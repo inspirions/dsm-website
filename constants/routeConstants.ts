@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_API_URL;
+const API_URL = process.env.API_URL;
 
 export const routes = Object.freeze({
   LOGIN: "/login",
@@ -21,4 +21,5 @@ export const API_ROUTES = Object.freeze({
   INVITE_EMPLOYEE_API: `${API_URL}/api/mail/bulk-invite`,
   FORGOT_PASSWORD_API: `${API_URL}/api/forgot-password`,
   RESET_PASSWORD_API: `${API_URL}/api/reset-password`,
+  UPLOAD_FILE_API: `${API_URL}/api/uploadDocument?storageFolder=`,
 });

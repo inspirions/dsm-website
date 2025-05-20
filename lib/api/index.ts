@@ -6,3 +6,4 @@ export * from "./endpoints/signUp";
 export * from "./endpoints/verify";
 export * from "./endpoints/forgotPassword";
 export * from "./endpoints/resetPassword";
+export * from "./endpoints/uploadFile";
