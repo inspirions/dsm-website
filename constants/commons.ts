@@ -1,6 +1,7 @@
 export const LOGO_URL = "./I_logo150.png";
 export const DSM_IMAGE_URL = "./DsmImage.png";
 export const FALLBACK_IMAGE_URL = "./fallback_image.jpeg";
+export const INVITE_IMAGE_URL = "./Invite.png";
 
 export const DSM_TOKEN = "DSM_TOKEN";
 

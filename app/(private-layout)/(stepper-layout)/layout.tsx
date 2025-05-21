@@ -28,7 +28,7 @@ const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
         >
           <Flex direction="column" pt="xl" px="44px" bg={"#fafafa"}>
             <Text size="xl" fw="bold" mb="md">
-              Welcome to DSM
+              Welcome to Daily Sync
             </Text>
             <OnboardStepper />
           </Flex>

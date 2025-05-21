@@ -9,9 +9,21 @@ import {
 } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
 
-const { LOGIN, GET_STARTED, ORGANIZATION, INVITE_EMPLOYEE } = routes;
+const {
+  LOGIN,
+  GET_STARTED,
+  INVITATION,
+  ORGANIZATION,
+  INVITE_EMPLOYEE,
+  VERIFICATION,
+} = routes;
 
-const protectedRoutes: string[] = [ORGANIZATION, INVITE_EMPLOYEE, GET_STARTED];
+const protectedRoutes: string[] = [
+  INVITATION,
+  GET_STARTED,
+  ORGANIZATION,
+  INVITE_EMPLOYEE,
+];
 
 const OTP_COOKIES = [DSM_SIGN_UP_OTP_NAV, DSM_FORGOT_OTP_NAV];
 
@@ -23,10 +35,15 @@ export async function middleware(request: NextRequest) {
   const token = cookieStore.get(DSM_TOKEN);
 
   if (isProtectedRoute && !token) {
+    const isInvitation = path === INVITATION;
+    if (isInvitation) {
+      return NextResponse.redirect(
+        new URL(`${LOGIN}${request.nextUrl.search}`, request.nextUrl)
+      );
+    }
     return NextResponse.redirect(new URL(LOGIN, request.nextUrl));
   }
-
-  const isLeavingVerification = path !== "/verification";
+  const isLeavingVerification = path !== VERIFICATION;
   const presentOtpCookie = OTP_COOKIES.find((indvCookie) =>
     cookieStore.get(indvCookie)
   );

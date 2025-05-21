@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { useNotification } from "@/hooks/useNotification";
 
@@ -11,22 +11,33 @@ import { SignUpForm } from "./SignUpForm";
 
 import { RegisterType } from "../../_schema/signUp";
 
-import { signUp } from "../../actions";
+import { invitationSignUp, signUp } from "../../actions";
 
 const { SUCCESS, IS_SIGNING_UP } = commons;
-const { VERIFICATION } = routes;
+const { VERIFICATION, GET_STARTED } = routes;
 
 export const SignUpFormView = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
   const { showNotification, showErrorNotification } = useNotification();
 
   const handleSignUp = async (payload: RegisterType) => {
     try {
-      const res = await signUp(payload);
+      let res;
+      if (searchParams.size) {
+        const { org, role, key } = Object.fromEntries(searchParams.entries());
+        const tempPayload = { ...payload, org, role, invitationKey: key };
+        res = await invitationSignUp(tempPayload);
+      } else {
+        res = await signUp(payload);
+      }
 
       if (res.code === SUCCESS) {
         sessionStorage.setItem(IS_SIGNING_UP, "true");
-        router.push(`${VERIFICATION}?email=${payload.email}`);
+        router.push(
+          `${VERIFICATION}?email=${payload.email}&returnTo=${GET_STARTED}`
+        );
       }
 
       showNotification(res.code, res.message);
