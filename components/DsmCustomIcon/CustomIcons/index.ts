@@ -19,6 +19,7 @@ const GridViewIcon = lazy(() => import("./GridViewIcon"));
 const HomeCheckIcon = lazy(() => import("./HomeCheckIcon"));
 const HomeShareIcon = lazy(() => import("./HomeShareIcon"));
 const InfoIcon = lazy(() => import("./InfoIcon"));
+const LinkIcon = lazy(() => import("./LinkIcon"));
 const ListViewIcon = lazy(() => import("./ListViewIcon"));
 const LogoutIcon = lazy(() => import("./LogoutIcon"));
 const MessageIcon = lazy(() => import("./MessageIcon"));
@@ -63,6 +64,7 @@ export const ICON_LIST = {
   homeCheck: HomeCheckIcon,
   homeShare: HomeShareIcon,
   info: InfoIcon,
+  link: LinkIcon,
   list: ListViewIcon,
   logout: LogoutIcon,
   message: MessageIcon,

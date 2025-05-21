@@ -27,7 +27,7 @@ export const AppBarView = ({ children }: { children: React.ReactNode }) => {
           <Flex gap={"md"} align={"center"}>
             <DsmImage w={40} h={40} src={LOGO_URL} />
             <Text size="xl" fw={"bold"}>
-              DSM
+              Daily Sync
             </Text>
           </Flex>
           <DsmButton

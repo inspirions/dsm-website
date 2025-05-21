@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Formik, Form, Field, FieldProps, FieldInputProps } from "formik";
 
 import {
@@ -31,6 +32,9 @@ import { LoginFormPropsType } from "../../types";
 const { FORGOT_PASSWORD } = routes;
 
 export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email") || "";
+
   const [loginError, setLoginError] = useState("");
   const { isSubmitting, formSubmit } = useSubmitWithLoading();
 
@@ -48,7 +52,10 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
 
   return (
     <Formik
-      initialValues={loginFormInitialValues}
+      initialValues={{
+        ...loginFormInitialValues,
+        ...(email && { email }),
+      }}
       validationSchema={LOGIN_SCHEMA}
       onSubmit={handleSubmit}
     >
@@ -58,8 +65,9 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
             {({ field, meta }: FieldProps) => (
               <DsmTextInput
                 isRequired
-                placeholder="Enter email"
                 label="Email"
+                readOnly={!!email}
+                placeholder="Enter email"
                 error={meta.error && meta.touched ? meta.error : ""}
                 {...field}
                 value={field.value}

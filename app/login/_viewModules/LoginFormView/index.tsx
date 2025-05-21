@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { useNotification } from "@/hooks/useNotification";
 
@@ -13,17 +13,23 @@ import { login } from "../../actions";
 import { LoginType } from "../../_schema/login";
 
 const { SUCCESS } = commons;
-const { GET_STARTED } = routes;
+const { GET_STARTED, INVITATION } = routes;
 
 export const LoginFormView = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
   const { showNotification, showErrorNotification } = useNotification();
   const handleLogin = async (payload: LoginType) => {
     try {
       const res = await login(payload);
 
       if (res.code === SUCCESS && res.data.isVerified) {
-        router.push(GET_STARTED);
+        if (searchParams.size) {
+          router.push(`${INVITATION}?${searchParams.toString()}`);
+        } else {
+          router.push(GET_STARTED);
+        }
       }
 
       showNotification(res.code, res.message);
