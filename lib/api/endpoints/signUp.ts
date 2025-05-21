@@ -4,10 +4,14 @@ import { API_ROUTES } from "@/constants/routeConstants";
 
 import { apiHandler } from "../client";
 
-const { SIGN_UP_API } = API_ROUTES;
+const { SIGN_UP_API, INVITATION_SIGN_UP_API } = API_ROUTES;
 
 const { postRequest } = apiHandler;
 
 export const signUpAPI = (payload: RegisterType) => {
   return postRequest(SIGN_UP_API, payload);
+};
+
+export const invitationSignUpAPI = (payload: RegisterType) => {
+  return postRequest(INVITATION_SIGN_UP_API, payload);
 };
