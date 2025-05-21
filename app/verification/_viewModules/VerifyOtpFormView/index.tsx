@@ -14,8 +14,8 @@ import { verifyOtp, resendOtp } from "../../actions";
 
 import { VerifyOtpPropsType } from "../../types";
 
-const { SUCCESS } = commons;
-const { ORGANIZATION, RESET_PASSWORD } = routes;
+const { SUCCESS, OTP_TIME } = commons;
+const { ORGANIZATION, RESET_PASSWORD, GET_STARTED } = routes;
 
 export const VerifyOtpFormView = () => {
   const router = useRouter();
@@ -29,10 +29,13 @@ export const VerifyOtpFormView = () => {
       if (res.code === SUCCESS && res.data.isVerified) {
         if (returnTo === RESET_PASSWORD) {
           router.push(`${RESET_PASSWORD}?email=${payload.email}`);
+        } else if (returnTo === GET_STARTED) {
+          router.push(GET_STARTED);
         } else {
           router.push(ORGANIZATION);
         }
       }
+      localStorage.removeItem(OTP_TIME);
 
       showNotification(res.code, res.message);
       return res;

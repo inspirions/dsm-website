@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import { Box, Stack, lighten } from '@mantine/core';
+import { Box, Stack, lighten } from "@mantine/core";
 
-import { DsmRippleContainerPropsType } from './types';
+import { DsmRippleContainerPropsType } from "./types";
 
-import classes from './index.module.css';
+import classes from "./index.module.css";
 
 export const DsmRippleContainer: React.FC<DsmRippleContainerPropsType> = ({
   count = 4,
   size = 80,
   scale = 0.85,
-  borderColor = 'var(--mantine-color-gray-2)',
-  innerColor = '',
+  borderColor = "var(--mantine-color-gray-2)",
+  innerColor = "",
   children,
 }) => {
   const NO_OF_CIRCLES = Math.min(Math.max(count, 1), 10);
@@ -22,7 +22,7 @@ export const DsmRippleContainer: React.FC<DsmRippleContainerPropsType> = ({
     // interpolate size scale
     const diameter = size * scale * (index + 1);
     // progressively lighten the border color
-    const stroke = lighten(borderColor, factor);
+    const strokeColor = lighten(borderColor, factor);
 
     return (
       <Stack
@@ -30,7 +30,7 @@ export const DsmRippleContainer: React.FC<DsmRippleContainerPropsType> = ({
         style={{
           width: diameter,
           height: diameter,
-          border: `1px solid ${stroke}`,
+          border: `1px solid ${strokeColor}`,
           backgroundColor: !index ? innerColor : undefined,
         }}
         className={classes.circle}

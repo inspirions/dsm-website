@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Field, FieldInputProps, FieldProps, Form, Formik } from "formik";
 
 import { Stack, PasswordInput, Text } from "@mantine/core";
@@ -22,6 +23,9 @@ import {
 import { SignUpFormPropsType } from "../../types";
 
 export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email") || "";
+
   const [registerError, setRegisterError] = useState("");
   const { isSubmitting, formSubmit } = useSubmitWithLoading();
 
@@ -49,7 +53,10 @@ export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
 
   return (
     <Formik
-      initialValues={registerFormInitialValues}
+      initialValues={{
+        ...registerFormInitialValues,
+        ...(email && { email }),
+      }}
       validationSchema={REGISTER_SCHEMA}
       onSubmit={handleSubmit}
     >
@@ -73,8 +80,9 @@ export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
             {({ field, meta }: FieldProps) => (
               <DsmTextInput
                 isRequired
-                placeholder="Enter email"
                 label="Email"
+                placeholder="Enter email"
+                readOnly={!!email}
                 error={meta.error && meta.touched ? meta.error : ""}
                 {...field}
                 value={field.value}
