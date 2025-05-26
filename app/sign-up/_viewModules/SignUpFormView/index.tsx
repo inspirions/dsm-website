@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { useNotification } from "@/hooks/useNotification";
@@ -16,7 +17,7 @@ import { invitationSignUp, signUp } from "../../actions";
 const { SUCCESS, IS_SIGNING_UP } = commons;
 const { VERIFICATION, GET_STARTED } = routes;
 
-export const SignUpFormView = () => {
+const SignUpFormWrapper = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -49,3 +50,9 @@ export const SignUpFormView = () => {
 
   return <SignUpForm onSubmit={handleSignUp} />;
 };
+
+export const SignUpFormView = () => (
+  <Suspense>
+    <SignUpFormWrapper />
+  </Suspense>
+);
