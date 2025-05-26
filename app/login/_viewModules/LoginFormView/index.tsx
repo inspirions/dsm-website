@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { useNotification } from "@/hooks/useNotification";
@@ -15,7 +16,7 @@ import { LoginType } from "../../_schema/login";
 const { SUCCESS } = commons;
 const { GET_STARTED, INVITATION } = routes;
 
-export const LoginFormView = () => {
+const LoginFormWrapper = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -41,3 +42,9 @@ export const LoginFormView = () => {
 
   return <LoginForm onSubmit={handleLogin} />;
 };
+
+export const LoginFormView = () => (
+  <Suspense>
+    <LoginFormWrapper />
+  </Suspense>
+);
