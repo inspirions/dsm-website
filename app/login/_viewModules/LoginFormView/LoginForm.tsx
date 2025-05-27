@@ -21,6 +21,8 @@ import { useSubmitWithLoading } from "@/hooks/useSubmitWithLoading";
 import { LOGIN_PAGE } from "@/constants/dataTestId";
 import { routes } from "@/constants/routeConstants";
 
+import classes from "./index.module.css";
+
 import {
   LOGIN_SCHEMA,
   loginFormInitialValues,
@@ -64,6 +66,7 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
           <Field name="email">
             {({ field, meta }: FieldProps) => (
               <DsmTextInput
+                className={classes.formInput}
                 isRequired
                 label="Email"
                 readOnly={!!email}
@@ -80,6 +83,7 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
             {({ field, meta }: FieldProps) => (
               <PasswordInput
                 withAsterisk
+                className={classes.formInput}
                 label="Password"
                 placeholder="Enter password"
                 error={meta.error && meta.touched ? meta.error : ""}
@@ -95,7 +99,11 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
             </Text>
           )}
           <Group justify="space-between">
-            <Checkbox label="Remember me" radius={"sm"} />
+            <Checkbox
+              className={classes.formInput}
+              label="Remember me"
+              radius={"sm"}
+            />
             <Anchor href={FORGOT_PASSWORD}>Forgot Password</Anchor>
           </Group>
           <DsmButton hideIcon fullWidth type="submit" loading={isSubmitting}>
