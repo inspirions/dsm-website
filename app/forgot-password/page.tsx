@@ -1,41 +1,63 @@
-import { Card, Center, Flex, Text } from "@mantine/core";
+import { Anchor, Center, Flex, Text } from "@mantine/core";
 
-import DsmImage from "@/components/DsmImage";
-
-import { LOGO_URL } from "@/constants/commons";
 import { FORGOT_PASSWORD_PAGE } from "@/constants/dataTestId";
+import { SIGN_UP_PAGE } from "@/constants/dataTestId";
 
 import { ForgotPasswordFormView } from "./_viewModules/ForgotPasswordFormView";
+import DsmFormWrapper from "@/components/DsmFormWrapper";
+import { routes } from "@/constants/routeConstants";
+import Link from "next/link";
+import {
+  FORGOT_PASSWORD_DESCRIPTION,
+  FORGOT_PASSWORD_TITLE,
+} from "@/constants/loginSignup";
+
+const { LOGIN } = routes;
+
+const renderFormTitle = (
+  <Flex direction={"column"}>
+    <Text size="xl" fw={700} ta="center">
+      Forgot Password
+    </Text>
+    <Text c="gray" ta="center" fw={500}>
+      Enter your email to reset your password.
+    </Text>
+  </Flex>
+);
+
+const renderForgotPasswordForm = () => (
+  <>
+    <ForgotPasswordFormView />
+    <Flex justify="center" gap={2}>
+      <Text>Go back to login? </Text>
+      <Anchor
+        c="var(--mantine-color-dsm-primary-5)"
+        fw="bold"
+        href={LOGIN}
+        component={Link}
+        data-testid={SIGN_UP_PAGE.LOGIN_LINK}
+      >
+        Log In
+      </Anchor>
+    </Flex>
+  </>
+);
 
 const ForgotPassword = () => {
   return (
     <Center
       h="100vh"
-      bg="#fafbfc"
+      bg="#09060FE5"
+      c="white"
       data-testid={FORGOT_PASSWORD_PAGE.ROOT}
       style={{ flexDirection: "column", gap: "8px" }}
     >
-      <Card shadow="xl" radius="md" padding="30px 60px" w={500}>
-        <Flex direction={"column"} gap={"md"}>
-          <Flex justify="center">
-            <DsmImage
-              w={150}
-              h={150}
-              src={LOGO_URL}
-              data-testid={FORGOT_PASSWORD_PAGE.LOGO}
-            />
-          </Flex>
-          <Flex direction={"column"}>
-            <Text size="xl" fw={700} ta="center">
-              Forgot Password
-            </Text>
-            <Text c="gray" ta="center" fw={500}>
-              Enter your email to reset your password.
-            </Text>
-          </Flex>
-          <ForgotPasswordFormView />
-        </Flex>
-      </Card>
+      <DsmFormWrapper
+        title={FORGOT_PASSWORD_TITLE}
+        description={FORGOT_PASSWORD_DESCRIPTION}
+        formView={renderForgotPasswordForm}
+        formTitle={renderFormTitle}
+      />
     </Center>
   );
 };
