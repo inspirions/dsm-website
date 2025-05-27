@@ -1,52 +1,42 @@
 import Link from "next/link";
 
-import { Anchor, Card, Center, Flex, Text } from "@mantine/core";
+import { Anchor, Center, Flex, Text } from "@mantine/core";
 
-import DsmImage from "@/components/DsmImage";
-
-import { LOGO_URL } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
 
 import { SignUpFormView } from "./_viewModules/SignUpFormView";
 import { SIGN_UP_PAGE } from "@/constants/dataTestId";
+import DsmFormWrapper from "@/components/DsmFormWrapper";
+import { SIGN_UP_DESCRIPTION, SIGN_UP_TITLE } from "@/constants/loginSignup";
 
 const { LOGIN } = routes;
 
+const renderFormView = () => (
+  <>
+    <SignUpFormView />
+    <Flex justify="center" gap={2}>
+      <Text>Already have an account?</Text>
+      <Anchor
+        c="var(--mantine-color-dsm-primary-5)"
+        fw="bold"
+        href={LOGIN}
+        component={Link}
+        data-testid={SIGN_UP_PAGE.LOGIN_LINK}
+      >
+        Log In
+      </Anchor>
+    </Flex>
+  </>
+);
+
 const SignUp = () => {
   return (
-    <Center
-      h="100vh"
-      bg="light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7))"
-      data-testid={SIGN_UP_PAGE.ROOT}
-    >
-      <Card shadow="xl" radius="md" padding="30px 60px" w={500}>
-        <Flex direction={"column"} gap={"md"}>
-          <Flex justify="center">
-            <DsmImage
-              w={150}
-              h={150}
-              src={LOGO_URL}
-              data-testid={SIGN_UP_PAGE.LOGO}
-            />
-          </Flex>
-          <Text size="xl" fw={700} ta="center">
-            Create an account
-          </Text>
-          <SignUpFormView />
-          <Flex justify="center" gap={2}>
-            <Text>Already have an account?</Text>
-            <Anchor
-              c="var(--mantine-color-dsm-primary-5)"
-              fw="bold"
-              href={LOGIN}
-              component={Link}
-              data-testid={SIGN_UP_PAGE.LOGIN_LINK}
-            >
-              Log In
-            </Anchor>
-          </Flex>
-        </Flex>
-      </Card>
+    <Center h="100vh" bg="#09060FE5" c="white" data-testid={SIGN_UP_PAGE.ROOT}>
+      <DsmFormWrapper
+        title={SIGN_UP_TITLE}
+        description={SIGN_UP_DESCRIPTION}
+        formView={renderFormView}
+      />
     </Center>
   );
 };
