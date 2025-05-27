@@ -1,0 +1,10 @@
+.secTitle {
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.3;
+  font-size: 36px;
+
+  .highlight {
+    color: #f28315;
+  }
+}
