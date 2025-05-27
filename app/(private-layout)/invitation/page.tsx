@@ -148,7 +148,11 @@ const Invitation = async ({
             </Text>
           </Flex>
           <Flex justify={"center"} gap={"xl"} w={"100%"}>
-            <InvitationAcceptBtn tenantId={orgId} userId={userId} />
+            <InvitationAcceptBtn
+              userId={userId}
+              tenantId={orgId}
+              invitationKey={invitationKey}
+            />
           </Flex>
         </Flex>
       </Card>
