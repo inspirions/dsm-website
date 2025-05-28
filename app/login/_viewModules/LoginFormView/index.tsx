@@ -10,11 +10,11 @@ import { routes } from "@/constants/routeConstants";
 
 import { LoginForm } from "./LoginForm";
 
-import { login } from "../../actions";
+import { login, setOtpCookie } from "../../actions";
 import { LoginType } from "../../_schema/login";
 
 const { SUCCESS } = commons;
-const { GET_STARTED, INVITATION } = routes;
+const { GET_STARTED, INVITATION, VERIFICATION } = routes;
 
 const LoginFormWrapper = () => {
   const router = useRouter();
@@ -25,11 +25,18 @@ const LoginFormWrapper = () => {
     try {
       const res = await login(payload);
 
-      if (res.code === SUCCESS && res.data.isVerified) {
-        if (searchParams.size) {
-          router.push(`${INVITATION}?${searchParams.toString()}`);
+      if (res.code === SUCCESS) {
+        if (res.data.isVerified) {
+          if (searchParams.size) {
+            router.push(`${INVITATION}?${searchParams.toString()}`);
+          } else {
+            router.push(GET_STARTED);
+          }
         } else {
-          router.push(GET_STARTED);
+          await setOtpCookie();
+          router.push(
+            `${VERIFICATION}?email=${payload.email}&returnTo=${GET_STARTED}`
+          );
         }
       }
 
