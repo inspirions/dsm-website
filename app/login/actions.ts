@@ -4,7 +4,12 @@ import { cookies } from "next/headers";
 
 import { loginAPI } from "@/lib/api";
 
-import { commons, DSM_COOKIE_DOMAIN, IS_PROD } from "@/constants/commons";
+import {
+  commons,
+  DSM_COOKIE_DOMAIN,
+  DSM_SIGN_UP_OTP_NAV,
+  IS_PROD,
+} from "@/constants/commons";
 import { DSM_TOKEN } from "@/constants/commons";
 
 import { LoginType } from "./_schema/login";
@@ -29,4 +34,17 @@ export const login = async (payload: LoginType) => {
   }
 
   return response;
+};
+
+export const setOtpCookie = async () => {
+  const cookieStore = await cookies();
+  cookieStore.set({
+    name: DSM_SIGN_UP_OTP_NAV,
+    value: "true",
+    httpOnly: true,
+    path: "/",
+    maxAge: 300,
+    secure: IS_PROD,
+    sameSite: "strict",
+  });
 };

@@ -27,8 +27,10 @@ const SignUpFormWrapper = () => {
     try {
       let res;
       if (searchParams.size) {
-        const { org, role, key } = Object.fromEntries(searchParams.entries());
-        const tempPayload = { ...payload, org, role, invitationKey: key };
+        const { org, role, invitationKey } = Object.fromEntries(
+          searchParams.entries()
+        );
+        const tempPayload = { ...payload, org, role, invitationKey };
         res = await invitationSignUp(tempPayload);
       } else {
         res = await signUp(payload);
