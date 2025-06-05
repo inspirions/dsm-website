@@ -31,6 +31,19 @@ export const myTheme = createTheme({
       "#5d3a9b",
       "#4c2e82",
     ],
+    //need to update dark primary in future
+    "dsm-dark-primary": [
+      "#f5effe",
+      "#e4dcf2",
+      "#c7b7e2",
+      "#a78fd2",
+      "#8d6dc4",
+      "#7d58bc",
+      "#744db9",
+      "#633ea3",
+      "#5d3a9b",
+      "#4c2e82",
+    ],
     "dsm-orange": [
       "#fff3e1",
       "#ffe6cd",

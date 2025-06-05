@@ -46,13 +46,7 @@ export const ForgotPasswordForm = ({
               />
             )}
           </Field>
-          <DsmButton
-            hideIcon
-            fullWidth
-            bg="blue"
-            type="submit"
-            loading={isSubmitting}
-          >
+          <DsmButton hideIcon fullWidth type="submit" loading={isSubmitting}>
             Forget Password
           </DsmButton>
         </Stack>
