@@ -69,7 +69,6 @@ export const OrganizationListView = ({
       <Flex direction={"column"} align={"center"} py={"lg"}>
         <Text c={"gray"}>Not seeing your organization?</Text>
         <Anchor
-          c={"blue"}
           component={Link}
           href={LOGIN}
           data-testid={GET_STARTED_PAGE.LOGIN_LINK}
