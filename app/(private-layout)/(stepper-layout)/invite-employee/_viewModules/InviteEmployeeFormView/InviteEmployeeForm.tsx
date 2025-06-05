@@ -192,7 +192,6 @@ export const InviteEmployeeForm = ({
               <DsmButton
                 hideIcon
                 size="xs"
-                color="blue"
                 variant="transparent"
                 onClick={handleSkipClick}
               >
@@ -200,7 +199,6 @@ export const InviteEmployeeForm = ({
               </DsmButton>
               <DsmButton
                 size="xs"
-                color="blue"
                 loading={isSubmitting}
                 disabled={!invites.length}
                 iconProps={{ icon: "user" }}
