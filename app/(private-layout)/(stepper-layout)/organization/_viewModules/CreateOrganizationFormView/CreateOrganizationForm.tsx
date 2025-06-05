@@ -115,7 +115,7 @@ export const CreateOrganizationForm = ({
               )}
             </Field>
             <Field name="description">
-              {({ field, meta, form }: FieldProps) => (
+              {({ field, meta }: FieldProps) => (
                 <DsmTextAreaInput
                   maxRows={3}
                   label="Organization Description"
@@ -136,7 +136,6 @@ export const CreateOrganizationForm = ({
             <DsmButton
               hideIcon
               size="xs"
-              color="blue"
               variant="transparent"
               onClick={handleSkipClick}
             >
@@ -145,7 +144,6 @@ export const CreateOrganizationForm = ({
             <DsmButton
               size="xs"
               fullWidth
-              bg="blue"
               type="submit"
               loading={isSubmitting}
               iconProps={{ icon: "plus" }}
