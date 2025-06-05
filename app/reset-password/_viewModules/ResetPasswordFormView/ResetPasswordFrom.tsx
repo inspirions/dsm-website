@@ -51,13 +51,7 @@ export const ResetPasswordFrom = ({ onSubmit }: ResetPasswordFormPropsType) => {
               />
             )}
           </Field>
-          <DsmButton
-            hideIcon
-            fullWidth
-            bg="blue"
-            type="submit"
-            loading={isSubmitting}
-          >
+          <DsmButton hideIcon fullWidth type="submit" loading={isSubmitting}>
             Submit
           </DsmButton>
         </Stack>

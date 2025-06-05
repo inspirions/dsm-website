@@ -43,7 +43,6 @@ const Login = () => {
           <Flex justify="center" gap={2}>
             <Text>Don't have an account?</Text>
             <Anchor
-              c="blue"
               fw="bold"
               href={SIGN_UP}
               component={Link}
