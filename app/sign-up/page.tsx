@@ -14,7 +14,11 @@ const { LOGIN } = routes;
 
 const SignUp = () => {
   return (
-    <Center h="100vh" bg="#fafbfc" data-testid={SIGN_UP_PAGE.ROOT}>
+    <Center
+      h="100vh"
+      bg="light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7))"
+      data-testid={SIGN_UP_PAGE.ROOT}
+    >
       <Card shadow="xl" radius="md" padding="30px 60px" w={500}>
         <Flex direction={"column"} gap={"md"}>
           <Flex justify="center">
@@ -32,7 +36,7 @@ const SignUp = () => {
           <Flex justify="center" gap={2}>
             <Text>Already have an account?</Text>
             <Anchor
-              c="blue"
+              c="var(--mantine-color-dsm-primary-5)"
               fw="bold"
               href={LOGIN}
               component={Link}

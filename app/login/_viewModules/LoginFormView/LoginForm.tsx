@@ -96,17 +96,9 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
           )}
           <Group justify="space-between">
             <Checkbox label="Remember me" radius={"sm"} />
-            <Anchor c="blue" href={FORGOT_PASSWORD}>
-              Forgot Password
-            </Anchor>
+            <Anchor href={FORGOT_PASSWORD}>Forgot Password</Anchor>
           </Group>
-          <DsmButton
-            hideIcon
-            fullWidth
-            bg="blue"
-            type="submit"
-            loading={isSubmitting}
-          >
+          <DsmButton hideIcon fullWidth type="submit" loading={isSubmitting}>
             Sign in
           </DsmButton>
         </Stack>

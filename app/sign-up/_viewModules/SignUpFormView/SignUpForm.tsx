@@ -111,13 +111,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
             </Text>
           )}
 
-          <DsmButton
-            hideIcon
-            fullWidth
-            bg="blue"
-            type="submit"
-            loading={isSubmitting}
-          >
+          <DsmButton hideIcon fullWidth type="submit" loading={isSubmitting}>
             Sign up
           </DsmButton>
         </Stack>
