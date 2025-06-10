@@ -3,6 +3,7 @@
 import { DsmIconButton } from "@/components/DsmIconButton";
 import { handleOrganizationNav } from "../actions";
 import { DSM_APP_URL } from "@/constants/commons";
+import { GET_STARTED_PAGE } from "@/constants/dataTestId";
 
 export const OrganizationNavBtn = ({ orgId }: { orgId: string }) => {
   const handleClick = async () => {
@@ -11,6 +12,7 @@ export const OrganizationNavBtn = ({ orgId }: { orgId: string }) => {
   };
   return (
     <DsmIconButton
+      data-testid={`${GET_STARTED_PAGE.NAV_ORGANIZATION_BTN}-${orgId}`}
       size={"xl"}
       variant="subtle"
       iconProps={{ icon: "arrowRight", size: 24 }}
