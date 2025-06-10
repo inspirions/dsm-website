@@ -37,6 +37,7 @@ export const GET_STARTED_PAGE = {
   STAND_UP_IMAGE: "get-started-page-stand-up-image",
   ORGANIZATION_LIST: "get-started-page-organization-list",
   CREATE_ORGANIZATION_BTN: "get-started-page-create-organization-btn",
+  NAV_ORGANIZATION_BTN: "organization-nav-btn",
 };
 
 export const LOGOUT_BTN = "logout-btn";
