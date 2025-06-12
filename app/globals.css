@@ -1,5 +1,12 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
 button:disabled {
   background: var(--mantine-color-gray-4);
   color: #fff;
 }
 
+html {
+  scroll-behavior: smooth;
+}

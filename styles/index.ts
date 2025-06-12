@@ -6,6 +6,14 @@ export const myTheme = createTheme({
   focusRing: "auto",
   fontFamily: "Urbanist, sans-serif",
   headings: { fontFamily: "Urbanist, sans-serif" },
+  breakpoints: {
+    xs: "30em",
+    sm: "48em",
+    md: "64em",
+    lg: "74em",
+    xl: "90em",
+    xxl: "120em",
+  },
   components: {
     ActionIcon: {
       defaultProps: {
@@ -17,7 +25,20 @@ export const myTheme = createTheme({
         type: "bars",
       },
     },
+
+    //might need in future for dark mode
+    // TextInput: {
+    //   defaultProps: {
+    //     styles: {
+    //       input: {
+    //         color: "#fff",
+    //         backgroundColor: "#333",
+    //       },
+    //     },
+    //   },
+    // },
   },
+
   colors: {
     "dsm-primary": [
       "#f5effe",
@@ -56,6 +77,7 @@ export const myTheme = createTheme({
       "#c06300",
       "#a75400",
     ],
+
     "dsm-green": [
       "#e6ffee",
       "#d3f9e0",

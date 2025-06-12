@@ -1,0 +1,36 @@
+.root {
+  gap: 16px;
+  align-items: center;
+}
+
+.list {
+  gap: 24px;
+  &::before {
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    border-width: 0 0 0 var(--tabs-list-border-width);
+  }
+}
+
+.tab {
+  border-radius: 0;
+  white-space: normal;
+  background-color: transparent;
+  border-width: 0 0 0 var(--tabs-list-border-width);
+
+  &:hover {
+    background-color: #1a112b;
+  }
+}
+
+.tabProgress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 0%;
+  background: #a084e8;
+  border-radius: 2px;
+  transition: height 0.2s linear;
+  z-index: 1;
+}
