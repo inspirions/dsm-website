@@ -21,7 +21,6 @@ import {
 } from "../../_schema/signUp";
 
 import { SignUpFormPropsType } from "../../types";
-import classes from "./index.module.css";
 
 export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
   const searchParams = useSearchParams();
@@ -67,7 +66,6 @@ export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
             {({ field, meta }: FieldProps) => (
               <DsmTextInput
                 isRequired
-                className={classes.formInput}
                 placeholder="Enter Name"
                 label="Name"
                 error={meta.error && meta.touched ? meta.error : ""}
@@ -82,7 +80,6 @@ export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
             {({ field, meta }: FieldProps) => (
               <DsmTextInput
                 isRequired
-                className={classes.formInput}
                 label="Email"
                 placeholder="Enter email"
                 readOnly={!!email}
@@ -93,21 +90,11 @@ export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
               />
             )}
           </Field>
-          <DsmPasswordInputWithValidation
-            inputProps={{
-              styles: {
-                input: {
-                  color: "#fff",
-                  backgroundColor: "#333",
-                },
-              },
-            }}
-          />
+          <DsmPasswordInputWithValidation />
           <Field name="confirmPassword">
             {({ field, meta }: FieldProps) => (
               <PasswordInput
                 withAsterisk
-                className={classes.formInput}
                 label="Confirm Password"
                 placeholder="Confirm password"
                 error={meta.error && meta.touched ? meta.error : ""}

@@ -18,8 +18,6 @@ import {
 } from "../../_schema/forgotPassword";
 import { ForgotPasswordFormPropsType } from "../../types";
 
-import classes from "./index.module.css";
-
 export const ForgotPasswordForm = ({
   onSubmit,
 }: ForgotPasswordFormPropsType) => {
@@ -41,7 +39,6 @@ export const ForgotPasswordForm = ({
             {({ field, meta }: FieldProps) => (
               <DsmTextInput
                 isRequired
-                className={classes.formInput}
                 placeholder="Enter email"
                 label="Email"
                 error={meta.error && meta.touched ? meta.error : ""}

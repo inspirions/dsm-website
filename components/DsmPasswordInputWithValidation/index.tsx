@@ -63,7 +63,7 @@ const getStrength = (password: string) => {
 export const DsmPasswordInputWithValidation = (
   props: DsmPasswordInputWithValidationPropsType
 ) => {
-  const { passwordFieldName = "password", inputProps } = props;
+  const { passwordFieldName = "password" } = props;
   const [popoverOpened, setPopoverOpened] = useState(false);
   const [value, setValue] = useState("");
   const checks = requirements.map((requirement, index) => (
@@ -103,7 +103,6 @@ export const DsmPasswordInputWithValidation = (
                   field.onChange(event);
                   setValue(event.target.value);
                 }}
-                {...inputProps}
               />
             )}
           </Field>
