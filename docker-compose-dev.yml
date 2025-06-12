@@ -1,0 +1,14 @@
+services:
+  dsm-website:
+    build: .
+    image: dsm-dev-website
+    ports:
+      - "${DSM_WEB_PORT}:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - dsm-dev-network
+networks:
+  dsm-dev-network:
+    driver: bridge
