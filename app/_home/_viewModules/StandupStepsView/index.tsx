@@ -6,7 +6,13 @@ export const StandupStepsView = () => {
     <Flex gap={"40px"} w={"1200px"}>
       <Flex direction={"column"} align={"center"} gap={"37px"} py={"24px"}>
         {Array.from({ length: 3 }).map((_, index) => (
-          <Text fw={"bold"} lh={1.3} size={"96px"} c={"#763BC4"}>
+          <Text
+            key={`${index}-index-key`}
+            fw={"bold"}
+            lh={1.3}
+            size={"96px"}
+            c={"#763BC4"}
+          >
             0{index + 1}
           </Text>
         ))}
