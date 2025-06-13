@@ -109,3 +109,30 @@ export const NAV_ITEMS = [
     link: "#faq",
   },
 ];
+
+export const FAQS = [
+  {
+    value: "0",
+    title: "What is DailySync.ai?",
+    description:
+      "DailySync.ai is an AI-powered platform that turns daily standups into structured insights. It helps teams submit updates, track performance, manage requests, and generate smart reports—improving visibility, accountability, and team effectiveness without daily meetings.",
+  },
+  {
+    value: "1",
+    title: "How does DailySync.ai work?",
+    description:
+      "DailySync.ai works by letting team members submit quick daily standup notes using customized questions tailored for each team or project. The AI then automatically summarizes all these inputs into clear, visual reports that highlight progress, blockers, and overall team activity. You can also chat directly with the AI to get instant answers about project status, individual performance, missed standups, or any delays. Additionally, DailySync.ai handles leave, work-from-home, and equipment requests all in one place, with an approval process that ties into team productivity insights. In short, DailySync.ai helps keep everyone aligned, informed, and productive—without the need for constant meetings",
+  },
+  {
+    value: "2",
+    title: "Who can benefit from using DailySync.ai?",
+    description:
+      "DailySync.ai helps many people in an organization. Team members can quickly share updates without long meetings, keeping everyone on the same page. Team leads and managers can track progress, spot problems early, and support their teams with real-time insights. Project managers use it to monitor project health, find risks, and keep things on schedule. HR teams get clear views of attendance, leave, and engagement. Executives get a big-picture overview of how the company is doing without constant check-ins. Plus, remote and hybrid teams stay connected and accountable, no matter where they work.",
+  },
+  {
+    value: "4",
+    title: "Is my data safe with DailySync.ai?",
+    description:
+      "Absolutely! Your data is safe with DailySync.ai. The platform uses strong encryption to protect your information both while it’s being sent and when it’s stored. Access to data is strictly controlled—only authorized team members and managers can see what they’re supposed to. DailySync also supports secure login methods like Single Sign-On to keep accounts safe. Your organization’s data is kept separate from others to ensure privacy, and DailySync never shares your information with third parties without your clear permission. Overall, it’s built with security and privacy as a top priority.",
+  },
+];
