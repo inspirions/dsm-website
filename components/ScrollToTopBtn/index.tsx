@@ -2,7 +2,7 @@
 
 import { DsmIconButton } from "@/components/DsmIconButton";
 
-export const ScrollToTopBtnView = () => {
+export const ScrollToTopBtn = () => {
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

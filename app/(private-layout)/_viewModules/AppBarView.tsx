@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 
-import { AppShell, Flex, Text } from "@mantine/core";
-
-import { DsmButton } from "@/components/DsmButton";
-import DsmImage from "@/components/DsmImage";
-
-import { LOGO_URL } from "@/constants/commons";
-import { LOGOUT_BTN } from "@/constants/dataTestId";
+import { AppShell } from "@mantine/core";
 
 import { handleLogout } from "../actions";
+import {
+  Navbar,
+  NavbarButton,
+  NavbarLogo,
+  NavBody,
+} from "@/components/ui/resizable-navbar";
 
 export const AppBarView = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(false);
@@ -21,27 +21,20 @@ export const AppBarView = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <AppShell header={{ height: 60 }}>
-      <AppShell.Header>
-        <Flex h={"100%"} justify={"space-between"} align={"center"} px={"lg"}>
-          <Flex gap={"md"} align={"center"}>
-            <DsmImage w={40} h={40} src={LOGO_URL} />
-            <Text size="xl" fw={"bold"}>
-              Daily Sync
-            </Text>
-          </Flex>
-          <DsmButton
-            variant="light"
-            loading={loading}
-            data-testid={LOGOUT_BTN}
-            iconProps={{ icon: "logout" }}
+    <AppShell header={{ height: 60 }} bg={"#09060FE5"} c={"white"}>
+      <Navbar className="top-[-12]">
+        <NavBody>
+          <NavbarLogo />
+          <NavbarButton
+            variant="primary"
+            className="bg-[#1A112B] border border-[#F5EFFE] text-[#F5EFFE] rounded-[8px]"
             onClick={handleClick}
           >
             Logout
-          </DsmButton>
-        </Flex>
-      </AppShell.Header>
-      <AppShell.Main>{children}</AppShell.Main>
+          </NavbarButton>
+        </NavBody>
+      </Navbar>
+      <AppShell.Main className="w-full">{children}</AppShell.Main>
     </AppShell>
   );
 };
