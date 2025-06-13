@@ -13,14 +13,14 @@ import {
 
 import { HOME_PAGE_IMAGE_URL, STANDUP_IMAGE_URL } from "@/constants/commons";
 
-import { FooterView } from "./_viewModules/FooterView";
+import { FooterLayout } from "../../components/FooterLayout";
 import { AccordionView } from "./_viewModules/AccordionView";
 import { QuoteCardsView } from "./_viewModules/QuoteCardsView";
 import { TabContentView } from "./_viewModules/TabContentView";
 import { HurdleItemsView } from "./_viewModules/HurdleItemsView";
 import { FeatureCardsView } from "./_viewModules/FeatureCardsView";
 import { StandupStepsView } from "./_viewModules/StandupStepsView";
-import { ScrollToTopBtnView } from "./_viewModules/ScrollToTopBtnView";
+import { ScrollToTopBtn } from "../../components/ScrollToTopBtn";
 
 import classes from "./index.module.css";
 import Link from "next/link";
@@ -28,7 +28,7 @@ import { NAV_ITEMS } from "./_constants";
 
 const HomePage = () => {
   return (
-    <Container fluid bg={"#09060FE5"} c={"white"}>
+    <Container fluid bg="#09060FE5" c="white">
       <Navbar className="top-[-12]">
         <NavBody>
           <NavbarLogo />
@@ -42,9 +42,9 @@ const HomePage = () => {
           </NavbarButton>
         </NavBody>
       </Navbar>
-      <Container id="home" mih={"100vh"} size={"xl"}>
-        <Flex pt={"144px"} direction={"column"} gap={"48px"}>
-          <Text ta={"center"} size="48px" fw={"bold"} component="div">
+      <Container id="home" mih="100vh" size="xl">
+        <Flex pt="144px" direction="column" gap="48px">
+          <Text ta="center" size="48px" fw="bold" component="div">
             See What Your
             <Text span inherit>
               <FlipWords
@@ -56,7 +56,7 @@ const HomePage = () => {
             <Text span inherit>
               Did Last
             </Text>
-            <Text span inherit ta={"center"}>
+            <Text span inherit ta="center">
               <FlipWords
                 words={["Sunday", "Week", "Month"]}
                 duration={1500}
@@ -64,35 +64,35 @@ const HomePage = () => {
               />
             </Text>
           </Text>
-          <Flex direction={"column"} align={"center"}>
-            <Text size={"24px"} lh={1.5}>
+          <Flex direction="column" align="center">
+            <Text size="24px" lh={1.5}>
               Capture, summarize, and gain valuable insights from your daily
               standups — all in one place. Let AI handle the
             </Text>
-            <Text size={"24px"} lh={1.5}>
+            <Text size="24px" lh={1.5}>
               repetitive work, so your team can stay focused on what really
               matters.
             </Text>
           </Flex>
-          <Flex justify={"center"}>
+          <Flex justify="center">
             <Link href="/sign-up" style={{ textDecoration: "none" }}>
               <DsmButton
                 size="xl"
-                px={"24px"}
+                px="24px"
                 iconProps={{ icon: "ai" }}
-                bg={"#5D3A9B"}
-                bd={"1px solid #A57CED"}
+                bg="#5D3A9B"
+                bd="1px solid #A57CED"
               >
                 Get Started
               </DsmButton>
             </Link>
           </Flex>
-          <DsmImage src={HOME_PAGE_IMAGE_URL} w={"100%"} />
+          <DsmImage src={HOME_PAGE_IMAGE_URL} w="100%" />
         </Flex>
       </Container>
-      <Container h={"100vh"} size={"xl"}>
-        <Center h={"100%"}>
-          <Flex direction={"column"} gap={"48px"}>
+      <Container h="100vh" size="xl">
+        <Center h="100%">
+          <Flex direction="column" gap="48px">
             <Text className={classes.secTitle}>
               Daily{" "}
               <Text span className={classes.highlight} inherit>
@@ -103,15 +103,15 @@ const HomePage = () => {
                 Teams Back
               </Text>
             </Text>
-            <Flex justify={"center"} pos={"relative"}>
-              <DsmImage src={STANDUP_IMAGE_URL} w={"100%"} />
+            <Flex justify="center" pos="relative">
+              <DsmImage src={STANDUP_IMAGE_URL} w="100%" />
               <HurdleItemsView />
             </Flex>
           </Flex>
         </Center>
       </Container>
-      <Container mih={"100vh"} size={"xl"}>
-        <Flex direction={"column"} gap={"48px"}>
+      <Container mih="100vh" size="xl">
+        <Flex direction="column" gap="48px">
           <Text className={classes.secTitle}>
             Streamlined{" "}
             <Text span className={classes.highlight} inherit>
@@ -125,8 +125,8 @@ const HomePage = () => {
           <TabContentView />
         </Flex>
       </Container>
-      <Container id="features" mih={"100vh"} size={"xl"}>
-        <Flex direction={"column"} gap={"48px"}>
+      <Container id="features" mih="100vh" size="xl">
+        <Flex direction="column" gap="48px">
           <Text className={classes.secTitle}>
             Powerful{" "}
             <Text span className={classes.highlight} inherit>
@@ -142,8 +142,8 @@ const HomePage = () => {
           </Center>
         </Flex>
       </Container>
-      <Container mih={"100vh"} size={"xl"}>
-        <Flex direction={"column"} gap={"48px"}>
+      <Container mih="100vh" size="xl">
+        <Flex direction="column" gap="48px">
           <Text className={classes.secTitle}>
             Your{" "}
             <Text span className={classes.highlight} inherit>
@@ -159,8 +159,8 @@ const HomePage = () => {
           </Center>
         </Flex>
       </Container>
-      <Container mih={"100vh"} size={"xl"}>
-        <Flex direction={"column"} gap={"80px"}>
+      <Container mih="100vh" size="xl">
+        <Flex direction="column" gap="80px">
           <Text className={classes.secTitle}>
             See{" "}
             <Text span className={classes.highlight} inherit>
@@ -177,8 +177,8 @@ const HomePage = () => {
           </Center>
         </Flex>
       </Container>
-      <Container id="faq" mih={"100vh"} size={"xl"}>
-        <Flex direction={"column"} gap={"48px"}>
+      <Container id="faq" mih="100vh" size="xl">
+        <Flex direction="column" gap="48px">
           <Text className={classes.secTitle}>
             Frequently Asked{" "}
             <Text span className={classes.highlight} inherit>
@@ -191,9 +191,9 @@ const HomePage = () => {
           </Center>
         </Flex>
       </Container>
-      <Container size={"xl"} pb={"48px"}>
+      <Container size="xl" pb="48px">
         <Center style={{ flexDirection: "column", gap: "24px" }}>
-          <ScrollToTopBtnView />
+          <ScrollToTopBtn />
           <Text className={classes.secTitle}>
             Take the{" "}
             <Text span className={classes.highlight} inherit>
@@ -212,8 +212,8 @@ const HomePage = () => {
           </Link>
         </Center>
       </Container>
-      <Container size={"xl"} pb={"40px"}>
-        <FooterView />
+      <Container size="xl" pb="40px">
+        <FooterLayout />
       </Container>
     </Container>
   );

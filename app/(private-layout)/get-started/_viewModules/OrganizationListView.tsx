@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Anchor, Card, Flex, Text } from "@mantine/core";
+import { Anchor, Flex, Text } from "@mantine/core";
 
 import { DsmButton } from "@/components/DsmButton";
 import { DsmInfoAvatar } from "@/components/DsmInfoAvatar";
@@ -10,6 +10,10 @@ import { GET_STARTED_PAGE } from "@/constants/dataTestId";
 
 import { OrganizationListViewPropsType } from "../types";
 import { OrganizationNavBtn } from "./OrganizationNavBtn";
+import { DsmTitleText } from "@/components/DsmTitleText";
+import { OrganizationCard } from "../_components/OrganizationCard";
+import { DsmContentWrapper } from "@/components/DsmContentWrapper";
+import { ScrollToTopBtn } from "@/components/ScrollToTopBtn";
 
 const { LOGIN } = routes;
 
@@ -41,41 +45,65 @@ export const OrganizationListView = ({
   }
 
   return (
-    <Flex
-      gap={"sm"}
-      direction={"column"}
-      data-testid={GET_STARTED_PAGE.ORGANIZATION_LIST}
-    >
-      <Flex direction={"column"} align={"center"} gap={"4px"}>
-        <Text fw={"bold"} size="32px">
-          Welcome back!
-        </Text>
-        <Text>
-          Choose an organization below to get back to working with your team
-        </Text>
-      </Flex>
-      {organizations.map((indvOrg) => (
-        <Card key={indvOrg.id} shadow="xl" radius="md" miw={"600px"} p={"xl"}>
-          <Flex gap={"sm"} justify={"space-between"}>
-            <DsmInfoAvatar
-              label={indvOrg.name}
-              labelProps={{ fw: "bold", style: { fontSize: "20px" } }}
-              avatarProps={{ size: 40, radius: "lg" }}
-            />
-            <OrganizationNavBtn orgId={indvOrg.id} />
-          </Flex>
-        </Card>
-      ))}
-      <Flex direction={"column"} align={"center"} py={"lg"}>
-        <Text c={"gray"}>Not seeing your organization?</Text>
-        <Anchor
-          component={Link}
-          href={LOGIN}
-          data-testid={GET_STARTED_PAGE.LOGIN_LINK}
+    <DsmContentWrapper>
+      <Flex
+        gap={"40px"}
+        direction={"column"}
+        data-testid={GET_STARTED_PAGE.ORGANIZATION_LIST}
+        style={{ padding: "60px 0" }}
+      >
+        <Flex direction={"column"} align={"center"} gap={"12px"}>
+          <DsmTitleText
+            c={"#F5EFFE"}
+            text="Welcome {Back!}"
+            wrapperStyleProps={{
+              style: { justifyContent: "center", alignItems: "center" },
+            }}
+          />
+          <Text size="24px" c={"#F5EFFE"}>
+            Choose an organization below to get back to working with your team
+          </Text>
+        </Flex>
+        <div className="grid grid-cols-3 gap-6">
+          {organizations.map((indvOrg) => (
+            <OrganizationCard key={`${indvOrg.id}-orgKey`} {...indvOrg} />
+          ))}
+        </div>
+        <Flex
+          align={"center"}
+          justify={"center"}
+          direction={"column"}
+          mah={"300px"}
+          gap={"30px"}
         >
-          Try a different email
-        </Anchor>
+          <Flex
+            gap={"8px"}
+            pt={"60px"}
+            direction={"column"}
+            align={"center"}
+            justify={"center"}
+          >
+            <DsmTitleText
+              c={"#F5EFFE"}
+              fw={700}
+              text="Not seeing your {organization?}"
+              wrapperStyleProps={{
+                style: { justifyContent: "center", alignItems: "center" },
+              }}
+            />
+            <Anchor
+              component={Link}
+              href={LOGIN}
+              data-testid={GET_STARTED_PAGE.LOGIN_LINK}
+              fw={600}
+              fz={"24px"}
+            >
+              Try a different email
+            </Anchor>
+          </Flex>
+          <ScrollToTopBtn />
+        </Flex>
       </Flex>
-    </Flex>
+    </DsmContentWrapper>
   );
 };

@@ -136,3 +136,42 @@ export const FAQS = [
       "Absolutely! Your data is safe with DailySync.ai. The platform uses strong encryption to protect your information both while it’s being sent and when it’s stored. Access to data is strictly controlled—only authorized team members and managers can see what they’re supposed to. DailySync also supports secure login methods like Single Sign-On to keep accounts safe. Your organization’s data is kept separate from others to ensure privacy, and DailySync never shares your information with third parties without your clear permission. Overall, it’s built with security and privacy as a top priority.",
   },
 ];
+
+export const FEATURE_CARDS = [
+  {
+    icon: "hourGlass" as const,
+    title: "Standup Summaries",
+    description:
+      "Automatically capture and summarize daily standup meeting information accessible to everyone",
+  },
+  {
+    icon: "note" as const,
+    title: "AI Chat Assistant",
+    description:
+      "Chat with our AI to get updates about employees, teams, and projects without digging through notes.",
+  },
+  {
+    icon: "note" as const,
+    title: "AI Insights",
+    description:
+      "Generate valuable insights about team productivity, blockers, and progress trends over time.",
+  },
+  {
+    icon: "note" as const,
+    title: "Searchable History",
+    description:
+      "Instant access to past standups and discussions for easy reference and accountability",
+  },
+  {
+    icon: "hourGlass" as const,
+    title: "Time-Saving Updates",
+    description:
+      "Eliminate redundant status meetings with instant AI-powered updates that keep your team informed without disrupting their workflow.",
+  },
+  {
+    icon: "handShake" as const,
+    title: "Remote-Ready",
+    description:
+      "Designed for distributed teams with async updates, timezone-friendly summaries, and seamless collaboration across locations.",
+  },
+];
