@@ -8,7 +8,7 @@ services:
       - .env
     restart: unless-stopped
     networks:
-      - dsm-dev-network
+      - dsm-web-dev-network
 networks:
-  dsm-dev-network:
+  dsm-web-dev-network:
     driver: bridge
