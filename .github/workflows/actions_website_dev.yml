@@ -23,14 +23,14 @@ jobs:
           script: |
             set -e  # Stop on error
 
-            echo "Navigating to project directory..."
+            echo "📁 Navigating to project directory..."
             cd /home/ubuntu/dsm-website/dsm-website || { echo "Directory not found!"; exit 1; }
 
             echo "Setting up SSH agent..."
             eval "$(ssh-agent -s)"
             ssh-add ~/.ssh/dsm-website_dev
 
-            echo "🚀 Fetching latest changes..."
+            echo "📥 Fetching latest changes..."
             git checkout develop
             git pull origin develop --rebase
 
@@ -40,14 +40,8 @@ jobs:
             echo "🧹 Cleaning up unused images..."
             docker image prune -f
 
-            echo "Checking container status..."
-            if docker compose -f docker-compose-dev.yml ps | grep "Up"; then
-              echo "Containers are running. Restarting..."
-              docker compose -f docker-compose-dev.yml restart
-            else
-              echo "Containers not running. 🚀 Starting..."
-              docker compose -f docker-compose-dev.yml up -d
-            fi
+            echo "🔁 Recreating containers with latest image..."
+            docker compose -f docker-compose-dev.yml up -d --force-recreate
 
             echo "⏳ Waiting for containers to be healthy..."
             sleep 15
