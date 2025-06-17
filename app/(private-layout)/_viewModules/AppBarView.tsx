@@ -21,7 +21,7 @@ export const AppBarView = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <AppShell header={{ height: 60 }} bg={"#09060FE5"} c={"white"}>
+    <AppShell header={{ height: 20 }} bg={"#09060FE5"} c={"white"}>
       <Navbar className="top-[-12]">
         <NavBody>
           <NavbarLogo />
@@ -34,7 +34,12 @@ export const AppBarView = ({ children }: { children: React.ReactNode }) => {
           </NavbarButton>
         </NavBody>
       </Navbar>
-      <AppShell.Main className="w-full">{children}</AppShell.Main>
+      <AppShell.Main
+        className="w-full"
+        style={{ minHeight: "calc(100dvh - 62px)" }}
+      >
+        {children}
+      </AppShell.Main>
     </AppShell>
   );
 };
