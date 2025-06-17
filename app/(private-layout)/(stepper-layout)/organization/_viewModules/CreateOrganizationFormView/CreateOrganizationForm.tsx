@@ -28,6 +28,8 @@ import { DsmProfileImgUploader } from "@/components/DsmProfileImgUploader";
 import { STORAGE_FOLDER } from "@/constants/commons";
 import { UploadedFileType } from "@/components/DsmProfileImgUploader/types";
 
+import classes from "./index.module.css";
+
 const { GET_STARTED } = routes;
 const { ORGANIZATION_LOGO } = STORAGE_FOLDER;
 
@@ -80,6 +82,11 @@ export const CreateOrganizationForm = ({
               <Field name="logoUrl">
                 {({ field, meta }: FieldProps) => (
                   <DsmProfileImgUploader
+                    styles={{
+                      root: {
+                        backgroundColor: "#333",
+                      },
+                    }}
                     value={field.value}
                     wrapperProps={{ mx: 0 }}
                     storageFolder={ORGANIZATION_LOGO}
@@ -92,6 +99,7 @@ export const CreateOrganizationForm = ({
             <Field name="name">
               {({ field, meta }: FieldProps) => (
                 <DsmTextInput
+                  className={classes.formInput}
                   isRequired
                   placeholder="Enter organization name"
                   label="Organization Name"
@@ -105,6 +113,7 @@ export const CreateOrganizationForm = ({
             <Field name="slogan">
               {({ field, meta }: FieldProps) => (
                 <DsmTextInput
+                  className={classes.formInput}
                   placeholder="Enter organization slogan"
                   label="Organization Slogan"
                   error={meta.error && meta.touched ? meta.error : ""}
@@ -117,6 +126,7 @@ export const CreateOrganizationForm = ({
             <Field name="description">
               {({ field, meta }: FieldProps) => (
                 <DsmTextAreaInput
+                  className={classes.textAreaInput}
                   maxRows={3}
                   label="Organization Description"
                   placeholder="Enter organization description"
