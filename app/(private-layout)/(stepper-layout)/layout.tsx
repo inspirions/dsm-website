@@ -17,16 +17,22 @@ const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
   const { sub: userId = "" } = dsmParseJwt(token?.value || "");
 
   return (
-    <Center h={"calc(100vh - 60px)"} data-testid={ONBOARD_STEPPER.ROOT}>
-      <Container p={0} size="md" h={"70%"} w="100%">
+    <Center
+      h={"calc(100vh - 82px)"}
+      data-testid={ONBOARD_STEPPER.ROOT}
+      c="#F5EFFE"
+    >
+      <Container p={0} size="md" h={"90%"} w="100%">
         <Card
           p={0}
           h={"100%"}
           shadow="xl"
           radius="md"
           style={{ flexDirection: "row" }}
+          bg="#2a2437"
+          c="#F5EFFE"
         >
-          <Flex direction="column" pt="xl" px="44px" bg={"#fafafa"}>
+          <Flex direction="column" pt="xl" px="44px" bg="#3c2f4f">
             <Text size="xl" fw="bold" mb="md">
               Welcome to Daily Sync
             </Text>
