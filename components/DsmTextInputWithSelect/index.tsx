@@ -24,12 +24,12 @@ export const DsmTextInputWithSelect = ({
         disabled={isDisabled}
         data-testid={DSM_TEXT_INPUT_WITH_SELECT.SELECT}
         comboboxProps={{ shadow: "md" }}
-        {...selectProps}
         classNames={{
           input: classes.selectInput,
           option: classes.selectOption,
           options: classes.selectOptions,
         }}
+        {...selectProps}
       />
     ),
     [isDisabled, selectProps]
@@ -42,12 +42,12 @@ export const DsmTextInputWithSelect = ({
         disabled={isDisabled}
         withAsterisk={isRequired}
         data-testid={DSM_TEXT_INPUT_WITH_SELECT.ROOT}
-        {...restInputProps}
         classNames={{
           input: classes.input,
           wrapper: classes.wrapper,
           root: classes.root,
         }}
+        {...restInputProps}
         inputContainer={(children) => (
           <Flex>
             {children}

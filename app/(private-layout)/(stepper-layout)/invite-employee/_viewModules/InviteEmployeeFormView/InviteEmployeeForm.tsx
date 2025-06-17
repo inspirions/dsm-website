@@ -31,6 +31,18 @@ import { InviteEmployeeFormPropsType } from "../../types";
 
 import classes from "./index.module.css";
 
+const textInputStyles = {
+  input: {
+    color: "#fff",
+    backgroundColor: "#333",
+  },
+};
+const dropDownStyles = {
+  dropdown: {
+    backgroundColor: "#444",
+  },
+};
+
 export const InviteEmployeeForm = ({
   onSubmit,
 }: InviteEmployeeFormPropsType) => {
@@ -124,6 +136,9 @@ export const InviteEmployeeForm = ({
               <Field name="to">
                 {({ field, meta, form }: FieldProps) => (
                   <DsmTextInputWithSelect
+                    styles={{
+                      ...textInputStyles,
+                    }}
                     placeholder="Email to send invite"
                     helperText="Press Enter to add email to the invitation list"
                     error={meta.error && meta.touched ? meta.error : undefined}
@@ -132,6 +147,10 @@ export const InviteEmployeeForm = ({
                     onChange={field.onChange}
                     onKeyDown={handleKeyDown(form)}
                     selectProps={{
+                      styles: {
+                        ...textInputStyles,
+                        ...dropDownStyles,
+                      },
                       placeholder: "Pick Role",
                       data: USER_ROLE_OPTIONS,
                       value: userType,
@@ -154,11 +173,15 @@ export const InviteEmployeeForm = ({
                         <Flex key={indvEmail.to} justify="space-between">
                           <DsmInfoAvatar
                             label={indvEmail.to}
-                            labelProps={{ tt: "lowercase" }}
+                            labelProps={{ tt: "lowercase", c: "#fff" }}
                             avatarProps={{ size: 32, radius: "lg" }}
                           />
                           <Flex gap={"xs"} align={"center"}>
                             <Select
+                              styles={{
+                                ...textInputStyles,
+                                ...dropDownStyles,
+                              }}
                               w={100}
                               size="xs"
                               defaultValue="User"
@@ -184,7 +207,9 @@ export const InviteEmployeeForm = ({
                       ))}
                     </Flex>
                   </Flex>
-                  <Divider style={{ borderColor: "#f1f1f1" }} />
+                  <Divider
+                    style={{ borderColor: "#f1f1f1", paddingTop: "8px" }}
+                  />
                 </>
               )}
             </Flex>

@@ -1,11 +1,12 @@
 .selectOption {
-  color: var(--mantine-color-gray-7);
+  color: white;
   font-weight: 600;
   &:hover {
     background-color: var(--mantine-color-gray-1);
     color: var(--mantine-color-gray-9);
   }
   &[data-checked] {
+    color: var(--mantine-color-dsm-primary-9);
     background-color: var(--mantine-color-gray-2);
     border: 1px solid var(--mantine-color-gray-3);
   }
