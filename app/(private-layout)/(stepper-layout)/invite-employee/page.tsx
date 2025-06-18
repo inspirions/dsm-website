@@ -1,4 +1,4 @@
-import { Flex, Text } from "@mantine/core";
+import { Flex } from "@mantine/core";
 
 import { INVITE_EMPLOYEE_PAGE } from "@/constants/dataTestId";
 

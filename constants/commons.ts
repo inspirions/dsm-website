@@ -1,4 +1,4 @@
-export const LOGO_URL = "./I_logo150.png";
+export const LOGO_URL = "./DailySyncLogo.png";
 export const DSM_IMAGE_URL = "./DsmImage.png";
 export const DAILY_SYNC_LOGO_URL = "./DailySyncLogo.png";
 export const FALLBACK_IMAGE_URL = "./fallback_image.jpeg";

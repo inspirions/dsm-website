@@ -22,6 +22,8 @@ import {
 
 import { VerifyOtpFormPropsType } from "../../types";
 
+import classes from "./index.module.css";
+
 const PIN_LENGTH = 6;
 
 export const VerifyOtpForm = ({
@@ -67,6 +69,7 @@ export const VerifyOtpForm = ({
               <Field name="otp">
                 {({ field }: FieldProps) => (
                   <PinInput
+                    className={classes.pinInput}
                     size="md"
                     type="number"
                     placeholder="-"
@@ -88,7 +91,7 @@ export const VerifyOtpForm = ({
             <DsmButton
               hideIcon
               fullWidth
-              color="blue"
+              color="var(--mantine-color-dsm-primary-5)"
               type="submit"
               loading={isSubmitting}
               disabled={values.otp.length !== PIN_LENGTH}
