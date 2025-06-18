@@ -16,7 +16,7 @@ export const DsmNavigateBackBtn = (props: DsmNavigateBackBtnPropsType) => {
   return (
     <Anchor c="blue" fw="bold" href={href} component={Link}>
       <DsmButton
-        c={"blue"}
+        c={"var(--mantine-color-dsm-primary-5)"}
         variant="transparent"
         iconProps={{ icon: "arrowLeft" }}
       >
