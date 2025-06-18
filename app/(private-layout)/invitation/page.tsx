@@ -71,15 +71,22 @@ const Invitation = async ({
 
   return (
     <Center
-      bg="#fafbfc"
-      h="calc(100vh - 60px)"
-      style={{ flexDirection: "column", gap: "8px" }}
+      bg={"#09060FE5"}
+      h="calc(100vh - 82px)"
+      style={{
+        flexDirection: "column",
+        gap: "0px",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: "8px",
+      }}
     >
       <Card
         shadow="xl"
         radius="md"
         p={"44px"}
         w={"500px"}
+        bg="#2a2437"
         style={{ gap: "32px" }}
       >
         <Flex justify={"center"}>
