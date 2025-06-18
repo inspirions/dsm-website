@@ -1,0 +1,15 @@
+services:
+  dailysync-website:
+    build: .
+    image: dailysync-website-prod-image
+    container name: dailysync-website-prod
+    ports:
+      - "${DAILYSYNC_WEB_PORT}:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - dailysync-web-dev-network
+networks:
+  dailysync-web-dev-network:
+    driver: bridge

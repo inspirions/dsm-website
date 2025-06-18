@@ -1,0 +1,49 @@
+name: CICD Workflow for production[Dailysync Website]
+
+on:
+  workflow_dispatch:  
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Run Commands on Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e  # Stop on error
+
+            echo "📁 Navigating to project directory..."
+            cd /home/ubuntu/DSM-PROD-WEB/dsm-website || { echo "Directory not found!"; exit 1; }
+
+            echo "Setting up SSH agent..."
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/dsm-website-prod
+
+            echo "📥 Fetching latest changes..."
+            git checkout main
+            git pull origin main --rebase
+
+            echo "📦 Building Docker images using docker-compose-dev.yml"
+            docker compose -f docker-compose-prod.yml build
+
+            echo "🔁 Recreating containers with latest image..."
+            docker compose -f docker-compose-prod.yml up -d --force-recreate
+
+            echo "⏳ Waiting for containers to be healthy..."
+            sleep 15
+          
+            echo "🧹 Cleaning up unused images..."
+            docker image prune -f
+
+            echo "📊 Container status"
+            docker compose -f docker-compose-prod.yml ps -a
+
+            echo "🎉 Deployment of production [Dailysync Website] completed successfully!"
