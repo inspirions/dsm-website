@@ -6,6 +6,7 @@ import { LOGO_URL } from "@/constants/commons";
 import { ORGANIZATION_PAGE } from "@/constants/dataTestId";
 
 import { CreateOrganizationFormView } from "./_viewModules/CreateOrganizationFormView";
+import Image from "next/image";
 
 const Organization = () => {
   return (
@@ -17,12 +18,17 @@ const Organization = () => {
     >
       <Flex direction={"column"} gap={"xs"}>
         <Flex justify="center">
-          <DsmImage
-            w={80}
-            h={80}
-            src={LOGO_URL}
+          <div
+            className="relative w-[100px] h-[40px]"
             data-testid={ORGANIZATION_PAGE.LOGO}
-          />
+          >
+            <Image
+              src={LOGO_URL}
+              alt="logo"
+              fill
+              style={{ objectFit: "contain" }}
+            />
+          </div>
         </Flex>
         <Flex direction={"column"}>
           <Text size="xl" fw={700} ta="center">
