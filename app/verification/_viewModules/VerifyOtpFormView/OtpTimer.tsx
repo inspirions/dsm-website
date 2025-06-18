@@ -44,12 +44,12 @@ export const OtpTimer = ({ email, onResend }: OtpTimerPropsType) => {
   };
 
   return otpTime ? (
-    <Text>{otpTime} seconds remaining</Text>
+    <Text c="#F5EFFE">{otpTime} seconds remaining</Text>
   ) : (
-    <Text>
+    <Text c="#F5EFFE">
       Didn't receive OTP?{" "}
       <Anchor
-        c={"blue"}
+        c={"var(--mantine-color-dsm-primary-5)"}
         fw={"bold"}
         underline="always"
         onClick={handleResendClick}

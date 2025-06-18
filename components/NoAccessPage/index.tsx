@@ -16,14 +16,17 @@ export const NoAccessPage = (props: NoAccessPagePropsType) => {
     message = "You do not have access to this page",
   } = props;
   return (
-    <Paper data-testid={NO_ACCESS_PAGE}>
-      <Center
-        bg="#fafbfc"
-        h="calc(100vh - 60px)"
-        style={{ flexDirection: "column" }}
-      >
-        <Text size="lg">{message}</Text>
-        <Link href={redirectTo}>{redirectText}</Link>
+    <Paper data-testid={NO_ACCESS_PAGE} bg={"#09060FE5"} h={`100vh`} radius={0}>
+      <Center h="calc(100vh - 60px)" style={{ flexDirection: "column" }}>
+        <Text size="lg" c="#F5EFFE">
+          {message}
+        </Text>
+        <Link
+          href={redirectTo}
+          style={{ color: "var(--mantine-color-dsm-primary-5)" }}
+        >
+          {redirectText}
+        </Link>
       </Center>
     </Paper>
   );
