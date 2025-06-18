@@ -4,12 +4,28 @@ import { commons } from "@/constants/commons";
 
 const { SUCCESS } = commons;
 
+const notificationStyle = {
+  root: {
+    backgroundColor: "#333",
+  },
+  title: {
+    color: "white",
+  },
+  description: {
+    color: "#ccc",
+  },
+  closeButton: {
+    color: "white",
+  },
+};
+
 export const useNotification = () => {
   const showNotification = (code: string, message: string) => {
     notifications.show({
       title: code === SUCCESS ? "Success" : "Error",
       message: message,
       color: code === SUCCESS ? "green" : "red",
+      styles: () => notificationStyle,
     });
   };
 
@@ -18,6 +34,7 @@ export const useNotification = () => {
       title: "Error",
       message: "An error occured",
       color: "red",
+      styles: () => notificationStyle,
     });
   };
 

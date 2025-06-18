@@ -8,6 +8,7 @@ import { VERIFICATION_PAGE } from "@/constants/dataTestId";
 
 import { VerifyOtpFormView } from "./_viewModules/VerifyOtpFormView";
 import { hasOtpCookie } from "./actions";
+import Image from "next/image";
 
 const Verification = async () => {
   const hasCookie = await hasOtpCookie();
@@ -17,18 +18,28 @@ const Verification = async () => {
   }
 
   return (
-    <Center h="100vh" bg="#fafbfc" data-testid={VERIFICATION_PAGE.ROOT}>
-      <Card shadow="xl" radius="md" padding="30px 60px" w={500}>
+    <Center
+      h="100vh"
+      bg="#09060FE5"
+      c="#F5EFFE"
+      data-testid={VERIFICATION_PAGE.ROOT}
+    >
+      <Card shadow="xl" radius="md" padding="30px 60px" w={500} bg="#2a2437">
         <Flex direction={"column"} gap={"sm"}>
           <Flex justify="center">
-            <DsmImage
-              w={150}
-              h={150}
-              src={LOGO_URL}
+            <div
+              className="relative w-[100px] h-[40px]"
               data-testid={VERIFICATION_PAGE.LOGO}
-            />
+            >
+              <Image
+                src={LOGO_URL}
+                alt="logo"
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </div>
           </Flex>
-          <Text size="xl" fw={700} ta="center">
+          <Text size="xl" fw={700} ta="center" c="#F5EFFE">
             Verify OTP
           </Text>
           <Text size="sm" c="gray" ta="center">
