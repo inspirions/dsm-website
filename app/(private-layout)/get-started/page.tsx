@@ -11,7 +11,6 @@ import { GET_STARTED_PAGE } from "@/constants/dataTestId";
 
 import { OrganizationListView } from "./_viewModules/OrganizationListView";
 import { getOrganizationList } from "./actions";
-import classes from "./index.module.css";
 import { DsmContentWrapper } from "@/components/DsmContentWrapper";
 import { DsmTitleText } from "@/components/DsmTitleText";
 import { FooterLayout } from "@/components/FooterLayout";
