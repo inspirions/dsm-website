@@ -1,8 +1,9 @@
 services:
   dailysync-website:
     build: .
+    dockerfile: Dockerfile
     image: dailysync-website-prod-image
-    container name: dailysync-website-prod
+    container_name: dailysync-website-prod
     ports:
       - "${DAILYSYNC_WEB_PORT}:3000"
     env_file:
