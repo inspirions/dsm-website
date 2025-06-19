@@ -98,12 +98,13 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
               {loginError}
             </Text>
           )}
-          <Group justify="space-between">
-            <Checkbox
+          <Group justify="flex-end">
+            {/* {might need in future} */}
+            {/* <Checkbox
               className={classes.formInput}
               label="Remember me"
               radius={"sm"}
-            />
+            /> */}
             <Anchor href={FORGOT_PASSWORD}>Forgot Password</Anchor>
           </Group>
           <DsmButton hideIcon fullWidth type="submit" loading={isSubmitting}>
