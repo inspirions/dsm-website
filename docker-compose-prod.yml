@@ -1,7 +1,8 @@
 services:
   dailysync-website:
-    build: .
-    dockerfile: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: dailysync-website-prod-image
     container_name: dailysync-website-prod
     ports:
