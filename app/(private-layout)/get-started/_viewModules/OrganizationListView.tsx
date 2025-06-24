@@ -3,17 +3,15 @@ import Link from "next/link";
 import { Anchor, Flex, Text } from "@mantine/core";
 
 import { DsmButton } from "@/components/DsmButton";
-import { DsmInfoAvatar } from "@/components/DsmInfoAvatar";
+import { DsmTitleText } from "@/components/DsmTitleText";
+import { ScrollToTopBtn } from "@/components/ScrollToTopBtn";
+import { DsmContentWrapper } from "@/components/DsmContentWrapper";
 
 import { routes } from "@/constants/routeConstants";
 import { GET_STARTED_PAGE } from "@/constants/dataTestId";
 
-import { OrganizationListViewPropsType } from "../types";
-import { OrganizationNavBtn } from "./OrganizationNavBtn";
-import { DsmTitleText } from "@/components/DsmTitleText";
 import { OrganizationCard } from "../_components/OrganizationCard";
-import { DsmContentWrapper } from "@/components/DsmContentWrapper";
-import { ScrollToTopBtn } from "@/components/ScrollToTopBtn";
+import { OrganizationListViewPropsType } from "../types";
 
 const { LOGIN } = routes;
 
