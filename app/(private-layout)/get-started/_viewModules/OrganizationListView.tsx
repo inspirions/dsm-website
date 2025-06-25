@@ -25,7 +25,7 @@ export const OrganizationListView = ({
           <Text fw={"bold"} size="xl" c={"gray"}>
             Is your organization already on Dsm?
           </Text>
-          <Text c={"gray"}>
+          <Text c={"gray"} ta={"center"}>
             We couldn't find any existing organizations for your account
           </Text>
         </Flex>
@@ -62,7 +62,7 @@ export const OrganizationListView = ({
             Choose an organization below to get back to working with your team
           </Text>
         </Flex>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {organizations.map((indvOrg) => (
             <OrganizationCard key={`${indvOrg.id}-orgKey`} {...indvOrg} />
           ))}

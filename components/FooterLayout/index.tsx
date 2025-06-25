@@ -15,10 +15,20 @@ import { DsmContentWrapper } from "../DsmContentWrapper";
 export const FooterLayout = () => {
   return (
     <DsmContentWrapper>
-      <Flex direction={"column"} gap={"40px"}>
-        <Flex justify={"space-between"}>
+      <Flex direction={"column"} gap={24}>
+        <Flex
+          gap={18}
+          justify={"space-between"}
+          className="flex-col sm:flex-row"
+        >
           <DsmImage src={DAILY_SYNC_LOGO_URL} w={"150px"} />
-          <Flex gap={"xl"} align={"center"}>
+          <Flex
+            gap={{
+              base: "sm",
+              lg: "lg",
+            }}
+            align={"center"}
+          >
             <DsmImage src={FACEBOOK_ICON_URL} w={"32px"} h={"32px"} />
             <DsmImage src={INSTAGRAM_ICON_URL} w={"32px"} h={"32px"} />
             <DsmImage src={YOUTUBE_ICON_URL} w={"32px"} h={"32px"} />
@@ -26,29 +36,50 @@ export const FooterLayout = () => {
           </Flex>
         </Flex>
         <Divider />
-        <Grid columns={10} overflow="hidden">
-          <GridCol span={3}>
-            <Flex direction={"column"} gap={"md"}>
-              <Text>
+        <Grid columns={12} overflow="hidden" gutter={24}>
+          <GridCol
+            span={{
+              xm: 12,
+              md: 6,
+            }}
+          >
+            <Flex
+              direction={{
+                base: "column",
+                xs: "row",
+                md: "column",
+              }}
+              justify={"space-between"}
+              gap={"md"}
+            >
+              <Text maw={"400px"}>
                 DailySync.ai captures, summarizes, and highlights your daily
                 standups using AI, helping teams stay aligned, save time, and
                 focus on meaningful work with greater clarity and speed
               </Text>
-              <Flex gap={"xs"} align={"center"}>
-                <DsmCustomIcon icon="phone" fill="white" />
-                <Text>9860034555</Text>
-              </Flex>
-              <Flex gap={"xs"} align={"center"}>
-                <DsmCustomIcon icon="email" fill="white" />
-                <Text>https://app.dailysync.ai/login</Text>
-              </Flex>
-              <Flex gap={"xs"} align={"center"}>
-                <DsmCustomIcon icon="mapMarker" fill="white" />
-                <Text>Janani Marga, Lalitpur</Text>
+              <Flex direction={"column"} gap={"md"}>
+                <Flex gap={"xs"} align={"center"}>
+                  <DsmCustomIcon icon="phone" fill="white" />
+                  <Text>9860034555</Text>
+                </Flex>
+                <Flex gap={"xs"} align={"center"}>
+                  <DsmCustomIcon icon="email" fill="white" />
+                  <Text>https://app.dailysync.ai/login</Text>
+                </Flex>
+                <Flex gap={"xs"} align={"center"}>
+                  <DsmCustomIcon icon="mapMarker" fill="white" />
+                  <Text>Janani Marga, Lalitpur</Text>
+                </Flex>
               </Flex>
             </Flex>
           </GridCol>
-          <GridCol span={3} offset={1}>
+          <GridCol
+            span={{
+              xm: 12,
+              md: 3,
+            }}
+            // offset={1}
+          >
             <Flex direction={"column"} gap={"md"}>
               <Text>Links</Text>
               <Text>Home</Text>
@@ -56,7 +87,12 @@ export const FooterLayout = () => {
               <Text>FAQ</Text>
             </Flex>
           </GridCol>
-          <GridCol span={3}>
+          <GridCol
+            span={{
+              xm: 12,
+              md: 3,
+            }}
+          >
             <Flex direction={"column"} gap={"md"}>
               <Text>Privacy Policy</Text>
               <Text>Terms & Conditions</Text>
