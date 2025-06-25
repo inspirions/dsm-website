@@ -5,9 +5,21 @@ import classes from "./index.module.css";
 import { FEATURE_CARDS } from "../../_constants";
 
 export const FeatureCardsView = () => (
-  <SimpleGrid cols={3} spacing={"60px"} verticalSpacing={"60px"}>
+  <SimpleGrid
+    cols={{
+      base: 1,
+      xs: 2,
+      md: 3,
+    }}
+    spacing={{ base: 16, md: 60 }}
+  >
     {FEATURE_CARDS.map(({ icon, title, description }) => (
-      <Box key={title} maw={"360px"} p={"42px 24px"} className={classes.card}>
+      <Box
+        key={title}
+        maw={{ base: "100%", md: "360px" }}
+        p={{ base: 16, md: "42px 24px" }}
+        className={classes.card}
+      >
         <Flex direction={"column"} gap={"sm"}>
           <Flex justify={"space-between"} align={"center"}>
             <Text fw={600} lh={1.5} size="20px">
