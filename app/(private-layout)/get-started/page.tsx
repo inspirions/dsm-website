@@ -20,8 +20,28 @@ const { ORGANIZATION } = routes;
 const GetStarted = async () => {
   const res = await getOrganizationList();
 
+  /**
+   * Deduplicates and combines created and joined organizations from API response.
+   * @example
+   * // Assuming res.data contains:
+   * // {
+   * //   createdOrgs: [{ id: 1, name: "Org A" }, { id: 2, name: "Org B" }],
+   * //   joinedOrgs: [{ id: 2, name: "Org B" }, { id: 3, name: "Org C" }]
+   * // }
+   * // Result: [{ id: 1, name: "Org A" }, { id: 2, name: "Org B" }, { id: 3, name: "Org C" }]
+   *
+   */
   const organizations = res?.data
-    ? [...res.data.createdOrgs, ...res.data.joinedOrgs]
+    ? (() => {
+        const filteredOrgs = new Set();
+        return [...res.data.createdOrgs, ...res.data.joinedOrgs].filter(
+          (indvOrg) => {
+            if (filteredOrgs.has(indvOrg.id)) return false;
+            filteredOrgs.add(indvOrg.id);
+            return true;
+          }
+        );
+      })()
     : [];
 
   return (
