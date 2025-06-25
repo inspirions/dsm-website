@@ -7,28 +7,26 @@ import classes from "./index.module.css";
 import Image from "next/image";
 import { OrganizationType as OrganizationCardPropsType } from "../../types";
 import { GET_STARTED_PAGE } from "@/constants/dataTestId";
-import { DSM_APP_URL } from "@/constants/commons";
 import { handleOrganizationNav } from "../../actions";
+import { DSM_APP_URL } from "@/constants/commons";
+import DsmImage from "@/components/DsmImage";
 import { DsmIconButton } from "@/components/DsmIconButton";
 
 export const OrganizationCard = (props: OrganizationCardPropsType) => {
-  const { id: orgId, name, logoUrl } = props;
-
+  const { id, name, logoUrl } = props;
   const handleClick = async () => {
-    await handleOrganizationNav(orgId);
+    await handleOrganizationNav(id);
     window.location.href = DSM_APP_URL;
   };
-
   return (
     <Box className={classes.card} onClick={handleClick}>
       <Flex gap={"sm"} justify={"space-between"} align={"center"}>
         <Flex direction={"column"} gap={4}>
-          {logoUrl ? (
+          {!!logoUrl ? (
             <div className="relative w-[47px] h-[40px]">
-              <Image
+              <DsmImage
                 src={logoUrl}
                 alt="logo"
-                fill
                 style={{ objectFit: "contain" }}
               />
             </div>
@@ -46,7 +44,7 @@ export const OrganizationCard = (props: OrganizationCardPropsType) => {
           </Text>
         </Flex>
         <DsmIconButton
-          data-testid={`${GET_STARTED_PAGE.NAV_ORGANIZATION_BTN}-${orgId}`}
+          data-testid={`${GET_STARTED_PAGE.NAV_ORGANIZATION_BTN}-${id}`}
           size={"32px"}
           color="white"
           iconProps={{ icon: "arrowRight", size: 18 }}
