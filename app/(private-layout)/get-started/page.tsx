@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Center, Flex, Text } from "@mantine/core";
+import { Center, Container, Flex, Text } from "@mantine/core";
 
 import { DsmButton } from "@/components/DsmButton";
 import DsmImage from "@/components/DsmImage";
@@ -53,13 +53,21 @@ const GetStarted = async () => {
       color={"#F5EFFE"}
     >
       <Center
-        pt={"xl"}
+        pt={{
+          base: 80,
+          md: "xl",
+        }}
         pb={"75px"}
         bg="linear-gradient(to top, #5D3A9B80 0%, #5D3A9B00 42%)"
       >
         <DsmContentWrapper>
-          <Flex gap="xl" align="center" justify="center">
-            <Flex gap="lg" w="40%" direction="column" align="flex-start">
+          <Flex gap="xl" align="center" justify="center" px={20}>
+            <Flex
+              gap="lg"
+              w={{ base: "100%", md: "60%", lg: "40%" }}
+              direction="column"
+              align="flex-start"
+            >
               <DsmTitleText
                 text="Get Started on {DSM}"
                 fz="48px"
@@ -88,22 +96,31 @@ const GetStarted = async () => {
               </Flex>
             </Flex>
             <DsmImage
-              h={500}
-              w="auto"
+              h={"auto"}
+              w={{
+                md: "40%",
+                lg: "60%",
+              }}
               fit="contain"
               radius={"md"}
               src={DSM_IMAGE_URL}
+              display={{
+                base: "none",
+                md: "block",
+              }}
               data-testid={GET_STARTED_PAGE.STAND_UP_IMAGE}
             />
           </Flex>
         </DsmContentWrapper>
       </Center>
-      <Center>
-        <OrganizationListView organizations={organizations} />
-      </Center>
-      <Center>
-        <FooterLayout />
-      </Center>
+      <Container>
+        <Center>
+          <OrganizationListView organizations={organizations} />
+        </Center>
+        <Center>
+          <FooterLayout />
+        </Center>
+      </Container>
     </Flex>
   );
 };
