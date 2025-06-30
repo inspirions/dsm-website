@@ -61,7 +61,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormPropsType) => {
       validationSchema={REGISTER_SCHEMA}
       onSubmit={handleSubmit}
     >
-      <Form data-testid={SIGN_UP_PAGE.FORM}>
+      <Form data-testid={SIGN_UP_PAGE.FORM} className="w-full xl:max-w-[500px]">
         <Stack gap="lg">
           <Field name="name">
             {({ field, meta }: FieldProps) => (

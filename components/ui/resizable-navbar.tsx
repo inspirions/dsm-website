@@ -12,8 +12,9 @@ import { DsmCustomIcon } from "../DsmCustomIcon";
 import { DAILY_SYNC_LOGO_URL } from "@/constants/commons";
 
 interface NavbarProps {
-  children: React.ReactNode;
   className?: string;
+  navItems?: { name: string; link: string }[];
+  loginHref?: string;
 }
 
 interface NavBodyProps {
@@ -23,7 +24,7 @@ interface NavBodyProps {
 }
 
 interface NavItemsProps {
-  items: {
+  navItems: {
     name: string;
     link: string;
   }[];
@@ -49,13 +50,18 @@ interface MobileNavMenuProps {
   onClose: () => void;
 }
 
-export const Navbar = ({ children, className }: NavbarProps) => {
+export const Navbar = ({
+  className,
+  navItems,
+  loginHref = "/login",
+}: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
   const [visible, setVisible] = useState<boolean>(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 100) {
@@ -68,17 +74,56 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
-      // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
       className={cn("sticky inset-x-0 top-5 z-40 w-full", className)}
     >
-      {React.Children.map(children, (child) =>
-        React.isValidElement(child)
-          ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible }
-            )
-          : child
-      )}
+      {/* Desktop Navbar */}
+      <NavBody visible={visible}>
+        <NavbarLogo />
+        <NavItems navItems={navItems ? navItems : []} />
+        <NavbarButton
+          variant="primary"
+          className="bg-[#1A112B] border border-[#F5EFFE] text-[#F5EFFE] rounded-[8px]"
+          href={loginHref}
+        >
+          Login
+        </NavbarButton>
+      </NavBody>
+      {/* Mobile Navbar */}
+      <MobileNav visible={visible}>
+        <MobileNavHeader className="px-4">
+          <NavbarLogo />
+          <MobileNavToggle
+            isOpen={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((v) => !v)}
+          />
+        </MobileNavHeader>
+        <MobileNavMenu
+          isOpen={mobileMenuOpen}
+          onClose={() => setMobileMenuOpen(false)}
+          className="bg-linear-to-r from-[rgba(102,80,143,0.9)] to-[rgba(26,17,43,0.75)]"
+        >
+          <div className="flex flex-col w-full gap-2">
+            {navItems?.map((indvNavItem, idx) => (
+              <a
+                key={`mobile-link-${idx}`}
+                href={indvNavItem.link}
+                className="px-4 py-2 text-black dark:text-white text-lg font-medium rounded hover:bg-neutral-800"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {indvNavItem.name}
+              </a>
+            ))}
+            <NavbarButton
+              variant="primary"
+              className="bg-[#1A112B] border border-[#F5EFFE] text-[#F5EFFE] rounded-[8px] mt-2"
+              href={loginHref}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Login
+            </NavbarButton>
+          </div>
+        </MobileNavMenu>
+      </MobileNav>
     </motion.div>
   );
 };
@@ -114,7 +159,11 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   );
 };
 
-export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
+export const NavItems = ({
+  navItems,
+  className,
+  onItemClick,
+}: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
@@ -125,13 +174,13 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         className
       )}
     >
-      {items.map((item, idx) => (
+      {navItems.map((indvNavItem, idx) => (
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
           className="relative px-4 py-2 text-white"
           key={`link-${idx}`}
-          href={item.link}
+          href={indvNavItem.link}
         >
           {hovered === idx && (
             <motion.div
@@ -139,7 +188,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               className="absolute inset-0 h-full w-full rounded-full bg-[rgba(76,46,130,0.3)] dark:bg-[rgba(76,46,130,0.4)]"
             />
           )}
-          <span className="relative z-20">{item.name}</span>
+          <span className="relative z-20">{indvNavItem.name}</span>
         </a>
       ))}
     </motion.div>
@@ -151,13 +200,10 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
     <motion.div
       animate={{
         backdropFilter: visible ? "blur(10px)" : "none",
-        boxShadow: visible
-          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-          : "none",
         width: visible ? "90%" : "100%",
         paddingRight: visible ? "12px" : "0px",
         paddingLeft: visible ? "12px" : "0px",
-        borderRadius: visible ? "4px" : "2rem",
+        borderRadius: "8px",
         y: visible ? 20 : 0,
       }}
       transition={{
@@ -166,10 +212,14 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        "fixed top-0 left-0 right-0 z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-8 py-2 lg:hidden",
+        visible && "bg-[#4C2E8226] dark:bg-neutral-950/80",
         className
       )}
+      style={{
+        width: "100vw",
+        maxWidth: "100vw",
+      }}
     >
       {children}
     </motion.div>
@@ -227,13 +277,15 @@ export const MobileNavToggle = ({
   return isOpen ? (
     <DsmCustomIcon
       icon="x"
-      className="text-black dark:text-white"
+      size={24}
+      className="text-white dark:text-black"
       onClick={onClick}
     />
   ) : (
     <DsmCustomIcon
       icon="menu2"
-      className="text-black dark:text-white"
+      size={24}
+      className="text-white dark:text-black"
       onClick={onClick}
     />
   );

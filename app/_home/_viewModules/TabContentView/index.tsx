@@ -6,10 +6,11 @@ import { useEffect, useRef, useState } from "react";
 import DsmImage from "@/components/DsmImage";
 import { DsmCustomIcon } from "@/components/DsmCustomIcon";
 
-import { HOME_TAB_CONTENT_IMAGE_URL } from "@/constants/commons";
+import { HOME_TAB_CONTENT_IMAGE_URL, SCREEN_WIDTH } from "@/constants/commons";
 
 import classes from "./index.module.css";
 import { TAB_LISTS } from "../../_constants";
+import { useMediaQuery } from "@mantine/hooks";
 
 const TAB_CONTENTS = Array.from({ length: TAB_LISTS.length }, (_, index) => ({
   tabValue: index.toString(),
@@ -31,6 +32,7 @@ export const TabContentView = () => {
   const [progress, setProgress] = useState(0);
   const animationRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(Date.now());
+  const tablet = useMediaQuery(SCREEN_WIDTH.TABLET);
 
   useEffect(() => {
     let isMounted = true;
@@ -69,7 +71,7 @@ export const TabContentView = () => {
     <Tabs
       value={activeTab}
       onChange={handleTabChange}
-      orientation="vertical"
+      orientation={tablet ? "vertical" : "horizontal"}
       classNames={{
         ...classes,
         panel: `${classes.panel} transition-opacity duration-500`,
@@ -77,7 +79,7 @@ export const TabContentView = () => {
     >
       <Tabs.List>
         {TAB_LISTS.map(({ tabValue, tabIcon, tabTitle, tabDescription }) => (
-          <div style={{ position: "relative" }} key={tabValue}>
+          <Box pos={"relative"} w={"100%"} key={tabValue}>
             {/* Animated left progress bar */}
             <div
               className={classes.tabProgress}
@@ -89,7 +91,14 @@ export const TabContentView = () => {
                     : "height 0.2s linear",
               }}
             />
-            <Tabs.Tab value={tabValue} className={classes.tab}>
+            <Tabs.Tab
+              value={tabValue}
+              className={classes.tab}
+              w={{
+                base: "100%",
+                md: "auto",
+              }}
+            >
               <Box
                 style={{ display: "flex", alignItems: "center", gap: "12px" }}
               >
@@ -111,12 +120,12 @@ export const TabContentView = () => {
                 </Stack>
               </Box>
             </Tabs.Tab>
-          </div>
+          </Box>
         ))}
       </Tabs.List>
 
       {TAB_CONTENTS.map(({ tabValue, tabContent }) => (
-        <Tabs.Panel key={tabValue} value={tabValue}>
+        <Tabs.Panel key={tabValue} value={tabValue} mt={{ base: 18, md: 0 }}>
           {tabContent}
         </Tabs.Panel>
       ))}

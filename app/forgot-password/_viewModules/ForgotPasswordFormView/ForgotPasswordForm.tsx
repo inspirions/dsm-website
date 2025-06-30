@@ -35,7 +35,10 @@ export const ForgotPasswordForm = ({
       validationSchema={FORGOT_PASSWORD_SCHEMA}
       onSubmit={handleSubmit}
     >
-      <Form data-testid={FORGOT_PASSWORD_PAGE.FORM}>
+      <Form
+        data-testid={FORGOT_PASSWORD_PAGE.FORM}
+        className="w-full xl:max-w-[500px]"
+      >
         <Stack gap="xs">
           <Field name="email">
             {({ field, meta }: FieldProps) => (

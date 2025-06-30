@@ -61,7 +61,7 @@ export const LoginForm = ({ onSubmit }: LoginFormPropsType) => {
       validationSchema={LOGIN_SCHEMA}
       onSubmit={handleSubmit}
     >
-      <Form data-testid={LOGIN_PAGE.FORM}>
+      <Form data-testid={LOGIN_PAGE.FORM} className="w-full xl:max-w-[500px]">
         <Stack gap="lg">
           <Field name="email">
             {({ field, meta }: FieldProps) => (

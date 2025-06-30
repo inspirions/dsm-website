@@ -9,16 +9,14 @@ const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
   return (
     <Container
       id="home"
-      mih={"100vh"}
       miw={{
         xl: "100%",
-        xxl: "70%",
       }}
       p={0}
-      className="bg-[#140e21e5]"
+      className="bg-[#140e21e5] min-h-dvh h-auto"
     >
-      <div className="flex flex-row justify-center items-center gap-4 h-screen">
-        <div className="flex-1 bg-[#09060F] h-full p-[60px]  flex flex-col items-center justify-center">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center md:gap-4">
+        <div className="flex-1 min-h-dvh bg-[#09060F] p-[60px] flex flex-col items-center justify-center">
           <p className="text-[#F5EFFE] text-[36px] font-semibold ">{title}</p>
           <Text className="relative">
             <Text
@@ -42,7 +40,7 @@ const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
             </Text>
           </Text>
         </div>
-        <div className="w-[60%] px-50 flex flex-col justify-center gap-[12px]">
+        <div className="w-full md:w-[50%] h-dvh py-8 px-8 md:px-12 xxl:px-50 flex flex-col items-center justify-center gap-[12px]">
           <div className="flex justify-center">
             <img src={DAILY_SYNC_LOGO_URL} alt="logo" width={105} />
           </div>

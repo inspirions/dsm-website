@@ -5,6 +5,7 @@
 
 .list {
   gap: 24px;
+
   &::before {
     inset-inline-start: 0;
     inset-inline-end: 0;
@@ -17,10 +18,16 @@
   white-space: normal;
   background-color: transparent;
   border-width: 0 0 0 var(--tabs-list-border-width);
+  display: flex;
+  justify-content: flex-start;
 
   &:hover {
     background-color: #1a112b;
   }
+}
+
+.tab span {
+  width: 100%;
 }
 
 .tabProgress {
