@@ -40,7 +40,6 @@ const LoginFormWrapper = () => {
         }
       }
 
-      showNotification(res.code, res.message);
       return res;
     } catch (error) {
       showErrorNotification();
