@@ -44,15 +44,15 @@ export const USER_ROLE_OPTIONS = [
 ];
 
 export const HOME_TAB_CONTENT_IMAGE_URL = [
-  "./HomeTabContent1.jpg",
-  "./HomeTabContent2.jpg",
+  "./HomeTabContent1.png",
+  "./HomeTabContent2.png",
   "./HomeTabContent3.png",
   "./HomeTabContent4.png",
 ];
 
 export const SCREEN_WIDTH = Object.freeze({
   MOBILE: "(max-width: 599px)",
-  TABLET: "(min-width: 600px and max-width: 959px)",
+  TABLET: "(min-width: 768px)",
   DESKTOP: "(min-width: 960px)",
   XL_DESKTOP: "(min-width: 1280px)",
   XXL_DESKTOP: "(min-width: 1920px)",
