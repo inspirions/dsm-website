@@ -37,7 +37,6 @@ export const VerifyOtpFormView = () => {
       }
       localStorage.removeItem(OTP_TIME);
 
-      showNotification(res.code, res.message);
       return res;
     } catch (error) {
       showErrorNotification();
