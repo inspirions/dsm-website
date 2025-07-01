@@ -6,30 +6,26 @@ import {
 export const HURDLE_ITEMS = [
   {
     top: "70%",
-    left: "-40%",
-    leftMobile: "5%",
+    left: "5%",
     title: "Inefficiency",
     description:
       "Meetings drag on with repetitive updates and minimal outcomes.",
   },
   {
     top: "0%",
-    left: "-10%",
-    leftMobile: "5%",
+    left: "10%",
     title: "Inaccuracy",
     description: "Important details are missed or poorly documented.",
   },
   {
     top: "0%",
-    left: "90%",
-    leftMobile: "60%",
+    left: "70%",
     title: "Misalignment",
     description: "Key info gets lost, causing confusion and delays.",
   },
   {
     top: "70%",
-    left: "110%",
-    leftMobile: "60%",
+    left: "80%",
     title: "Disorganization",
     description: "Tasks are forgotten in chats and emails.",
   },

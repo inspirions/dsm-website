@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Flex, Stack, Tabs, Text } from "@mantine/core";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 
 import DsmImage from "@/components/DsmImage";
 import { DsmCustomIcon } from "@/components/DsmCustomIcon";
@@ -12,19 +12,6 @@ import classes from "./index.module.css";
 import { TAB_LISTS } from "../../_constants";
 import { useMediaQuery } from "@mantine/hooks";
 
-const TAB_CONTENTS = Array.from({ length: TAB_LISTS.length }, (_, index) => ({
-  tabValue: index.toString(),
-  tabContent: (
-    <DsmImage
-      h={489}
-      w="100%"
-      fit="cover"
-      radius="8px"
-      src={HOME_TAB_CONTENT_IMAGE_URL[index]}
-    />
-  ),
-}));
-
 const AUTO_SWITCH_INTERVAL = 5000; // 5 seconds
 
 export const TabContentView = () => {
@@ -34,12 +21,46 @@ export const TabContentView = () => {
   const startTimeRef = useRef<number>(Date.now());
   const tablet = useMediaQuery(SCREEN_WIDTH.TABLET);
 
+  const TAB_CONTENTS = useMemo(
+    () =>
+      Array.from({ length: TAB_LISTS.length }, (_, index) => ({
+        tabValue: index.toString(),
+        tabContent: (
+          <DsmImage
+            h={436}
+            w="100%"
+            fit="cover"
+            radius="8px"
+            style={{
+              filter: "invert(1)",
+              objectPosition: "left",
+            }}
+            src={HOME_TAB_CONTENT_IMAGE_URL[index]}
+          />
+        ),
+      })),
+    []
+  );
+
   useEffect(() => {
     let isMounted = true;
+    let lastUpdateTime = 0;
+    const UPDATE_INTERVAL = 16;
+
     const animate = () => {
-      const elapsed = Date.now() - startTimeRef.current;
+      if (!isMounted) return;
+
+      const currentTime = Date.now();
+      if (currentTime - lastUpdateTime < UPDATE_INTERVAL) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      lastUpdateTime = currentTime;
+      const elapsed = currentTime - startTimeRef.current;
       const percent = Math.min((elapsed / AUTO_SWITCH_INTERVAL) * 100, 100);
-      if (isMounted) setProgress(percent);
+      setProgress(Math.round(percent));
+
       if (percent >= 100) {
         setActiveTab((prev) => {
           const nextIndex = (parseInt(prev) + 1) % TAB_LISTS.length;
@@ -51,21 +72,48 @@ export const TabContentView = () => {
         animationRef.current = requestAnimationFrame(animate);
       }
     };
-    animationRef.current = requestAnimationFrame(animate);
+
+    const startAnimation = () => {
+      if (isMounted) {
+        animationRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    startAnimation();
+
     return () => {
       isMounted = false;
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
     };
-    // eslint-disable-next-line
   }, [activeTab]);
 
-  const handleTabChange = (value: string | null) => {
+  const handleTabChange = useCallback((value: string | null) => {
     if (value) {
       setActiveTab(value);
       setProgress(0);
       startTimeRef.current = Date.now();
     }
-  };
+  }, []);
+
+  const getProgressBarStyle = useCallback(
+    (tabValue: string) => {
+      const isActive = activeTab === tabValue;
+      return {
+        height: isActive ? `${progress}%` : "0%",
+        transition: isActive ? "height 0.1s linear" : "height 0.2s linear",
+      };
+    },
+    [activeTab, progress]
+  );
+
+  const progressBarStyles = useMemo(() => {
+    return TAB_LISTS.reduce((acc, { tabValue }) => {
+      acc[tabValue] = getProgressBarStyle(tabValue);
+      return acc;
+    }, {} as Record<string, React.CSSProperties>);
+  }, [getProgressBarStyle]);
 
   return (
     <Tabs
@@ -83,13 +131,7 @@ export const TabContentView = () => {
             {/* Animated left progress bar */}
             <div
               className={classes.tabProgress}
-              style={{
-                height: activeTab === tabValue ? `${progress}%` : "0%",
-                transition:
-                  activeTab === tabValue
-                    ? "height 0.1s linear"
-                    : "height 0.2s linear",
-              }}
+              style={progressBarStyles[tabValue]}
             />
             <Tabs.Tab
               value={tabValue}

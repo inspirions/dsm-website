@@ -27,76 +27,81 @@ export const HurdleItemsView = () => {
   }, [scrollYProgress]);
 
   return (
-    <div
+    <Flex
       ref={containerRef}
+      direction={{
+        base: "column",
+        row: "row",
+      }}
+      gap={20}
       style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
     >
-      {HURDLE_ITEMS.map(
-        ({ top, left, leftMobile, title, description }, index) => {
-          const baseOffset = 0.1;
-          const itemStart = baseOffset + index * 0.08;
-          const itemEnd = itemStart + 0.2;
-          const itemProgress = clamp(
-            (progress - itemStart) / (itemEnd - itemStart),
-            0,
-            1
-          );
-          const opacity = itemProgress;
-          const scale = 0.8 + 0.2 * itemProgress;
-          return (
-            <motion.div
-              key={title}
-              style={{
-                position: "absolute",
-                top: top,
-                left: tablet ? left : leftMobile,
-                pointerEvents: "auto",
-                overflow: "hidden",
-              }}
-              animate={{
-                scale,
-                opacity,
-              }}
-            >
-              <Flex direction={"column"}>
-                <Flex align={"center"} gap={"xs"}>
-                  <Flex
-                    align={"center"}
-                    justify={"center"}
-                    bg={"#763BC4"}
-                    h={28}
-                    w={28}
-                    style={{ borderRadius: "50%" }}
-                  >
-                    <DsmCustomIcon size={20} strokeWidth={2} />
-                  </Flex>
-                  <Text
-                    fz={{
-                      base: 14,
-                      md: 24,
-                    }}
-                  >
-                    {title}
-                  </Text>
+      {HURDLE_ITEMS.map(({ top, left, title, description }, index) => {
+        const baseOffset = 0.1;
+        const itemStart = baseOffset + index * 0.08;
+        const itemEnd = itemStart + 0.2;
+        const itemProgress = clamp(
+          (progress - itemStart) / (itemEnd - itemStart),
+          0,
+          1
+        );
+        const opacity = itemProgress;
+        const scale = 0.8 + 0.2 * itemProgress;
+        return (
+          <motion.div
+            key={title}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              position: tablet ? "absolute" : "initial",
+              top: top,
+              left: left,
+              pointerEvents: "auto",
+              overflow: "hidden",
+            }}
+            animate={{
+              scale,
+              opacity,
+            }}
+          >
+            <Flex direction={"column"}>
+              <Flex align={"center"} gap={"xs"}>
+                <Flex
+                  align={"center"}
+                  justify={"center"}
+                  bg={"#763BC4"}
+                  h={28}
+                  w={28}
+                  style={{ borderRadius: "50%" }}
+                >
+                  <DsmCustomIcon size={20} strokeWidth={2} />
                 </Flex>
                 <Text
-                  lh={1.6}
-                  maw={{
-                    base: 160,
-                    md: 250,
-                  }}
                   fz={{
-                    base: 12,
-                    md: 17,
+                    base: 14,
+                    md: 24,
                   }}
                 >
-                  {description}
+                  {title}
                 </Text>
               </Flex>
-            </motion.div>
-          );
-        }
-      )}
-    </div>
+              <Text
+                lh={1.6}
+                maw={{
+                  base: "100%",
+                  md: 250,
+                }}
+                fz={{
+                  base: 12,
+                  md: 17,
+                }}
+              >
+                {description}
+              </Text>
+            </Flex>
+          </motion.div>
+        );
+      })}
+    </Flex>
   );
 };
