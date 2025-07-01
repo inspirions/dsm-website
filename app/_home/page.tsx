@@ -88,13 +88,20 @@ const HomePage = () => {
               </DsmButton>
             </Link>
           </Flex>
-          <DsmImage src={HOME_PAGE_IMAGE_URL} w="100%" />
+          <DsmImage
+            src={HOME_PAGE_IMAGE_URL}
+            w="100%"
+            radius={12}
+            style={{
+              filter: "invert(1)",
+            }}
+          />
         </Flex>
       </Container>
       <SectionDivider />
       <Container px={0} size="xl">
         <Center h="100%">
-          <Flex direction="column" gap="48px">
+          <Flex direction="column" gap="48px" w={"100%"}>
             <Text className={classes.secTitle}>
               Daily{" "}
               <Text span className={classes.highlight} inherit>
