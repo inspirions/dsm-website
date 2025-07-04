@@ -38,7 +38,7 @@ export const ResetPasswordFrom = ({ onSubmit }: ResetPasswordFormPropsType) => {
       onSubmit={handleSubmit}
     >
       <Form data-testid={RESET_PASSWORD_PAGE.FORM}>
-        <Stack gap="xs">
+        <Stack gap="md">
           <DsmPasswordInputWithValidation />
           <Field name="confirmPassword">
             {({ field, meta }: FieldProps) => (
@@ -51,7 +51,13 @@ export const ResetPasswordFrom = ({ onSubmit }: ResetPasswordFormPropsType) => {
               />
             )}
           </Field>
-          <DsmButton hideIcon fullWidth type="submit" loading={isSubmitting}>
+          <DsmButton
+            hideIcon
+            fullWidth
+            type="submit"
+            color="var(--mantine-color-dsm-primary-5)"
+            loading={isSubmitting}
+          >
             Submit
           </DsmButton>
         </Stack>

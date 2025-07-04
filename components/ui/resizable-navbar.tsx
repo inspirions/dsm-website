@@ -15,6 +15,7 @@ interface NavbarProps {
   className?: string;
   navItems?: { name: string; link: string }[];
   loginHref?: string;
+  actionBtn?: React.ReactNode;
 }
 
 interface NavBodyProps {
@@ -53,6 +54,7 @@ interface MobileNavMenuProps {
 export const Navbar = ({
   className,
   navItems,
+  actionBtn,
   loginHref = "/login",
 }: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -80,13 +82,17 @@ export const Navbar = ({
       <NavBody visible={visible}>
         <NavbarLogo />
         <NavItems navItems={navItems ? navItems : []} />
-        <NavbarButton
-          variant="primary"
-          className="bg-[#1A112B] border border-[#F5EFFE] text-[#F5EFFE] rounded-[8px]"
-          href={loginHref}
-        >
-          Login
-        </NavbarButton>
+        {actionBtn ? (
+          actionBtn
+        ) : (
+          <NavbarButton
+            variant="primary"
+            className="bg-[#1A112B] border border-[#F5EFFE] text-[#F5EFFE] rounded-[8px]"
+            href={loginHref}
+          >
+            Login
+          </NavbarButton>
+        )}
       </NavBody>
       {/* Mobile Navbar */}
       <MobileNav visible={visible}>
@@ -113,14 +119,18 @@ export const Navbar = ({
                 {indvNavItem.name}
               </a>
             ))}
-            <NavbarButton
-              variant="primary"
-              className="bg-[#1A112B] border border-[#F5EFFE] text-[#F5EFFE] rounded-[8px] mt-2"
-              href={loginHref}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Login
-            </NavbarButton>
+            {actionBtn ? (
+              actionBtn
+            ) : (
+              <NavbarButton
+                variant="primary"
+                className="bg-[#1A112B] border border-[#F5EFFE] text-[#F5EFFE] rounded-[8px] mt-2"
+                href={loginHref}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Login
+              </NavbarButton>
+            )}
           </div>
         </MobileNavMenu>
       </MobileNav>
