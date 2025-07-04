@@ -20,17 +20,25 @@ const ResetPassword = async () => {
   return (
     <Center
       h="100vh"
-      bg="#fafbfc"
-      data-testid={RESET_PASSWORD_PAGE.ROOT}
+      bg="var(--mantine-color-dsm-dark-primary-3)"
       style={{ flexDirection: "column", gap: "8px" }}
+      data-testid={RESET_PASSWORD_PAGE.ROOT}
     >
-      <Card shadow="xl" radius="md" padding="30px 60px" w={500}>
+      <Card
+        w={500}
+        shadow="xl"
+        radius="md"
+        padding="30px 60px"
+        c="var(--mantine-color-dsm-light-0)"
+        bg="var(--mantine-color-dsm-dark-primary-0)"
+      >
         <Flex direction={"column"} gap={"md"}>
           <Flex justify="center">
             <DsmImage
-              w={150}
-              h={150}
+              w={100}
+              h={40}
               src={LOGO_URL}
+              style={{ objectFit: "contain" }}
               data-testid={RESET_PASSWORD_PAGE.LOGO}
             />
           </Flex>
