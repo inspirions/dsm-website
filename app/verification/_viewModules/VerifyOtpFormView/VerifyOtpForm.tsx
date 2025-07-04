@@ -62,26 +62,31 @@ export const VerifyOtpForm = ({
       validationSchema={OTP_VERIFICATION_SCHEMA}
       onSubmit={handleSubmit}
     >
-      {({ values }) => (
+      {({ values, resetForm }) => (
         <Form data-testid={VERIFICATION_PAGE.FORM}>
           <Stack gap="md">
             <Center>
               <Field name="otp">
                 {({ field }: FieldProps) => (
                   <PinInput
-                    className={classes.pinInput}
                     size="md"
                     type="number"
                     placeholder="-"
                     length={PIN_LENGTH}
                     value={field.value}
+                    className={classes.pinInput}
                     onChange={handleChange(field)}
                   />
                 )}
               </Field>
             </Center>
             <Center>
-              <OtpTimer email={email} onResend={onResend} />
+              <OtpTimer
+                onResend={() => {
+                  onResend(email);
+                  resetForm();
+                }}
+              />
             </Center>
             {responseError && (
               <Text c="red" size="md" ta="center">

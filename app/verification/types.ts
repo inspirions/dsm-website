@@ -13,6 +13,5 @@ export interface VerifyOtpFormPropsType {
 }
 
 export interface OtpTimerPropsType {
-  email: string;
-  onResend: (email: string) => Promise<void>;
+  onResend: VoidFunction;
 }
