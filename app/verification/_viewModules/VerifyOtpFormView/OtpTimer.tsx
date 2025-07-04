@@ -15,7 +15,7 @@ const getOtpTime = () => {
   return savedTime ? Number(savedTime) : OTP_TIMER_DURATION;
 };
 
-export const OtpTimer = ({ email, onResend }: OtpTimerPropsType) => {
+export const OtpTimer = ({ onResend }: OtpTimerPropsType) => {
   const [otpTime, setOtpTime] = useState(OTP_TIMER_DURATION);
 
   useEffect(() => {
@@ -40,13 +40,16 @@ export const OtpTimer = ({ email, onResend }: OtpTimerPropsType) => {
   }, [otpTime]);
 
   const handleResendClick = () => {
-    onResend(email);
+    onResend();
+    setOtpTime(OTP_TIMER_DURATION);
   };
 
   return otpTime ? (
-    <Text c="#F5EFFE">{otpTime} seconds remaining</Text>
+    <Text c="var(--mantine-color-dsm-light-0)">
+      {otpTime} seconds remaining
+    </Text>
   ) : (
-    <Text c="#F5EFFE">
+    <Text c="var(--mantine-color-dsm-light-0)">
       Didn't receive OTP?{" "}
       <Anchor
         c={"var(--mantine-color-dsm-primary-5)"}

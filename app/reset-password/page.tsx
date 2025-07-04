@@ -1,4 +1,4 @@
-import { Card, Center, Flex, Text } from "@mantine/core";
+import { Card, Center, Flex, lighten, Text } from "@mantine/core";
 
 import DsmImage from "@/components/DsmImage";
 
@@ -20,7 +20,7 @@ const ResetPassword = async () => {
   return (
     <Center
       h="100vh"
-      bg="var(--mantine-color-dsm-dark-primary-3)"
+      bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
       style={{ flexDirection: "column", gap: "8px" }}
       data-testid={RESET_PASSWORD_PAGE.ROOT}
     >

@@ -1,4 +1,4 @@
-import { Anchor, Center, Flex, Text } from "@mantine/core";
+import { Anchor, Center, Flex, lighten, Text } from "@mantine/core";
 
 import { FORGOT_PASSWORD_PAGE } from "@/constants/dataTestId";
 import { SIGN_UP_PAGE } from "@/constants/dataTestId";
@@ -47,8 +47,8 @@ const ForgotPassword = () => {
   return (
     <Center
       h="100vh"
-      bg="#09060FE5"
       c="white"
+      bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
       data-testid={FORGOT_PASSWORD_PAGE.ROOT}
       style={{ flexDirection: "column", gap: "8px" }}
     >

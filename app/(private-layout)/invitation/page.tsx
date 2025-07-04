@@ -91,12 +91,9 @@ const Invitation = async ({
           shadow="xl"
           radius="md"
           p={"44px"}
-          w={{
-            base: "100%",
-            xs: "500px",
-          }}
-          bg="#2a2437"
           style={{ gap: "32px" }}
+          w={{ base: "100%", xs: "500px" }}
+          bg="var(--mantine-color-dsm-dark-primary-0)"
         >
           <Flex justify={"center"}>
             <DsmImage src={INVITE_IMAGE_URL} w={"250px"} />

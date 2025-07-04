@@ -1,23 +1,26 @@
-import React from "react";
-import classes from "./index.module.css";
 import { Container, Text } from "@mantine/core";
+
 import { DAILY_SYNC_LOGO_URL } from "@/constants/commons";
+
 import { DsmFormWrapperPropsType } from "./types";
+
+import classes from "./index.module.css";
 
 const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
   const { title, description, formTitle, formView: FormView } = props;
   return (
     <Container
-      id="home"
-      miw={{
-        xl: "100%",
-      }}
       p={0}
+      miw={{ xl: "100%" }}
       className="bg-[#140e21e5] min-h-dvh h-auto"
     >
       <div className="flex flex-col-reverse md:flex-row items-center justify-center md:gap-4">
-        <div className="flex-1 min-h-dvh bg-[#09060F] p-[60px] flex flex-col items-center justify-center">
-          <p className="text-[#F5EFFE] text-[36px] font-semibold ">{title}</p>
+        <div
+          className={`flex-1 min-h-dvh bg-[var(--mantine-color-dsm-dark-primary-3)] p-[60px] flex flex-col items-center justify-center`}
+        >
+          <p className="text-[var(--mantine-color-dsm-light-0)] text-[36px] font-semibold ">
+            {title}
+          </p>
           <Text className="relative">
             <Text
               span

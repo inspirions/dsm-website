@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Center, Paper, Text } from "@mantine/core";
+import { Center, lighten, Paper, Text } from "@mantine/core";
 
 import { routes } from "@/constants/routeConstants";
 import { NO_ACCESS_PAGE } from "@/constants/dataTestId";
@@ -16,9 +16,14 @@ export const NoAccessPage = (props: NoAccessPagePropsType) => {
     message = "You do not have access to this page",
   } = props;
   return (
-    <Paper data-testid={NO_ACCESS_PAGE} bg={"#09060FE5"} h={`100vh`} radius={0}>
+    <Paper
+      radius={0}
+      h={`100vh`}
+      data-testid={NO_ACCESS_PAGE}
+      bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
+    >
       <Center h="calc(100vh - 60px)" style={{ flexDirection: "column" }}>
-        <Text size="lg" c="#F5EFFE">
+        <Text size="lg" c="var(--mantine-color-dsm-light-0)">
           {message}
         </Text>
         <Link

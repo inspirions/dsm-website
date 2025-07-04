@@ -1,4 +1,4 @@
-import { Box, Center, Container, Flex, Text } from "@mantine/core";
+import { Center, Container, Flex, lighten, Text } from "@mantine/core";
 
 import DsmImage from "@/components/DsmImage";
 import { DsmButton } from "@/components/DsmButton";
@@ -23,7 +23,12 @@ import SectionDivider from "@/components/SectionDivider";
 
 const HomePage = () => {
   return (
-    <Container fluid bg="#09060FE5" c="white" className="overflow-hidden">
+    <Container
+      fluid
+      c="white"
+      className="overflow-hidden"
+      bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
+    >
       <Navbar className="top-[-12]" navItems={NAV_ITEMS} loginHref="/login" />
       <Container id="home" size="xl" px={0}>
         <Flex pt="144px" direction="column" gap="48px">
