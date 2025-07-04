@@ -15,7 +15,7 @@ const getOtpTime = () => {
   return savedTime ? Number(savedTime) : OTP_TIMER_DURATION;
 };
 
-export const OtpTimer = ({ email, onResend }: OtpTimerPropsType) => {
+export const OtpTimer = ({ onResend }: OtpTimerPropsType) => {
   const [otpTime, setOtpTime] = useState(OTP_TIMER_DURATION);
 
   useEffect(() => {
@@ -40,7 +40,8 @@ export const OtpTimer = ({ email, onResend }: OtpTimerPropsType) => {
   }, [otpTime]);
 
   const handleResendClick = () => {
-    onResend(email);
+    onResend();
+    setOtpTime(OTP_TIMER_DURATION);
   };
 
   return otpTime ? (
