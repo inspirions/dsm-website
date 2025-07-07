@@ -39,7 +39,7 @@ export const ForgotPasswordForm = ({
         data-testid={FORGOT_PASSWORD_PAGE.FORM}
         className="w-full xl:max-w-[500px]"
       >
-        <Stack gap="xs">
+        <Stack gap="md">
           <Field name="email">
             {({ field, meta }: FieldProps) => (
               <DsmTextInput
@@ -53,7 +53,7 @@ export const ForgotPasswordForm = ({
             )}
           </Field>
           <DsmButton hideIcon fullWidth type="submit" loading={isSubmitting}>
-            Forget Password
+            Send Reset Email
           </DsmButton>
         </Stack>
       </Form>

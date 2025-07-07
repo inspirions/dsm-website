@@ -13,6 +13,7 @@ export const AppBarView = ({ children }: { children: React.ReactNode }) => {
   const handleClick = async () => {
     setLoading(true);
     await handleLogout();
+    sessionStorage.clear();
     setLoading(false);
   };
 

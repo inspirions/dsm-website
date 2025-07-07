@@ -2,18 +2,18 @@ import Link from "next/link";
 
 import { Center, Container, Flex, Text } from "@mantine/core";
 
-import { DsmButton } from "@/components/DsmButton";
 import DsmImage from "@/components/DsmImage";
+import { DsmButton } from "@/components/DsmButton";
+import { DsmTitleText } from "@/components/DsmTitleText";
+import { FooterLayout } from "@/components/FooterLayout";
+import { DsmContentWrapper } from "@/components/DsmContentWrapper";
 
 import { DSM_IMAGE_URL } from "@/constants/commons";
 import { routes } from "@/constants/routeConstants";
 import { GET_STARTED_PAGE } from "@/constants/dataTestId";
 
-import { OrganizationListView } from "./_viewModules/OrganizationListView";
 import { getOrganizationList } from "./actions";
-import { DsmContentWrapper } from "@/components/DsmContentWrapper";
-import { DsmTitleText } from "@/components/DsmTitleText";
-import { FooterLayout } from "@/components/FooterLayout";
+import { OrganizationListView } from "./_viewModules/OrganizationListView";
 
 const { ORGANIZATION } = routes;
 
@@ -47,9 +47,7 @@ const GetStarted = async () => {
   return (
     <Flex
       direction="column"
-      gap="xl"
       data-testid={GET_STARTED_PAGE.ROOT}
-      bg="#211E27"
       c="var(--mantine-color-dsm-light-0)"
     >
       <Center
@@ -117,10 +115,12 @@ const GetStarted = async () => {
         <Center>
           <OrganizationListView organizations={organizations} />
         </Center>
-        <Center>
-          <FooterLayout />
-        </Center>
       </Container>
+      <Center pt={"xl"} bg="var(--mantine-color-dsm-dark-primary-3)">
+        <DsmContentWrapper>
+          <FooterLayout />
+        </DsmContentWrapper>
+      </Center>
     </Flex>
   );
 };
