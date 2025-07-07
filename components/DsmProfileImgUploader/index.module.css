@@ -8,6 +8,12 @@
   &:hover {
     background-color: var(--mantine-color-gray-1);
   }
+
+  &[data-loading] {
+    :global(.mantine-LoadingOverlay-overlay) {
+      border-radius: 50%;
+    }
+  }
 }
 
 .dropzoneInner {
@@ -18,11 +24,11 @@
 }
 
 .dropzoneOptWrapper {
- height: 100%;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- padding: 32px;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
 }
 
 .badgeIcon {
@@ -38,31 +44,31 @@
   position: absolute;
   bottom: 8px;
   right: 8px;
-  z-index: 100;
+  z-index: 500;
 }
 
 .imageOverlayWrapper {
-    width: 100%;
-    height: 100%;
-    border-radius: 50% !important;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--mantine-color-gray-2);
-    background-color: var(--mantine-color-gray-1);
+  width: 100%;
+  height: 100%;
+  border-radius: 50% !important;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--mantine-color-gray-2);
+  background-color: var(--mantine-color-gray-1);
 }
 
 .imageOverlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 50%;
-    z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 50%;
+  z-index: 50;
 }
 
 .imageOverlayImage {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
 }

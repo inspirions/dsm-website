@@ -1,4 +1,4 @@
-import { Flex, Card, Text, Center } from "@mantine/core";
+import { Flex, Card, Text, Center, lighten } from "@mantine/core";
 
 import DsmImage from "@/components/DsmImage";
 import { NoAccessPage } from "@/components/NoAccessPage";
@@ -19,8 +19,7 @@ const Verification = async () => {
   return (
     <Center
       h="100vh"
-      c="var(--mantine-color-dsm-light-0)"
-      bg="var(--mantine-color-dsm-dark-primary-3)"
+      bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
       data-testid={VERIFICATION_PAGE.ROOT}
     >
       <Card
@@ -28,6 +27,7 @@ const Verification = async () => {
         shadow="xl"
         radius="md"
         padding="30px 60px"
+        c="var(--mantine-color-dsm-light-0)"
         bg="var(--mantine-color-dsm-dark-primary-0)"
       >
         <Flex direction={"column"} gap={"sm"}>

@@ -45,9 +45,11 @@ export const OtpTimer = ({ onResend }: OtpTimerPropsType) => {
   };
 
   return otpTime ? (
-    <Text c="#F5EFFE">{otpTime} seconds remaining</Text>
+    <Text c="var(--mantine-color-dsm-light-0)">
+      {otpTime} seconds remaining
+    </Text>
   ) : (
-    <Text c="#F5EFFE">
+    <Text c="var(--mantine-color-dsm-light-0)">
       Didn't receive OTP?{" "}
       <Anchor
         c={"var(--mantine-color-dsm-primary-5)"}
