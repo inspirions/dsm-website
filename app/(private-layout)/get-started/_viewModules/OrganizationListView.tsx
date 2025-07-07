@@ -52,13 +52,13 @@ export const OrganizationListView = ({
       >
         <Flex direction={"column"} align={"center"} gap={"12px"}>
           <DsmTitleText
-            c={"#F5EFFE"}
+            c="var(--mantine-color-dsm-light-0)"
             text="Welcome {Back!}"
             wrapperStyleProps={{
               style: { justifyContent: "center", alignItems: "center" },
             }}
           />
-          <Text size="24px" c={"#F5EFFE"}>
+          <Text size="24px" c="var(--mantine-color-dsm-light-0)">
             Choose an organization below to get back to working with your team
           </Text>
         </Flex>
@@ -82,8 +82,8 @@ export const OrganizationListView = ({
             justify={"center"}
           >
             <DsmTitleText
-              c={"#F5EFFE"}
               fw={700}
+              c="var(--mantine-color-dsm-light-0)"
               text="Not seeing your {organization?}"
               wrapperStyleProps={{
                 style: { justifyContent: "center", alignItems: "center" },
