@@ -28,11 +28,12 @@ export const IS_PROD = process.env.NODE_ENV === "production";
 export const DSM_COOKIE_DOMAIN =
   process.env.NEXT_DSM_COOKIE_DOMAIN || ".local.test";
 
-export const commons = Object.freeze({
+export const commons = {
+  ERROR: "error",
   SUCCESS: "SUCCESS",
   OTP_TIME: "otpTime",
   IS_SIGNING_UP: "isSigningUp",
-});
+} as const;
 
 export const STORAGE_FOLDER = {
   ORGANIZATION_LOGO: "organization-logo",
@@ -50,10 +51,10 @@ export const HOME_TAB_CONTENT_IMAGE_URL = [
   "./HomeTabContent4.png",
 ];
 
-export const SCREEN_WIDTH = Object.freeze({
+export const SCREEN_WIDTH = {
   MOBILE: "(max-width: 599px)",
   TABLET: "(min-width: 768px)",
   DESKTOP: "(min-width: 960px)",
   XL_DESKTOP: "(min-width: 1280px)",
   XXL_DESKTOP: "(min-width: 1920px)",
-});
+} as const;

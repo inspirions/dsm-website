@@ -14,7 +14,7 @@ import { verifyOtp, resendOtp } from "../../actions";
 
 import { VerifyOtpPropsType } from "../../types";
 
-const { SUCCESS, OTP_TIME } = commons;
+const { ERROR, SUCCESS, OTP_TIME } = commons;
 const { ORGANIZATION, RESET_PASSWORD, GET_STARTED } = routes;
 
 export const VerifyOtpFormView = () => {
@@ -36,7 +36,9 @@ export const VerifyOtpFormView = () => {
         }
       }
       localStorage.removeItem(OTP_TIME);
-      showNotification(res.code, res.message);
+      if (res.code === ERROR) {
+        showNotification(res.code, res.message);
+      }
       return res;
     } catch (error) {
       showErrorNotification();

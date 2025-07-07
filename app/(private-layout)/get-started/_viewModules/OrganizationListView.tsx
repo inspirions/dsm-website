@@ -20,12 +20,12 @@ export const OrganizationListView = ({
 }: OrganizationListViewPropsType) => {
   if (!organizations.length) {
     return (
-      <Flex direction={"column"} align={"center"} gap={"sm"}>
-        <Flex direction={"column"} align={"center"}>
-          <Text fw={"bold"} size="xl" c={"gray"}>
+      <Flex direction={"column"} align={"center"} gap={"md"} py={"60px"}>
+        <Flex gap={"sm"} direction={"column"} align={"center"}>
+          <Text fw={"bold"} size="28px" c={"gray"}>
             Is your organization already on Dsm?
           </Text>
-          <Text c={"gray"} ta={"center"}>
+          <Text size="xl" c={"gray"} ta={"center"}>
             We couldn't find any existing organizations for your account
           </Text>
         </Flex>
@@ -34,7 +34,7 @@ export const OrganizationListView = ({
           style={{ textDecoration: "none" }}
           data-testid={GET_STARTED_PAGE.LOGIN_LINK}
         >
-          <DsmButton hideIcon variant="outline">
+          <DsmButton hideIcon size="lg" variant="outline">
             Switch to another account
           </DsmButton>
         </Link>
@@ -46,9 +46,9 @@ export const OrganizationListView = ({
     <DsmContentWrapper>
       <Flex
         gap={"40px"}
+        py={"44px"}
         direction={"column"}
         data-testid={GET_STARTED_PAGE.ORGANIZATION_LIST}
-        style={{ padding: "60px 0" }}
       >
         <Flex direction={"column"} align={"center"} gap={"12px"}>
           <DsmTitleText
