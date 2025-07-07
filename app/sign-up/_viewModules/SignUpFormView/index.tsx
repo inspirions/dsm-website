@@ -14,7 +14,7 @@ import { RegisterType } from "../../_schema/signUp";
 
 import { invitationSignUp, signUp } from "../../actions";
 
-const { SUCCESS, IS_SIGNING_UP } = commons;
+const { ERROR, SUCCESS, IS_SIGNING_UP } = commons;
 const { VERIFICATION, GET_STARTED } = routes;
 
 const SignUpFormWrapper = () => {
@@ -26,7 +26,8 @@ const SignUpFormWrapper = () => {
   const handleSignUp = async (payload: RegisterType) => {
     try {
       let res;
-      if (searchParams.size) {
+      const hasInvitation = searchParams.size;
+      if (hasInvitation) {
         const { org, role, invitationKey } = Object.fromEntries(
           searchParams.entries()
         );
@@ -37,12 +38,18 @@ const SignUpFormWrapper = () => {
       }
 
       if (res.code === SUCCESS) {
-        sessionStorage.setItem(IS_SIGNING_UP, "true");
+        if (!hasInvitation) {
+          sessionStorage.setItem(IS_SIGNING_UP, "true");
+        }
         router.push(
-          `${VERIFICATION}?email=${payload.email}&returnTo=${GET_STARTED}`
+          `${VERIFICATION}?email=${payload.email}&returnTo=${
+            hasInvitation ? GET_STARTED : ""
+          }`
         );
       }
-
+      if (res.code === ERROR) {
+        showNotification(res.code, res.message);
+      }
       return res;
     } catch (error) {
       showErrorNotification();

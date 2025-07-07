@@ -144,6 +144,7 @@ export const InviteEmployeeForm = ({
                     error={meta.error && meta.touched ? meta.error : undefined}
                     name={field.name}
                     value={field.value}
+                    isDisabled={!orgId}
                     onChange={field.onChange}
                     onKeyDown={handleKeyDown(form)}
                     selectProps={{

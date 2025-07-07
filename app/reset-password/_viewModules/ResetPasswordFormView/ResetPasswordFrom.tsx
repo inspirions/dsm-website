@@ -58,7 +58,7 @@ export const ResetPasswordFrom = ({ onSubmit }: ResetPasswordFormPropsType) => {
             color="var(--mantine-color-dsm-primary-5)"
             loading={isSubmitting}
           >
-            Submit
+            Reset Password
           </DsmButton>
         </Stack>
       </Form>

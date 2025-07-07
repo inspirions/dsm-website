@@ -13,7 +13,7 @@ import { LoginForm } from "./LoginForm";
 import { login, setOtpCookie } from "../../actions";
 import { LoginType } from "../../_schema/login";
 
-const { SUCCESS } = commons;
+const { ERROR, SUCCESS } = commons;
 const { GET_STARTED, INVITATION, VERIFICATION } = routes;
 
 const LoginFormWrapper = () => {
@@ -39,7 +39,9 @@ const LoginFormWrapper = () => {
           );
         }
       }
-
+      if (res.code === ERROR) {
+        showNotification(res.code, res.message);
+      }
       return res;
     } catch (error) {
       showErrorNotification();
