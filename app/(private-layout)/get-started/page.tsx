@@ -50,7 +50,7 @@ const GetStarted = async () => {
       gap="xl"
       data-testid={GET_STARTED_PAGE.ROOT}
       bg="#211E27"
-      color={"#F5EFFE"}
+      c="var(--mantine-color-dsm-light-0)"
     >
       <Center
         pt={{
@@ -71,9 +71,9 @@ const GetStarted = async () => {
               <DsmTitleText
                 text="Get Started on {DSM}"
                 fz="48px"
-                c={"#F5EFFE"}
+                c="var(--mantine-color-dsm-light-0)"
               />
-              <Text size="xl" c={"#F5EFFE"}>
+              <Text size="xl" c="var(--mantine-color-dsm-light-0)">
                 It's an easy way to manage your daily tasks and stand ups for
                 your project and teams. It's faster, better organized, and more
                 secure.

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { Box, Container, Flex, Text } from "@mantine/core";
-import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
+import { Dropzone, FileRejection, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 
 import { DsmCustomIcon } from "../DsmCustomIcon";
 import { DsmIconButton } from "../DsmIconButton";
@@ -13,6 +13,8 @@ import { DsmProfileImgUploaderPropsType, UploadedFileType } from "./types";
 
 import classes from "./index.module.css";
 import { uploadFileAPI } from "@/lib/api";
+
+export const LARGE_FILE_ERROR = "file-too-large";
 
 const carouselProps = {
   finite: true,
@@ -40,6 +42,7 @@ export const DsmProfileImgUploader = (
   const [isLoading, setIsLoading] = useState(false);
   const [uploadedFile, setUploadedFile] = useState("");
   const [previewSrc, setPreviewSrc] = useState("");
+  const [uploadError, setUploadError] = useState("");
 
   const openRef = useRef<VoidFunction>(null);
 
@@ -50,6 +53,7 @@ export const DsmProfileImgUploader = (
   }, [uploadedFile, value]);
 
   const handleFileUpload = async (files: File[]) => {
+    setUploadError("");
     const formData = new FormData();
     setIsLoading(true);
     formData.append("files", files[0]);
@@ -69,23 +73,20 @@ export const DsmProfileImgUploader = (
     } catch (error) {
       console.log(error);
     }
+  };
 
-    // fetch(`${UPLOAD_FILE_API}${storageFolder}`, requestOptions)
-    //   .then(handleResponse)
-    //   .then((res) => {
-    //     setIsLoading(false);
-    //     const files = res.data as UploadedFileType[];
-    //     const fileUrl = files[0].url;
+  const handleFileReject = (fileRejections: FileRejection[]) => {
+    setIsLoading(false);
 
-    //     setUploadedFile(fileUrl);
+    const oversizedFile = fileRejections.find((indvRejectionFile) =>
+      indvRejectionFile.errors.some((error) => error.code === LARGE_FILE_ERROR)
+    );
 
-    //     if (onChange) {
-    //       onChange(files[0]);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    if (oversizedFile) {
+      setUploadError("File size should not exceed 1MB.");
+    } else {
+      setUploadError("File rejected.");
+    }
   };
 
   const handleRemove = useCallback(() => {
@@ -108,6 +109,7 @@ export const DsmProfileImgUploader = (
 
   const handleOpenFileDialog = () => {
     openRef.current?.();
+    setUploadError("");
   };
 
   return (
@@ -128,7 +130,7 @@ export const DsmProfileImgUploader = (
             maxFiles={1}
             openRef={openRef}
             loading={isLoading}
-            maxSize={5 * 1024 ** 2}
+            maxSize={1024 ** 2}
             accept={IMAGE_MIME_TYPE}
             classNames={{
               root: classes.dropzoneRoot,
@@ -136,6 +138,7 @@ export const DsmProfileImgUploader = (
             }}
             display={uploadedFile ? "none" : "block"}
             onDrop={handleFileUpload}
+            onReject={handleFileReject}
             {...restProps}
           >
             <Flex className={classes.dropzoneOptWrapper}>
@@ -157,6 +160,7 @@ export const DsmProfileImgUploader = (
           <Box className={classes.badgeWrapper}>
             <DsmIconButton
               variant="filled"
+              disabled={isLoading}
               iconProps={{ icon: uploadedFile ? "pencil" : "plus", size: 24 }}
               tooltipProps={{
                 title: uploadedFile ? "Edit Image" : "Add Image",
@@ -170,6 +174,11 @@ export const DsmProfileImgUploader = (
         {error && (
           <Text c="red" size="xs">
             {error}
+          </Text>
+        )}
+        {uploadError && (
+          <Text c="red" size="xs">
+            {uploadError}
           </Text>
         )}
       </Flex>
