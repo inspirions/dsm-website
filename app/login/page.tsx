@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Anchor, Box, Flex, Text } from "@mantine/core";
+import { Anchor, Box, Flex, lighten, Text } from "@mantine/core";
 
 import { LOGIN_PAGE } from "@/constants/dataTestId";
 import { routes } from "@/constants/routeConstants";
@@ -32,7 +32,7 @@ const renderFormView = () => (
 
 const Login = () => {
   return (
-    <Box bg="#09060FE5" c="white">
+    <Box bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)} c="white">
       <DsmFormWrapper
         title={LOGIN_TITLE}
         description={LOGIN_DESCRIPTION}
