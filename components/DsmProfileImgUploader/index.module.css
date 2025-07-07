@@ -10,7 +10,7 @@
   }
 
   &[data-loading] {
-    :global(.mantine-LoadingOverlay-overlay) {
+    & :global(.mantine-LoadingOverlay-overlay) {
       border-radius: 50%;
     }
   }
