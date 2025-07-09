@@ -82,14 +82,10 @@ export const CreateOrganizationForm = ({
               <Field name="logoUrl">
                 {({ field, meta }: FieldProps) => (
                   <DsmProfileImgUploader
-                    styles={{
-                      root: {
-                        backgroundColor: "#333",
-                      },
-                    }}
                     value={field.value}
                     wrapperProps={{ mx: 0 }}
                     storageFolder={ORGANIZATION_LOGO}
+                    styles={{ root: { backgroundColor: "#333" } }}
                     error={meta.error && meta.touched ? meta.error : ""}
                     onChange={handleLogoUpload(field)}
                   />
@@ -127,7 +123,7 @@ export const CreateOrganizationForm = ({
               {({ field, meta }: FieldProps) => (
                 <DsmTextAreaInput
                   className={classes.textAreaInput}
-                  maxRows={3}
+                  maxRows={4}
                   label="Organization Description"
                   placeholder="Enter organization description"
                   error={meta.error && meta.touched ? meta.error : ""}
@@ -142,11 +138,12 @@ export const CreateOrganizationForm = ({
               </Text>
             )}
           </Stack>
-          <Group justify="flex-end">
+          <Group justify="flex-end" pb={"2px"}>
             <DsmButton
               hideIcon
               size="xs"
-              variant="transparent"
+              color="white"
+              variant="subtle"
               onClick={handleSkipClick}
             >
               Skip for now

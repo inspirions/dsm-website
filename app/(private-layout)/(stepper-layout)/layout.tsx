@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-import { Card, Center, Container, Flex, Text } from "@mantine/core";
+import { Card, Center, Container, Flex, lighten, Text } from "@mantine/core";
 
 import { UserInfoProvider } from "@/providers/UserInfoProvider";
 
@@ -30,9 +30,14 @@ const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
           radius="md"
           style={{ flexDirection: "row" }}
           c="var(--mantine-color-dsm-light-0)"
-          bg="var(--mantine-color-dsm-dark-primary-0)"
+          bg="var(--mantine-color-dsm-dark-primary-1)"
         >
-          <Flex direction="column" pt="xl" px="44px" bg="#3c2f4f">
+          <Flex
+            direction="column"
+            pt="xl"
+            px="44px"
+            bg={lighten("var(--mantine-color-dsm-dark-primary-1)", 0.05)}
+          >
             <Text size="xl" fw="bold" mb="md">
               Welcome to Daily Sync
             </Text>
@@ -40,7 +45,8 @@ const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
           </Flex>
           <Flex
             flex={1}
-            my={"lg"}
+            mt={"xl"}
+            mb={"lg"}
             px={"64px"}
             direction={"column"}
             style={{ overflow: "auto" }}

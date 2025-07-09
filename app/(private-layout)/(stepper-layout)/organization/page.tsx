@@ -1,8 +1,5 @@
 import { Flex, Text } from "@mantine/core";
 
-import DsmImage from "@/components/DsmImage";
-
-import { LOGO_URL } from "@/constants/commons";
 import { ORGANIZATION_PAGE } from "@/constants/dataTestId";
 
 import { CreateOrganizationFormView } from "./_viewModules/CreateOrganizationFormView";
@@ -11,23 +8,17 @@ const Organization = () => {
   return (
     <Flex
       h={"100%"}
-      direction={"column"}
       gap={"xl"}
+      direction={"column"}
       data-testid={ORGANIZATION_PAGE.ROOT}
     >
       <Flex direction={"column"} gap={"xs"}>
-        <Flex justify="center">
-          <DsmImage
-            h={40}
-            w={100}
-            src={LOGO_URL}
-            style={{ objectFit: "contain" }}
-            data-testid={ORGANIZATION_PAGE.LOGO}
-          />
-        </Flex>
         <Flex direction={"column"}>
           <Text size="xl" fw={700} ta="center">
-            Create your organization
+            Create your{" "}
+            <Text span inherit c={"#f28315"}>
+              Organization
+            </Text>
           </Text>
           <Text c="gray" ta="center" fw={500}>
             Please enter you organization details.
