@@ -12,7 +12,7 @@ const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
     <Container
       p={0}
       miw={{ xl: "100%" }}
-      className="bg-[#140e21e5] min-h-dvh h-auto"
+      className="bg-[#160E25] min-h-dvh h-auto"
     >
       <div className="flex flex-col-reverse md:flex-row items-center justify-center md:gap-4">
         <div

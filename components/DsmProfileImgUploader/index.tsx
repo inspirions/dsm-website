@@ -60,7 +60,6 @@ export const DsmProfileImgUploader = (
 
     try {
       const response = await uploadFileAPI(storageFolder, formData);
-      console.log(response);
       setIsLoading(false);
       const files = response.data as UploadedFileType[];
       const fileUrl = files[0].url;

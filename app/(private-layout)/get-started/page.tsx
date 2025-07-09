@@ -51,10 +51,7 @@ const GetStarted = async () => {
       c="var(--mantine-color-dsm-light-0)"
     >
       <Center
-        pt={{
-          base: 80,
-          md: "xl",
-        }}
+        pt={{ base: 80, md: "xl" }}
         pb={"75px"}
         bg="linear-gradient(to top, #5D3A9B80 0%, #5D3A9B00 42%)"
       >
@@ -95,31 +92,23 @@ const GetStarted = async () => {
             </Flex>
             <DsmImage
               h={"auto"}
-              w={{
-                md: "40%",
-                lg: "60%",
-              }}
+              w={{ md: "40%", lg: "60%" }}
               fit="contain"
               radius={"md"}
               src={DSM_IMAGE_URL}
-              display={{
-                base: "none",
-                md: "block",
-              }}
+              display={{ base: "none", md: "block" }}
               data-testid={GET_STARTED_PAGE.STAND_UP_IMAGE}
             />
           </Flex>
         </DsmContentWrapper>
       </Center>
-      <Container>
+      <Container size={"lg"}>
         <Center>
           <OrganizationListView organizations={organizations} />
         </Center>
       </Container>
       <Center pt={"xl"} bg="var(--mantine-color-dsm-dark-primary-3)">
-        <DsmContentWrapper>
-          <FooterLayout />
-        </DsmContentWrapper>
+        <FooterLayout />
       </Center>
     </Flex>
   );
