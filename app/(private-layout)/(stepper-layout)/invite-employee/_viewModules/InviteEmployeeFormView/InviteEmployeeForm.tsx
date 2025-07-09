@@ -179,10 +179,6 @@ export const InviteEmployeeForm = ({
                           />
                           <Flex gap={"xs"} align={"center"}>
                             <Select
-                              styles={{
-                                ...textInputStyles,
-                                ...dropDownStyles,
-                              }}
                               w={100}
                               size="xs"
                               defaultValue="User"
@@ -192,6 +188,7 @@ export const InviteEmployeeForm = ({
                               data={USER_ROLE_OPTIONS}
                               value={indvEmail.userType}
                               onChange={handleChangeRole(indvEmail.to)}
+                              styles={{ ...textInputStyles, ...dropDownStyles }}
                               classNames={{
                                 option: classes.selectOption,
                                 options: classes.selectOptions,
@@ -214,11 +211,13 @@ export const InviteEmployeeForm = ({
                 </>
               )}
             </Flex>
-            <Group justify="flex-end">
+            <Group justify="flex-end" pb={"2px"}>
               <DsmButton
                 hideIcon
+                disabled={!orgId}
                 size="xs"
-                variant="transparent"
+                color="white"
+                variant="subtle"
                 onClick={handleSkipClick}
               >
                 Skip for now
