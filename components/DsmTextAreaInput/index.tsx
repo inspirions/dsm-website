@@ -12,6 +12,7 @@ export const DsmTextAreaInput: React.FC<DsmTextAreaInputPropsType> = ({
   <Textarea
     autosize
     minRows={3}
+    rows={3}
     required={false}
     disabled={disabled}
     withAsterisk={required}
