@@ -18,14 +18,14 @@ const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Center
-      h={"calc(100vh - 82px)"}
+      h="calc(100vh - 82px)"
       data-testid={ONBOARD_STEPPER.ROOT}
       c="var(--mantine-color-dsm-light-0)"
     >
-      <Container p={0} size="md" h={"90%"} w="100%">
+      <Container p={0} size="md" h="90%" w="100%">
         <Card
           p={0}
-          h={"100%"}
+          h="100%"
           shadow="xl"
           radius="md"
           style={{ flexDirection: "row" }}
@@ -45,10 +45,10 @@ const StepperLayout = async ({ children }: { children: React.ReactNode }) => {
           </Flex>
           <Flex
             flex={1}
-            mt={"xl"}
-            mb={"lg"}
-            px={"64px"}
-            direction={"column"}
+            mt="xl"
+            mb="lg"
+            px="64px"
+            direction="column"
             style={{ overflow: "auto" }}
           >
             <UserInfoProvider userInfo={{ id: userId }}>

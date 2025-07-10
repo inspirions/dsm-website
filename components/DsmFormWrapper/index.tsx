@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Container, Text } from "@mantine/core";
 
 import { DAILY_SYNC_LOGO_URL } from "@/constants/commons";
@@ -15,9 +17,7 @@ const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
       className="bg-[#160E25] min-h-dvh h-auto"
     >
       <div className="flex flex-col-reverse md:flex-row items-center justify-center md:gap-4">
-        <div
-          className={`flex-1 min-h-dvh bg-[var(--mantine-color-dsm-dark-primary-3)] p-[60px] flex flex-col items-center justify-center`}
-        >
+        <div className="flex-1 min-h-dvh bg-[var(--mantine-color-dsm-dark-primary-3)] p-[60px] flex flex-col items-center justify-center">
           <p className="text-[var(--mantine-color-dsm-light-0)] text-[36px] font-semibold ">
             {title}
           </p>
@@ -45,9 +45,14 @@ const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
         </div>
         <div className="w-full md:w-[50%] h-dvh py-8 px-8 md:px-12 xxl:px-50 flex flex-col items-center justify-center gap-[12px]">
           <div className="flex justify-center">
-            <img src={DAILY_SYNC_LOGO_URL} alt="logo" width={105} />
+            <Image
+              src={DAILY_SYNC_LOGO_URL}
+              alt="logo"
+              width={105}
+              height={38}
+            />
           </div>
-          {!!formTitle ? (
+          {formTitle ? (
             formTitle
           ) : (
             <Text className={classes.secTitle}>

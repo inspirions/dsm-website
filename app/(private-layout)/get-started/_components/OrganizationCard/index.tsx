@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import { Avatar, Box, Flex, Text } from "@mantine/core";
 
 import { DsmIconButton } from "@/components/DsmIconButton";
@@ -25,8 +23,8 @@ export const OrganizationCard = (props: OrganizationCardPropsType) => {
 
   return (
     <Box className={classes.card} onClick={handleClick}>
-      <Flex gap={"sm"} justify={"space-between"} align={"center"}>
-        <Flex direction={"column"} gap={4}>
+      <Flex gap="sm" justify="space-between" align="center">
+        <Flex direction="column" gap={4}>
           <Avatar
             size={40}
             bg="gray"
@@ -36,9 +34,9 @@ export const OrganizationCard = (props: OrganizationCardPropsType) => {
             src={logoUrl}
           />
           <Text
-            fw={"600"}
-            fz={"20px"}
-            maw={"200px"}
+            fw="600"
+            fz="20px"
+            maw="200px"
             truncate="end"
             className={classes.label}
           >
@@ -46,9 +44,9 @@ export const OrganizationCard = (props: OrganizationCardPropsType) => {
           </Text>
         </Flex>
         <DsmIconButton
-          size={"32px"}
+          size="32px"
           color="white"
-          radius={"50%"}
+          radius="50%"
           variant="outline"
           className={classes.icon}
           iconProps={{ icon: "arrowRight", size: 18 }}

@@ -58,7 +58,9 @@ export const CreateOrganizationForm = ({
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target;
       field.onChange({ target: { name: field.name, value } });
-      !!organizationError && setOrganizationError("");
+      if (organizationError) {
+        setOrganizationError("");
+      }
     };
 
   const handleSkipClick = () => {
@@ -73,9 +75,9 @@ export const CreateOrganizationForm = ({
       onSubmit={handleSubmit}
     >
       <Form style={{ height: "inherit" }} data-testid={ORGANIZATION_PAGE.FORM}>
-        <Stack h={"inherit"} justify="space-between">
+        <Stack h="inherit" justify="space-between">
           <Stack gap="sm">
-            <Stack gap={"4px"} justify="flex-start">
+            <Stack gap="4px" justify="flex-start">
               <Text size="sm" fw={500}>
                 Organization Logo
               </Text>
@@ -138,7 +140,7 @@ export const CreateOrganizationForm = ({
               </Text>
             )}
           </Stack>
-          <Group justify="flex-end" pb={"2px"}>
+          <Group justify="flex-end" pb="2px">
             <DsmButton
               hideIcon
               size="xs"

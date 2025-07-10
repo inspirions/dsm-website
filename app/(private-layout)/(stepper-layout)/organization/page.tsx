@@ -7,16 +7,16 @@ import { CreateOrganizationFormView } from "./_viewModules/CreateOrganizationFor
 const Organization = () => {
   return (
     <Flex
-      h={"100%"}
-      gap={"xl"}
-      direction={"column"}
+      h="100%"
+      gap="xl"
+      direction="column"
       data-testid={ORGANIZATION_PAGE.ROOT}
     >
-      <Flex direction={"column"} gap={"xs"}>
-        <Flex direction={"column"}>
+      <Flex direction="column" gap="xs">
+        <Flex direction="column">
           <Text size="xl" fw={700} ta="center">
             Create your{" "}
-            <Text span inherit c={"#f28315"}>
+            <Text span inherit c="#f28315">
               Organization
             </Text>
           </Text>
