@@ -70,7 +70,11 @@ export const DsmProfileImgUploader = (
         onChange(files[0]);
       }
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) {
+        setUploadError(error.message);
+      } else {
+        setUploadError("An unknown error occurred");
+      }
     }
   };
 
@@ -150,7 +154,7 @@ export const DsmProfileImgUploader = (
               <Dropzone.Idle>
                 <DsmCustomIcon icon="photo" size={42} />
               </Dropzone.Idle>
-              <Text ta={"center"} size="sm" mt="xs">
+              <Text ta="center" size="sm" mt="xs">
                 Click to upload or drag and drop
               </Text>
             </Flex>
