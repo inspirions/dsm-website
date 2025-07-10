@@ -131,8 +131,8 @@ export const InviteEmployeeForm = ({
           style={{ height: "100%" }}
           data-testid={INVITE_EMPLOYEE_PAGE.FORM}
         >
-          <Flex h={"100%"} direction={"column"} justify={"space-between"}>
-            <Flex direction={"column"} gap={"md"}>
+          <Flex h="100%" direction="column" justify="space-between">
+            <Flex direction="column" gap="md">
               <Field name="to">
                 {({ field, meta, form }: FieldProps) => (
                   <DsmTextInputWithSelect
@@ -161,15 +161,15 @@ export const InviteEmployeeForm = ({
                   />
                 )}
               </Field>
-              {!orgId && <Text c={"red"}>Organization not found</Text>}
+              {!orgId && <Text c="red">Organization not found</Text>}
               {!!invites.length && (
                 <>
                   <Divider style={{ borderColor: "#f1f1f1" }} />
-                  <Flex direction="column" gap={"sm"}>
-                    <Text lh={1} fw={"bold"}>
+                  <Flex direction="column" gap="sm">
+                    <Text lh={1} fw="bold">
                       Employees to Invite
                     </Text>
-                    <Flex direction="column" gap={"4px"}>
+                    <Flex direction="column" gap="4px">
                       {invites.map((indvEmail) => (
                         <Flex key={indvEmail.to} justify="space-between">
                           <DsmInfoAvatar
@@ -177,7 +177,7 @@ export const InviteEmployeeForm = ({
                             labelProps={{ tt: "lowercase", c: "#fff" }}
                             avatarProps={{ size: 32, radius: "lg" }}
                           />
-                          <Flex gap={"xs"} align={"center"}>
+                          <Flex gap="xs" align="center">
                             <Select
                               w={100}
                               size="xs"
@@ -211,7 +211,7 @@ export const InviteEmployeeForm = ({
                 </>
               )}
             </Flex>
-            <Group justify="flex-end" pb={"2px"}>
+            <Group justify="flex-end" pb="2px">
               <DsmButton
                 hideIcon
                 disabled={!orgId}

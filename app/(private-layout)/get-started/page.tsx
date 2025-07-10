@@ -52,7 +52,7 @@ const GetStarted = async () => {
     >
       <Center
         pt={{ base: 80, md: "xl" }}
-        pb={"75px"}
+        pb="75px"
         bg="linear-gradient(to top, #5D3A9B80 0%, #5D3A9B00 42%)"
       >
         <DsmContentWrapper>
@@ -73,7 +73,7 @@ const GetStarted = async () => {
                 your project and teams. It's faster, better organized, and more
                 secure.
               </Text>
-              <Flex w={"300px"}>
+              <Flex w="300px">
                 <Link
                   href={ORGANIZATION}
                   style={{ width: "100%", textDecoration: "none" }}
@@ -91,10 +91,10 @@ const GetStarted = async () => {
               </Flex>
             </Flex>
             <DsmImage
-              h={"auto"}
+              h="auto"
               w={{ md: "40%", lg: "60%" }}
               fit="contain"
-              radius={"md"}
+              radius="md"
               src={DSM_IMAGE_URL}
               display={{ base: "none", md: "block" }}
               data-testid={GET_STARTED_PAGE.STAND_UP_IMAGE}
@@ -102,12 +102,12 @@ const GetStarted = async () => {
           </Flex>
         </DsmContentWrapper>
       </Center>
-      <Container size={"lg"}>
+      <Container size="lg">
         <Center>
           <OrganizationListView organizations={organizations} />
         </Center>
       </Container>
-      <Center pt={"xl"} bg="var(--mantine-color-dsm-dark-primary-3)">
+      <Center pt="xl" bg="var(--mantine-color-dsm-dark-primary-3)">
         <FooterLayout />
       </Center>
     </Flex>
