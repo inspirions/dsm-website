@@ -5,5 +5,7 @@ export const DsmContentWrapper = ({
 }: {
   children: React.ReactNode;
 }) => {
-  return <div className="w-full md:w=[768px] xl:w-[1280px]">{children}</div>;
+  return (
+    <div className="w-full md:w=[768px] xl:w-[1280px] h-full">{children}</div>
+  );
 };
