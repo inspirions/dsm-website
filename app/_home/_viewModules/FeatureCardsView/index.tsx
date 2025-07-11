@@ -20,8 +20,8 @@ export const FeatureCardsView = () => (
         p={{ base: 16, md: "42px 24px" }}
         className={classes.card}
       >
-        <Flex direction={"column"} gap={"sm"}>
-          <Flex justify={"space-between"} align={"center"}>
+        <Flex direction="column" gap="sm">
+          <Flex justify="space-between" align="center">
             <Text fw={600} lh={1.5} size="20px">
               {title}
             </Text>

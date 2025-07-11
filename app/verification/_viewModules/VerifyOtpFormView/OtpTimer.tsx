@@ -52,8 +52,8 @@ export const OtpTimer = ({ onResend }: OtpTimerPropsType) => {
     <Text c="var(--mantine-color-dsm-light-0)">
       Didn't receive OTP?{" "}
       <Anchor
-        c={"var(--mantine-color-dsm-primary-5)"}
-        fw={"bold"}
+        c="var(--mantine-color-dsm-primary-5)"
+        fw="bold"
         underline="always"
         onClick={handleResendClick}
       >
