@@ -59,7 +59,7 @@ export const OnboardStepper = () => {
 
   return (
     <Stepper
-      h={"100%"}
+      h="100%"
       radius="md"
       iconSize={32}
       orientation="vertical"

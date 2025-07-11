@@ -15,24 +15,20 @@ import { DsmContentWrapper } from "../DsmContentWrapper";
 export const FooterLayout = () => {
   return (
     <DsmContentWrapper>
-      <Flex direction={"column"} gap={24}>
-        <Flex
-          gap={18}
-          justify={"space-between"}
-          className="flex-col sm:flex-row"
-        >
-          <DsmImage src={DAILY_SYNC_LOGO_URL} w={"150px"} />
+      <Flex direction="column" gap={24}>
+        <Flex gap={18} justify="space-between" className="flex-col sm:flex-row">
+          <DsmImage src={DAILY_SYNC_LOGO_URL} w="150px" />
           <Flex
             gap={{
               base: "sm",
               lg: "lg",
             }}
-            align={"center"}
+            align="center"
           >
-            <DsmImage src={FACEBOOK_ICON_URL} w={"32px"} h={"32px"} />
-            <DsmImage src={INSTAGRAM_ICON_URL} w={"32px"} h={"32px"} />
-            <DsmImage src={YOUTUBE_ICON_URL} w={"32px"} h={"32px"} />
-            <DsmImage src={X_ICON_URL} w={"32px"} h={"32px"} />
+            <DsmImage src={FACEBOOK_ICON_URL} w="32px" h="32px" />
+            <DsmImage src={INSTAGRAM_ICON_URL} w="32px" h="32px" />
+            <DsmImage src={YOUTUBE_ICON_URL} w="32px" h="32px" />
+            <DsmImage src={X_ICON_URL} w="32px" h="32px" />
           </Flex>
         </Flex>
         <Divider />
@@ -49,24 +45,24 @@ export const FooterLayout = () => {
                 xs: "row",
                 md: "column",
               }}
-              justify={"space-between"}
-              gap={"md"}
+              justify="space-between"
+              gap="md"
             >
-              <Text maw={"400px"}>
+              <Text maw="400px">
                 DailySync.ai captures, summarizes, and highlights your daily
                 standups using AI, helping teams stay aligned, save time, and
                 focus on meaningful work with greater clarity and speed
               </Text>
-              <Flex direction={"column"} gap={"md"}>
-                <Flex gap={"xs"} align={"center"}>
+              <Flex direction="column" gap="md">
+                <Flex gap="xs" align="center">
                   <DsmCustomIcon icon="phone" fill="white" />
                   <Text>9860034555</Text>
                 </Flex>
-                <Flex gap={"xs"} align={"center"}>
+                <Flex gap="xs" align="center">
                   <DsmCustomIcon icon="email" fill="white" />
                   <Text>https://app.dailysync.ai/login</Text>
                 </Flex>
-                <Flex gap={"xs"} align={"center"}>
+                <Flex gap="xs" align="center">
                   <DsmCustomIcon icon="mapMarker" fill="white" />
                   <Text>Janani Marga, Lalitpur</Text>
                 </Flex>
@@ -80,7 +76,7 @@ export const FooterLayout = () => {
             }}
             // offset={1}
           >
-            <Flex direction={"column"} gap={"md"}>
+            <Flex direction="column" gap="md">
               <Text>Links</Text>
               <Text>Home</Text>
               <Text>Features</Text>
@@ -93,13 +89,13 @@ export const FooterLayout = () => {
               md: 3,
             }}
           >
-            <Flex direction={"column"} gap={"md"}>
+            <Flex direction="column" gap="md">
               <Text>Privacy Policy</Text>
               <Text>Terms & Conditions</Text>
             </Flex>
           </GridCol>
         </Grid>
-        <Text ta={"center"}>
+        <Text ta="center">
           Copyright © 2025 Daily Sync AI. All rights reserved.
         </Text>
       </Flex>

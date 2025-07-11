@@ -64,12 +64,12 @@ export const HurdleItemsView = () => {
               opacity,
             }}
           >
-            <Flex direction={"column"}>
-              <Flex align={"center"} gap={"xs"}>
+            <Flex direction="column">
+              <Flex align="center" gap="xs">
                 <Flex
-                  align={"center"}
-                  justify={"center"}
-                  bg={"#763BC4"}
+                  align="center"
+                  justify="center"
+                  bg="#763BC4"
                   h={28}
                   w={28}
                   style={{ borderRadius: "50%" }}

@@ -17,7 +17,7 @@ export const DsmMultiColorText = ({
   color1 = "white",
   color2 = "#F28315",
 }: DsmMultiColorTextPropsType) => (
-  <Text ta={"center"} c={color1} fw={"bold"} lh={1.3} size="36px">
+  <Text ta="center" c={color1} fw="bold" lh={1.3} size="36px">
     {text1}{" "}
     <Text span c={color2} inherit>
       {text2}

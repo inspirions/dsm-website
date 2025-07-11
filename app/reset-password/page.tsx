@@ -32,7 +32,7 @@ const ResetPassword = async () => {
         c="var(--mantine-color-dsm-light-0)"
         bg="var(--mantine-color-dsm-dark-primary-0)"
       >
-        <Flex direction={"column"} gap={"md"}>
+        <Flex direction="column" gap="md">
           <Flex justify="center">
             <DsmImage
               w={100}
@@ -42,7 +42,7 @@ const ResetPassword = async () => {
               data-testid={RESET_PASSWORD_PAGE.LOGO}
             />
           </Flex>
-          <Flex direction={"column"}>
+          <Flex direction="column">
             <Text size="xl" fw={700} ta="center">
               Reset Password
             </Text>

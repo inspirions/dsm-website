@@ -26,7 +26,7 @@ export const DsmInfoAvatar = (props: DsmInfoAvatarPropsType) => {
   ) : (
     <Flex
       gap={12}
-      align={"center"}
+      align="center"
       data-testid={DSM_INFO_AVATAR.ROOT}
       {...wrapperProps}
     >
@@ -40,7 +40,7 @@ export const DsmInfoAvatar = (props: DsmInfoAvatarPropsType) => {
       >
         {iconProps && <DsmCustomIcon {...iconProps} />}
       </Avatar>
-      <Flex direction={"column"}>
+      <Flex direction="column">
         <Text
           className={classes.label}
           data-testid={DSM_INFO_AVATAR.LABEL}

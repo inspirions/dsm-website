@@ -30,7 +30,7 @@ const Verification = async () => {
         c="var(--mantine-color-dsm-light-0)"
         bg="var(--mantine-color-dsm-dark-primary-0)"
       >
-        <Flex direction={"column"} gap={"sm"}>
+        <Flex direction="column" gap="sm">
           <Flex justify="center">
             <DsmImage
               h={40}
