@@ -40,7 +40,7 @@ export const VerifyOtpFormView = () => {
         showNotification(res.code, res.message);
       }
       return res;
-    } catch (error) {
+    } catch {
       showErrorNotification();
     }
   };
@@ -50,7 +50,7 @@ export const VerifyOtpFormView = () => {
       const res = await resendOtp({ email });
       showNotification(res.code, res.message);
       return res;
-    } catch (error) {
+    } catch {
       showErrorNotification();
     }
   };
