@@ -10,8 +10,8 @@ export const QuoteCardsView = () =>
         base: "100%",
         md: 588,
       }}
-      pos={"relative"}
-      bd={"1px solid"}
+      pos="relative"
+      bd="1px solid"
       style={{
         borderRadius: "12px",
         background:
@@ -37,22 +37,22 @@ export const QuoteCardsView = () =>
         }}
       />
       <Flex
-        direction={"column"}
+        direction="column"
         pt={{ base: 36, md: 120 }}
-        align={"center"}
-        gap={"sm"}
+        align="center"
+        gap="sm"
         px={{ base: 18, md: 40 }}
         pb={{ base: 20, mb: 40 }}
       >
-        <Flex direction={"column"} align={"center"} gap={"6px"}>
+        <Flex direction="column" align="center" gap="6px">
           <Text lh={1.3} size="20px" fw={600}>
             {name}
           </Text>
-          <Text fw={500} lh={1.5} ta={"center"}>
+          <Text fw={500} lh={1.5} ta="center">
             {designation}
           </Text>
         </Flex>
-        <Text lh={1.5} size="lg" fs={"italic"} ta={"center"}>
+        <Text lh={1.5} size="lg" fs="italic" ta="center">
           {quote}
         </Text>
       </Flex>

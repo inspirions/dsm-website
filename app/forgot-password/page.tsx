@@ -15,7 +15,7 @@ import {
 const { LOGIN } = routes;
 
 const renderFormTitle = (
-  <Flex direction={"column"}>
+  <Flex direction="column">
     <Text size="xl" fw={700} ta="center">
       Forgot Password
     </Text>

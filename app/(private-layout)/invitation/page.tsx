@@ -78,7 +78,7 @@ const Invitation = async ({
   const orgLogo = data?.tenant?.logoUrl;
 
   return (
-    <Container className={"h-[calc(100dvh- 64px)] p-12"}>
+    <Container className="h-[calc(100dvh- 64px)] p-12">
       <Center
         style={{
           flexDirection: "column",
@@ -90,19 +90,19 @@ const Invitation = async ({
         <Card
           shadow="xl"
           radius="md"
-          p={"44px"}
+          p="44px"
           style={{ gap: "32px" }}
           w={{ base: "100%", xs: "500px" }}
           bg="var(--mantine-color-dsm-dark-primary-0)"
         >
-          <Flex justify={"center"}>
-            <DsmImage src={INVITE_IMAGE_URL} w={"250px"} />
+          <Flex justify="center">
+            <DsmImage src={INVITE_IMAGE_URL} w="250px" />
           </Flex>
-          <Flex direction={"column"} gap={"xl"} ta={"center"}>
-            <Text size="24px" c={"var(--mantine-color-dark-3)"} fw={700}>
+          <Flex direction="column" gap="xl" ta="center">
+            <Text size="24px" c="var(--mantine-color-dark-3)" fw={700}>
               Pending Invite
             </Text>
-            <Flex justify={"center"} align={"center"} gap={"lg"}>
+            <Flex justify="center" align="center" gap="lg">
               <DsmAvatarWithRipple
                 avatarProps={{
                   src: orgLogo,
@@ -130,15 +130,15 @@ const Invitation = async ({
                 }}
               />
             </Flex>
-            <Flex align={"center"} direction={"column"} gap={"lg"}>
-              <Stack gap={"xs"}>
-                <Text size="xl" fw={600} c={"var(--mantine-color-gray-6)"}>
+            <Flex align="center" direction="column" gap="lg">
+              <Stack gap="xs">
+                <Text size="xl" fw={600} c="var(--mantine-color-gray-6)">
                   <Tooltip label={inviteeEmail}>
                     <Text
                       span
                       size="xl"
-                      c={"var(--mantine-color-dsm-primary-5)"}
-                      fw={"bold"}
+                      c="var(--mantine-color-dsm-primary-5)"
+                      fw="bold"
                     >
                       {inviteeName}
                     </Text>
@@ -148,17 +148,17 @@ const Invitation = async ({
                 <Text
                   size="24px"
                   fw={700}
-                  c={"var(--mantine-color-dsm-primary-6)"}
+                  c="var(--mantine-color-dsm-primary-6)"
                 >
                   {organizationName}
                 </Text>
               </Stack>
-              <Text c={"var(--mantine-color-gray-6)"} fz={14}>
+              <Text c="var(--mantine-color-gray-6)" fz={14}>
                 Your invitation expires in{" "}
                 <Text
                   span
                   inherit
-                  c={"var(--mantine-color-red-6)"}
+                  c="var(--mantine-color-red-6)"
                   fz={14}
                   ml={4}
                 >
@@ -166,7 +166,7 @@ const Invitation = async ({
                 </Text>
               </Text>
             </Flex>
-            <Flex justify={"center"} gap={"xl"} w={"100%"}>
+            <Flex justify="center" gap="xl" w="100%">
               <InvitationAcceptBtn
                 userId={userId}
                 tenantId={orgId}

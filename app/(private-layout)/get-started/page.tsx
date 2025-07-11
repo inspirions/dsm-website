@@ -100,15 +100,15 @@ const GetStarted = async () => {
         <>
           <CreateOrganization />
           <Flex
-            gap={"lg"}
-            py={"62px"}
-            align={"center"}
-            direction={"column"}
+            gap="lg"
+            py="62px"
+            align="center"
+            direction="column"
             c="var(--mantine-color-gray-4)"
           >
-            <Flex gap={"sm"} direction={"column"} align={"center"}>
+            <Flex gap="sm" direction="column" align="center">
               <DsmTitleText text="Is your organization already on {DailySync}?" />
-              <Text size="xl" ta={"center"}>
+              <Text size="xl" ta="center">
                 We couldn't find any existing organizations for your account
               </Text>
             </Flex>
@@ -126,7 +126,7 @@ const GetStarted = async () => {
       ) : (
         <Box bg="linear-gradient(to top, #5D3A9B80 0%, #5D3A9B00 42%)">
           <Container size="lg">
-            <Center h={"calc(100vh - 82px)"}>
+            <Center h="calc(100vh - 82px)">
               <OrganizationListView organizations={organizations} />
             </Center>
           </Container>

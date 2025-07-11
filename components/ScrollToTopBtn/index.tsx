@@ -9,8 +9,8 @@ export const ScrollToTopBtn = () => {
 
   return (
     <DsmIconButton
-      size={"xl"}
-      bg={"rgba(245, 239, 254, 0.2)"}
+      size="xl"
+      bg="rgba(245, 239, 254, 0.2)"
       iconProps={{
         icon: "arrowUp",
         size: 20,

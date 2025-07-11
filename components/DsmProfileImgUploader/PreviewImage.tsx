@@ -13,7 +13,7 @@ export const PreviewImage = (props: {
 }) => {
   const { isLoading, uploadedFile, handlePreview, handleRemove } = props;
   return (
-    <Box h={"100%"} pos="relative" display={uploadedFile ? "block" : "none"}>
+    <Box h="100%" pos="relative" display={uploadedFile ? "block" : "none"}>
       <LoadingOverlay
         visible={isLoading}
         zIndex={99}

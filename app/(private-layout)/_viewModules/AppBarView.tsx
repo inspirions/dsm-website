@@ -30,7 +30,7 @@ export const AppBarView = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <AppShell
-      c={"white"}
+      c="white"
       header={{ height: 20 }}
       bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
     >
