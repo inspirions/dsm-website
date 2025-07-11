@@ -29,7 +29,7 @@ export const ResetPasswordFormView = () => {
 
       showNotification(res.code, res.message);
       return res;
-    } catch (error) {
+    } catch {
       showErrorNotification();
     }
   };

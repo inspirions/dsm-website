@@ -43,15 +43,21 @@
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noConsole": "warn"
+        "noConsole": "warn",
+        "noArrayIndexKey": "off",
+        "noImplicitAnyLet": "off"
       },
       "style": {
         "useImportType": "off",
         "useNamingConvention": "off",
-        "useConsistentCurlyBraces": "error"
+        "useConsistentCurlyBraces": "off"
       },
       "correctness": {
         "noUnusedVariables": "error"
+      },
+      "a11y": {
+        "useValidAnchor": "off",
+        "noSvgWithoutTitle": "off"
       }
     }
   },

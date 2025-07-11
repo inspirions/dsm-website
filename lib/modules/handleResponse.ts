@@ -7,7 +7,7 @@ export function handleResponse(response: Response) {
       try {
         data = text && JSON.parse(text);
       } catch (error) {
-        return "error";
+        return error;
       }
       if (!response.ok) {
         if (response.status === 401 || response.status === 403) {
