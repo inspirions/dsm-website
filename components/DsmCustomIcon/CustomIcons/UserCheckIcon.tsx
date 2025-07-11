@@ -1,4 +1,4 @@
-import { CustomIconPropsType } from '../types';
+import { CustomIconPropsType } from "../types";
 
 const UserCheckIcon = ({
   size = 16,

@@ -1,3 +1,3 @@
-import { TextareaProps } from '@mantine/core';
+import { TextareaProps } from "@mantine/core";
 
 export type DsmTextAreaInputPropsType = TextareaProps;
