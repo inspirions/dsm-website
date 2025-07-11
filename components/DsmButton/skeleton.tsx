@@ -1,6 +1,6 @@
-import { Skeleton, SkeletonProps } from '@mantine/core';
+import { Skeleton, SkeletonProps } from "@mantine/core";
 
-import classes from './index.module.css';
+import classes from "./index.module.css";
 
 export const DsmButtonSkeleton = (props: SkeletonProps) => {
   const { visible, width: skeletonWidth = 100, ...restProps } = props;
@@ -8,7 +8,7 @@ export const DsmButtonSkeleton = (props: SkeletonProps) => {
     <Skeleton
       className={classes.skeleton}
       visible={visible}
-      width={!visible ? 'fit-content' : skeletonWidth}
+      width={!visible ? "fit-content" : skeletonWidth}
       radius={4}
       {...restProps}
     />

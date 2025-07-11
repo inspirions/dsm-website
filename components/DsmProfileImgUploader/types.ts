@@ -1,5 +1,5 @@
-import { ContainerProps } from '@mantine/core';
-import { DropzoneProps } from '@mantine/dropzone';
+import { ContainerProps } from "@mantine/core";
+import { DropzoneProps } from "@mantine/dropzone";
 
 export interface UploadedFileType {
   url: string;
@@ -7,7 +7,7 @@ export interface UploadedFileType {
 }
 
 export interface DsmProfileImgUploaderPropsType
-  extends Omit<Partial<DropzoneProps>, 'onChange'> {
+  extends Omit<Partial<DropzoneProps>, "onChange"> {
   storageFolder: string;
   error?: string;
   width?: number;

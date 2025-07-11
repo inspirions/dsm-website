@@ -4,7 +4,8 @@ export const dsmParseJwt = (token: string) => {
     const decodedPayload = atob(payloadBase64);
     return JSON.parse(decodedPayload);
   } catch (error) {
-    const errorMsg = error instanceof Error ? error.message : "Failed to decode JWT";
+    const errorMsg =
+      error instanceof Error ? error.message : "Failed to decode JWT";
     throw new Error(errorMsg);
   }
 };
