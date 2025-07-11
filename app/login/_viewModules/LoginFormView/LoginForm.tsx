@@ -4,14 +4,7 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Formik, Form, Field, FieldProps, FieldInputProps } from "formik";
 
-import {
-  Anchor,
-  Checkbox,
-  Group,
-  PasswordInput,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { Anchor, Group, PasswordInput, Stack, Text } from "@mantine/core";
 
 import { DsmButton } from "@/components/DsmButton";
 import { DsmTextInput } from "@/components/DsmTextInput";

@@ -36,9 +36,10 @@ export const DsmInfoAvatar = (props: DsmInfoAvatarPropsType) => {
         color="#107969"
         radius={8}
         data-testid={DSM_INFO_AVATAR.AVATAR}
-        children={iconProps && <DsmCustomIcon {...iconProps} />}
         {...avatarProps}
-      />
+      >
+        {iconProps && <DsmCustomIcon {...iconProps} />}
+      </Avatar>
       <Flex direction={"column"}>
         <Text
           className={classes.label}

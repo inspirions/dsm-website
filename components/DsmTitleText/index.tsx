@@ -7,11 +7,13 @@ import { DsmTitleTextPropsType } from "./types";
  * ie. text to title and the text inside curly braces to highlight*/
 function parseCustomTitle(input: string) {
   const regex = /{(.*?)}/g;
-  let result = [];
+  const result = [];
   let lastIndex = 0;
-  let match;
 
-  while ((match = regex.exec(input)) !== null) {
+  while (true) {
+    const match = regex.exec(input);
+    if (!match) break;
+
     const subtitleStart = match.index;
 
     if (subtitleStart > lastIndex) {
@@ -41,7 +43,7 @@ export const DsmTitleText = (props: DsmTitleTextPropsType) => {
   const { text, wrapperStyleProps, ...restProps } = props;
 
   const customTextArr = parseCustomTitle(text) as [
-    { type: "title" | "highlight"; description: string }
+    { type: "title" | "highlight"; description: string },
   ];
 
   return (

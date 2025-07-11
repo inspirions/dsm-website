@@ -1,16 +1,17 @@
 "use client";
 
-import { Box, Flex, Stack, Tabs, Text } from "@mantine/core";
 import { useEffect, useRef, useState, useMemo, useCallback } from "react";
+
+import { useMediaQuery } from "@mantine/hooks";
+import { Box, Flex, Stack, Tabs, Text } from "@mantine/core";
 
 import DsmImage from "@/components/DsmImage";
 import { DsmCustomIcon } from "@/components/DsmCustomIcon";
 
 import { HOME_TAB_CONTENT_IMAGE_URL, SCREEN_WIDTH } from "@/constants/commons";
 
-import classes from "./index.module.css";
 import { TAB_LISTS } from "../../_constants";
-import { useMediaQuery } from "@mantine/hooks";
+import classes from "./index.module.css";
 
 const AUTO_SWITCH_INTERVAL = 5000; // 5 seconds
 
@@ -42,6 +43,7 @@ export const TabContentView = () => {
     []
   );
 
+  // biome-ignore lint: useExhaustiveDependencies
   useEffect(() => {
     let isMounted = true;
     let lastUpdateTime = 0;
@@ -109,10 +111,13 @@ export const TabContentView = () => {
   );
 
   const progressBarStyles = useMemo(() => {
-    return TAB_LISTS.reduce((acc, { tabValue }) => {
-      acc[tabValue] = getProgressBarStyle(tabValue);
-      return acc;
-    }, {} as Record<string, React.CSSProperties>);
+    return TAB_LISTS.reduce(
+      (acc, { tabValue }) => {
+        acc[tabValue] = getProgressBarStyle(tabValue);
+        return acc;
+      },
+      {} as Record<string, React.CSSProperties>
+    );
   }, [getProgressBarStyle]);
 
   return (

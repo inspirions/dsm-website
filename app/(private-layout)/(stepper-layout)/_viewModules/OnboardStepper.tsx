@@ -68,6 +68,7 @@ export const OnboardStepper = () => {
     >
       {stepperSteps.map((indvStep) => (
         <Stepper.Step
+          key={indvStep.label}
           label={indvStep.label}
           description={indvStep.description}
           icon={

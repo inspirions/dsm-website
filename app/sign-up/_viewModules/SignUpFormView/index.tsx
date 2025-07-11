@@ -51,7 +51,7 @@ const SignUpFormWrapper = () => {
         showNotification(res.code, res.message);
       }
       return res;
-    } catch (error) {
+    } catch {
       showErrorNotification();
     }
   };
