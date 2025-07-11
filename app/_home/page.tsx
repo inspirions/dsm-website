@@ -38,7 +38,7 @@ const HomePage = () => {
             gap={0}
             style={{ width: "100%" }}
           >
-            <Flex justify={"center"} gap={6} pos={"relative"} mr={64}>
+            <Flex justify="center" gap={6} pos="relative" mr={64}>
               <Text ta="center" fz={{ base: 24, sm: 32, md: 48 }} fw="bold">
                 See What Your{" "}
               </Text>
@@ -55,7 +55,7 @@ const HomePage = () => {
                 />
               </Text>
             </Flex>
-            <Flex justify={"center"} gap={6} pos={"relative"} mr={64}>
+            <Flex justify="center" gap={6} pos="relative" mr={64}>
               <Text ta="center" fz={{ base: 24, sm: 32, md: 48 }} fw="bold">
                 Did Last{" "}
               </Text>
@@ -74,7 +74,7 @@ const HomePage = () => {
             </Flex>
           </Flex>
           <Flex direction="column" align="center">
-            <Text size="24px" lh={1.5} maw={1137} ta={"center"}>
+            <Text size="24px" lh={1.5} maw={1137} ta="center">
               Capture, summarize, and gain valuable insights from your daily
               standups — all in one place. Let AI handle the repetitive work, so
               your team can stay focused on what really matters.
@@ -106,7 +106,7 @@ const HomePage = () => {
       <SectionDivider />
       <Container px={0} size="xl">
         <Center h="100%">
-          <Flex direction="column" gap="48px" w={"100%"}>
+          <Flex direction="column" gap="48px" w="100%">
             <Text className={classes.secTitle}>
               Daily{" "}
               <Text span className={classes.highlight} inherit>
@@ -232,7 +232,7 @@ const HomePage = () => {
           <Link href="/sign-up" style={{ textDecoration: "none" }}>
             <DsmButton
               size="xl"
-              px={"24px"}
+              px="24px"
               iconProps={{ icon: "chevronRight", position: "right" }}
               styles={{ section: { scale: 1.2 } }}
             >

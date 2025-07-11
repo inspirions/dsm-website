@@ -19,16 +19,16 @@ export const OrganizationListView = ({
 }: OrganizationListViewPropsType) => (
   <DsmContentWrapper>
     <Flex
-      h={"100%"}
-      pb={"xl"}
-      direction={"column"}
-      justify={"space-between"}
+      h="100%"
+      pb="xl"
+      direction="column"
+      justify="space-between"
       data-testid={GET_STARTED_PAGE.ORGANIZATION_LIST}
     >
-      <Flex direction={"column"} gap={"64px"}>
-        <Flex direction={"column"} align={"center"} gap={"12px"}>
+      <Flex direction="column" gap="64px">
+        <Flex direction="column" align="center" gap="12px">
           <DsmTitleText
-            fz={"56px"}
+            fz="56px"
             text="Welcome {Back!}"
             c="var(--mantine-color-dsm-light-0)"
             wrapperStyleProps={{
@@ -45,16 +45,16 @@ export const OrganizationListView = ({
           ))}
         </div>
       </Flex>
-      <Flex direction={"column"} gap={"xl"}>
+      <Flex direction="column" gap="xl">
         <Flex
-          py={"xl"}
-          px={"lg"}
-          align={"center"}
+          py="xl"
+          px="lg"
+          align="center"
           style={{ borderRadius: "8px" }}
           bg="linear-gradient(82.13deg, rgba(102, 80, 143, 0.25) 3.22%, rgba(26, 17, 43, 0.25) 212.75%)"
         >
           <DsmTitleText
-            fz={"24px"}
+            fz="24px"
             text="Want to use {DailySync} with a different organization?"
           />
           <Link
@@ -70,15 +70,10 @@ export const OrganizationListView = ({
             </DsmButton>
           </Link>
         </Flex>
-        <Flex
-          gap={"8px"}
-          direction={"column"}
-          align={"center"}
-          justify={"center"}
-        >
+        <Flex gap="8px" direction="column" align="center" justify="center">
           <DsmTitleText
             fw={700}
-            fz={"32px"}
+            fz="32px"
             c="var(--mantine-color-dsm-light-0)"
             text="Not seeing your {organization?}"
             wrapperStyleProps={{
@@ -87,7 +82,7 @@ export const OrganizationListView = ({
           />
           <Anchor
             fw={600}
-            fz={"20px"}
+            fz="20px"
             href={LOGIN}
             component={Link}
             c="var(--mantine-color-dsm-primary-3)"

@@ -8,36 +8,31 @@ export const StandupStepsView = () => {
         base: 20,
         md: 40,
       }}
-      w={"1200px"}
+      w="1200px"
     >
       <Flex
-        direction={"column"}
-        align={"center"}
-        gap={"40px"}
-        py={"24px"}
-        justify={"space-around"}
+        direction="column"
+        align="center"
+        gap="40px"
+        py="24px"
+        justify="space-around"
       >
         {Array.from({ length: 3 }).map((_, index) => (
           <Text
             key={`${index}-index-key`}
-            fw={"bold"}
+            fw="bold"
             lh={1.3}
             fz={{ base: 38, sm: 64, md: 96 }}
-            c={"#763BC4"}
+            c="#763BC4"
           >
             0{index + 1}
           </Text>
         ))}
       </Flex>
-      <Divider orientation="vertical" color={"#A57CED"} />
-      <Flex
-        direction={"column"}
-        justify={"space-around"}
-        gap={"48px"}
-        py={"24px"}
-      >
+      <Divider orientation="vertical" color="#A57CED" />
+      <Flex direction="column" justify="space-around" gap="48px" py="24px">
         {STANDUP_STEPS_VIEW.map((indvStandupStep) => (
-          <Flex key={indvStandupStep.title} direction={"column"} gap={"md"}>
+          <Flex key={indvStandupStep.title} direction="column" gap="md">
             <Text fw={600} lh={1.3} fz={{ base: 14, sm: 20, md: 24 }}>
               {indvStandupStep.title}
             </Text>

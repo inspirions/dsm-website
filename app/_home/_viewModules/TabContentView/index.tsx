@@ -132,7 +132,7 @@ export const TabContentView = () => {
     >
       <Tabs.List>
         {TAB_LISTS.map(({ tabValue, tabIcon, tabTitle, tabDescription }) => (
-          <Box pos={"relative"} w={"100%"} key={tabValue}>
+          <Box pos="relative" w="100%" key={tabValue}>
             {/* Animated left progress bar */}
             <div
               className={classes.tabProgress}
@@ -150,9 +150,9 @@ export const TabContentView = () => {
                 style={{ display: "flex", alignItems: "center", gap: "12px" }}
               >
                 <Flex
-                  align={"center"}
-                  justify={"center"}
-                  bg={"#E4DCF2"}
+                  align="center"
+                  justify="center"
+                  bg="#E4DCF2"
                   w={40}
                   h={40}
                   style={{ borderRadius: "50%" }}
@@ -160,10 +160,10 @@ export const TabContentView = () => {
                   <DsmCustomIcon size={24} icon={tabIcon} color="#5D3A9B" />
                 </Flex>
                 <Stack gap={0} style={{ width: "100%" }}>
-                  <Text fw={600} size={"20px"}>
+                  <Text fw={600} size="20px">
                     {tabTitle}
                   </Text>
-                  <Text maw={"350px"}>{tabDescription}</Text>
+                  <Text maw="350px">{tabDescription}</Text>
                 </Stack>
               </Box>
             </Tabs.Tab>

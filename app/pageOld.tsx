@@ -74,7 +74,7 @@ export default function Home() {
                   <DsmButton
                     hideIcon
                     size="md"
-                    c={"blue"}
+                    c="blue"
                     variant="outline"
                     style={{ borderColor: "blue" }}
                   >
