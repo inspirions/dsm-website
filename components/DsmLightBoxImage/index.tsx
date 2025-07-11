@@ -1,11 +1,11 @@
-import Lightbox from 'yet-another-react-lightbox';
-import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom';
-import 'yet-another-react-lightbox/styles.css';
+import Lightbox from "yet-another-react-lightbox";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
 
-import { DsmLightBoxImagePropsType } from './types';
+import { DsmLightBoxImagePropsType } from "./types";
 
-import classes from './index.module.css';
+import classes from "./index.module.css";
 
 export const DsmLightBoxImage = (props: DsmLightBoxImagePropsType) => {
   return (

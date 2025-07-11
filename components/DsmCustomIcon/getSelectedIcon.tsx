@@ -1,7 +1,7 @@
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
-import { ICON_LIST } from './CustomIcons';
-import { GetSelectedIconPropsType } from './types';
+import { ICON_LIST } from "./CustomIcons";
+import { GetSelectedIconPropsType } from "./types";
 
 const GetSelectedIcon = (props: GetSelectedIconPropsType) => {
   const { iconName, ...restProps } = props;

@@ -1,4 +1,4 @@
-import { CustomIconPropsType } from '../types';
+import { CustomIconPropsType } from "../types";
 
 const OpenEyeIcon = ({ size = 16, style, ...others }: CustomIconPropsType) => {
   return (
