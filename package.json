@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "prepare": "husky",
     "lint": "pnpm exec biome check",
     "lint:fix": "pnpm exec biome check --write",
     "format": "pnpm exec biome format .",
@@ -38,6 +39,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "globals": "^16.3.0",
+    "husky": "^9.1.7",
     "postcss-preset-mantine": "^1.17.0",
     "typescript": "^5",
     "typescript-eslint": "^8.36.0"
