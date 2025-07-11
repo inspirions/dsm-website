@@ -1,13 +1,14 @@
 "use client";
-import { cn } from "@/lib/utils";
+import React, { useRef, useState } from "react";
+import Image from "next/image";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
+import { cn } from "@/lib/utils";
 
-import React, { useRef, useState } from "react";
 import { DsmCustomIcon } from "../DsmCustomIcon";
 import { DAILY_SYNC_LOGO_URL } from "@/constants/commons";
 
@@ -256,7 +257,6 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
-  onClose,
 }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>
@@ -307,7 +307,7 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <img src={DAILY_SYNC_LOGO_URL} alt="logo" width={105} />
+      <Image src={DAILY_SYNC_LOGO_URL} alt="logo" width={105} height={38} />
       {/* <span className="font-medium text-black dark:text-white">Startup</span> */}
     </a>
   );

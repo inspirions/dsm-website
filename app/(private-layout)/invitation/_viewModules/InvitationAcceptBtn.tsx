@@ -27,7 +27,7 @@ export const InvitationAcceptBtn = (props: InvitationAcceptBtnPropsType) => {
         router.push(GET_STARTED);
       }
       showNotification(res.code, res.message);
-    } catch (error) {
+    } catch {
       showErrorNotification();
     }
   };
