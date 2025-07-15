@@ -12,10 +12,11 @@ import { InviteEmployeeForm } from "./InviteEmployeeForm";
 
 import { inviteEmployee } from "../../actions";
 import { InviteEmployeeType } from "../../_schema/InviteEmployee";
+import { RoleType } from "../../types";
 
 const { SUCCESS } = commons;
 
-export const InviteEmployeeFormView = () => {
+export const InviteEmployeeFormView = ({ roles }: { roles: RoleType[] }) => {
   const { showNotification, showErrorNotification } = useNotification();
 
   const handleCreateOrganization = async (
@@ -40,7 +41,7 @@ export const InviteEmployeeFormView = () => {
 
   return (
     <Suspense>
-      <InviteEmployeeForm onSubmit={handleCreateOrganization} />
+      <InviteEmployeeForm onSubmit={handleCreateOrganization} roles={roles} />
     </Suspense>
   );
 };

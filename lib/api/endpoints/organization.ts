@@ -4,7 +4,7 @@ import { OrganizationType } from "@/app/(private-layout)/(stepper-layout)/organi
 
 import { apiHandler } from "../client";
 
-const { ORGANIZATION_API } = API_ROUTES;
+const { ORGANIZATION_API, ORGANIZATION_ROLE_API } = API_ROUTES;
 
 const { postRequest, getRequest } = apiHandler;
 
@@ -18,4 +18,8 @@ export const getOrganizationListAPI = () => {
 
 export const getOrganizationAPI = (orgId: string) => {
   return getRequest(`${ORGANIZATION_API}/${orgId}`);
+};
+
+export const getOrganizationRoleListAPI = (orgId: string) => {
+  return getRequest(`${ORGANIZATION_ROLE_API}?organization=${orgId}`);
 };

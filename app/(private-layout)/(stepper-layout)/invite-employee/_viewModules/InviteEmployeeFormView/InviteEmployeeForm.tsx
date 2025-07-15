@@ -1,16 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { Field, FieldProps, Form, Formik, FormikProps } from "formik";
 import { useSearchParams } from "next/navigation";
-import { Formik, Form, Field, FieldProps, FormikProps } from "formik";
+import { useMemo, useState } from "react";
 
 import { Divider, Flex, Group, Select, Stack, Text } from "@mantine/core";
 
 import { DsmButton } from "@/components/DsmButton";
 import { DsmIconButton } from "@/components/DsmIconButton";
 import { DsmInfoAvatar } from "@/components/DsmInfoAvatar";
-import { DummyAvatarGroup } from "@/components/DummyAvatarGroup";
 import { DsmTextInputWithSelect } from "@/components/DsmTextInputWithSelect";
+import { DummyAvatarGroup } from "@/components/DummyAvatarGroup";
 
 import { useUserInfoContext } from "@/providers/UserInfoProvider";
 
@@ -45,6 +45,7 @@ const dropDownStyles = {
 
 export const InviteEmployeeForm = ({
   onSubmit,
+  roles,
 }: InviteEmployeeFormPropsType) => {
   const { userId } = useUserInfoContext();
   const searchParams = useSearchParams();
@@ -54,6 +55,13 @@ export const InviteEmployeeForm = ({
 
   const [userType, setUserType] = useState("employee");
   const [invites, setInvites] = useState<InviteEmployeeType[]>([]);
+
+  const useUserRoleOptions = () => {
+    return roles.map((role) => ({
+      label: role.name,
+      value: role.name.toLowerCase(),
+    }));
+  };
 
   const handleSubmit = () => {
     formSubmit(onSubmit(invites, orgId));
@@ -153,7 +161,7 @@ export const InviteEmployeeForm = ({
                         ...dropDownStyles,
                       },
                       placeholder: "Pick Role",
-                      data: USER_ROLE_OPTIONS,
+                      data: useUserRoleOptions(),
                       value: userType,
                       allowDeselect: false,
                       onChange: handleUserTypeChange,
@@ -185,7 +193,7 @@ export const InviteEmployeeForm = ({
                               allowDeselect={false}
                               placeholder="Pick Role"
                               checkIconPosition="right"
-                              data={USER_ROLE_OPTIONS}
+                              data={useUserRoleOptions()}
                               value={indvEmail.userType}
                               onChange={handleChangeRole(indvEmail.to)}
                               styles={{ ...textInputStyles, ...dropDownStyles }}
