@@ -37,9 +37,9 @@ export const HurdleItemsView = () => {
       style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
     >
       {HURDLE_ITEMS.map(({ top, left, title, description }, index) => {
-        const baseOffset = 0.1;
-        const itemStart = baseOffset + index * 0.08;
-        const itemEnd = itemStart + 0.2;
+        const baseOffset = 0.05;
+        const itemStart = baseOffset + index * 0.06;
+        const itemEnd = itemStart + 0.15;
         const itemProgress = clamp(
           (progress - itemStart) / (itemEnd - itemStart),
           0,

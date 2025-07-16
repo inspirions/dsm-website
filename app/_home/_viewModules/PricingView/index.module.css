@@ -1,0 +1,119 @@
+.pricingFlex {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.pricingCard {
+  flex: 1 1 260px;
+  max-width: 340px;
+  min-width: 220px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 520px;
+  cursor: pointer;
+  box-shadow: 0 2px 16px #191621;
+  border-radius: 16px;
+  background: var(--mantine-color-dsm-dark-primary-2);
+  color: var(--mantine-color-dsm-light-0);
+  border: 1px solid var(--mantine-color-dsm-dark-primary-4);
+  transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+  z-index: 1;
+  width: 100%;
+  gap: 24px
+}
+
+@media (min-width: 1200px) {
+  .pricingCard {
+    width: calc(25% - 18px); /* 4 in a row, gap included */
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 900px) {
+  .pricingCard {
+    width: calc(33.333% - 16px); /* 3 in a row, gap included */
+  }
+}
+
+@media (max-width: 899px) {
+  .pricingCard {
+    width: 100%; /* 1 in a row */
+    max-width: 500px;
+  }
+}
+
+.pricingCard:hover {
+  box-shadow: 0 4px 32px #191621;
+  border: 1.5px solid #7d58bc;
+  transform: scale(1.045);
+}
+
+.pricingCardSemiHighlight {
+  border: 1px solid #a78fd2;
+  background: linear-gradient(180deg, #2a2437 0%, #7d58bc22 100%);
+  box-shadow: 0 0 0 1px #a78fd2, 0 1px 18px #4c2e8233;
+  z-index: 1;
+}
+
+.pricingCardSemiHighlight:hover {
+  box-shadow: 0 0 0 2px #a78fd2, 0 2px 24px #4c2e8255;
+  border: 1px solid #7d58bc;
+  transform: scale(1.045);
+}
+
+.highlightCard {
+  border: 1px solid #7d58bc;
+  box-shadow: 0 0 0 4px #4c2e82;
+  background: linear-gradient(180deg, #2a2437 0%, #4c2e82 100%);
+  color: #fff;
+  z-index: 2;
+  transform: scale(1.04);
+}
+
+.highlightCard:hover {
+  box-shadow: 0 0 0 8px #2a2437, 0 4px 32px #4c2e82;
+  border: 2px solid #a78fd2;
+  transform: scale(1.045);
+}
+
+.buttonWrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2a2437;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.highlightButtonWrapper {
+  background-color: #f28315;
+}
+
+.semiHighlightButtonWrapper {
+  background-color: #7d58bc;
+}
+
+.pricingButton {
+  font-weight: 600;
+  padding: 8 0;
+  font-size: 18px;
+  margin-top: 0;
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.highlightPricingButton {
+  box-shadow: 0 2px 12px #4c2e82;
+} 

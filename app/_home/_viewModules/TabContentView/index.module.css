@@ -1,11 +1,9 @@
 .root {
-  gap: 16px;
-  align-items: center;
+  gap: 8px;
+  height: 100%;
 }
 
 .list {
-  gap: 24px;
-
   &::before {
     inset-inline-start: 0;
     inset-inline-end: 0;
@@ -14,12 +12,17 @@
 }
 
 .tab {
+  padding: 24px 16px;
   border-radius: 0;
   white-space: normal;
   background-color: transparent;
   border-width: 0 0 0 var(--tabs-list-border-width);
   display: flex;
   justify-content: flex-start;
+
+  &[data-active="true"] {
+    border-color: #a084e8;
+  }
 
   &:hover {
     background-color: #1a112b;
@@ -34,9 +37,9 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 4px;
+  width: 2px;
   height: 0%;
-  background: #a084e8;
+  background: #744db9;
   border-radius: 2px;
   transition: height 0.2s linear;
   z-index: 1;

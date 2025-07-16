@@ -1,97 +1,106 @@
-import {
-  PLACEHOLDER1_IMAGE_URL,
-  PLACEHOLDER_IMAGE_URL,
-} from "@/constants/commons";
-
 export const HURDLE_ITEMS = [
   {
     top: "70%",
     left: "5%",
-    title: "Inefficiency",
+    title: "Scattered Updates",
     description:
-      "Meetings drag on with repetitive updates and minimal outcomes.",
+      "Disorganized work logs and lost standup notes create confusion and wasted time.",
   },
   {
     top: "0%",
     left: "10%",
-    title: "Inaccuracy",
-    description: "Important details are missed or poorly documented.",
+    title: "Time Zone Challenges",
+    description:
+      "Remote teams struggle to align across global schedules, stalling momentum.",
   },
   {
     top: "0%",
     left: "70%",
-    title: "Misalignment",
-    description: "Key info gets lost, causing confusion and delays.",
+    title: "Hidden Resource Gaps",
+    description:
+      "Unknown team availability and leave schedules disrupt planning.",
   },
   {
     top: "70%",
     left: "80%",
-    title: "Disorganization",
-    description: "Tasks are forgotten in chats and emails.",
+    title: "Buried Insights",
+    description:
+      "Update logs pile up without actionable insights, leaving potential on the table.",
   },
 ];
 
 export const QUOTES = [
   {
     name: "Sahil Gurung",
-    designation: "Chief Strategy Officer at Quantum Solutions",
-    quote: `“With DailySync.ai, our standups are finally efficient. The AI handles summaries and action items so I can focus on leading, not note-taking. It’s like having a reliable assistant in every meeting.”`,
-    image: PLACEHOLDER_IMAGE_URL,
+    designation: "CTO at Quantum Solutions",
+    quote: `“DailySync.AI summaries have completely transformed how we handle team updates. Instead of sifting through lengthy work logs, we get concise, actionable insights that highlight what matters most. It's saved us countless hours and keeps our remote team aligned across three continents.”`,
   },
   {
     name: "Rajesh Pandey",
-    designation: "Chief Technology Officer at Quantum Solutions",
-    quote: `“DailySync.ai has streamlined our standups completely. It captures discussions, summarizes them clearly, and highlights key updates and blockers. We save time every day and stay better aligned as a team.”`,
-    image: PLACEHOLDER1_IMAGE_URL,
+    designation: "Product Manager",
+    quote: `“The chat assistant in DailySync.AI is like having a data analyst on speed dial. I can ask for insights on project progress or individual contributions, and it delivers answers instantly without navigating complex dashboards. It's made decision-making faster and smarter for our hybrid team.”`,
+  },
+  {
+    name: "Bikash Shrestha",
+    designation: "Marketing Officer",
+    quote: `“As a global MedTech company with teams spread across multiple time zones, staying aligned used to be a constant struggle. DailySync.AI has streamlined our daily communication, giving us instant visibility into priorities, blockers, and progress—without the need for more meetings. It's become a simple but powerful tool that keeps our engineering, clinical, and regulatory teams connected and focused, no matter where they are.”`,
   },
 ];
 
 export const STANDUP_STEPS_VIEW = [
   {
-    title: "Record Your Standup",
+    title: "Work Logs",
     description:
-      "Easily log your daily standup updates directly within the app. Team members can submit their updates in real time or asynchronously, and DailySync.ai organizes everything into a clear, actionable summary.",
+      "Replace unorganized work logs with structured, daily updates.",
   },
   {
-    title: "AI Generates Summaries",
-    description:
-      "Our intelligent AI listens to the standup inputs and transforms them into clear, organized summaries. Key updates, blockers, and decisions are captured and structured automatically—saving time and keeping everyone aligned without the need for manual note-taking.",
+    title: "AI-powered Summaries",
+    description: "Capture every standup note with AI-powered summaries.",
   },
   {
-    title: "Access Insights Anytime",
-    description:
-      "Stay in the loop effortlessly—chat with the AI to instantly retrieve team updates, track progress, and uncover patterns in productivity.  Whether you're checking on project milestones or identifying blockers, insights are always just a message away.",
+    title: "Collaboration",
+    description: "Collaborate effortlessly across time zones.",
+  },
+  {
+    title: "Availability",
+    description: "Track availability and manage leave/WFH with ease.",
   },
 ];
 
 export const TAB_LISTS = [
   {
     tabValue: "0",
-    tabIcon: "hourGlass" as const,
-    tabTitle: "Faster, Focused Standups",
+    tabIcon: "note" as const,
+    tabTitle: "Stay Aligned, Effortlessly",
     tabDescription:
-      "No more dragging meetings — AI handles the updates so teams stay sharp and efficient.",
+      "Asynchronous check-ins keep your team in sync without endless meetings.",
   },
   {
     tabValue: "1",
-    tabIcon: "note" as const,
-    tabTitle: "Zero Manual Notes",
-    tabDescription:
-      "Everything discussed is auto-documented, no one has to write things or worry about missed info.",
+    tabIcon: "hourGlass" as const,
+    tabTitle: "Save Time, Gain Clarity",
+    tabDescription: "AI distills updates into concise, actionable summaries.",
   },
   {
     tabValue: "2",
     tabIcon: "handShake" as const,
-    tabTitle: "Improved Team Alignment",
+    tabTitle: "Work Across Borders",
     tabDescription:
-      "Everyone sees the same updates, blockers, and goals keeping the whole team on the same page.",
+      "Coordinate globally with tools built for time zone flexibility.",
   },
   {
     tabValue: "3",
-    tabIcon: "sticker" as const,
-    tabTitle: "Clear Accountability",
+    tabIcon: "databaseCog" as const,
+    tabTitle: "Optimize Resources",
     tabDescription:
-      "With centralized follow-ups and accessible summaries, responsibilities are track & completed.",
+      "Plan smarter with leave management and team health insights.",
+  },
+  {
+    tabValue: "4",
+    tabIcon: "dataBricks" as const,
+    tabTitle: "Make Data-Driven Moves",
+    tabDescription:
+      "Unlock AI-powered analytics for teams, projects, and individuals.",
   },
 ];
 
@@ -105,6 +114,10 @@ export const NAV_ITEMS = [
     link: "#features",
   },
   {
+    name: "Pricing",
+    link: "#pricing",
+  },
+  {
     name: "FAQ",
     link: "#faq",
   },
@@ -113,65 +126,150 @@ export const NAV_ITEMS = [
 export const FAQS = [
   {
     value: "0",
-    title: "What is DailySync.ai?",
+    title: "What is DailySync.AI?",
     description:
-      "DailySync.ai is an AI-powered platform that turns daily standups into structured insights. It helps teams submit updates, track performance, manage requests, and generate smart reports—improving visibility, accountability, and team effectiveness without daily meetings.",
+      "DailySync.AI is an AI-powered platform that keeps remote and hybrid teams aligned with asynchronous updates, automated summaries, and actionable insights.",
   },
   {
     value: "1",
-    title: "How does DailySync.ai work?",
+    title: "How does it help teams stay in sync?",
     description:
-      "DailySync.ai works by letting team members submit quick daily standup notes using customized questions tailored for each team or project. The AI then automatically summarizes all these inputs into clear, visual reports that highlight progress, blockers, and overall team activity. You can also chat directly with the AI to get instant answers about project status, individual performance, missed standups, or any delays. Additionally, DailySync.ai handles leave, work-from-home, and equipment requests all in one place, with an approval process that ties into team productivity insights. In short, DailySync.ai helps keep everyone aligned, informed, and productive—without the need for constant meetings",
+      "Through asynchronous communication, AI-driven analytics, and resource management tools, DailySync.AI ensures your team thrives - anytime, anywhere.",
   },
   {
     value: "2",
-    title: "Who can benefit from using DailySync.ai?",
+    title: "Is it right for my team?",
     description:
-      "DailySync.ai helps many people in an organization. Team members can quickly share updates without long meetings, keeping everyone on the same page. Team leads and managers can track progress, spot problems early, and support their teams with real-time insights. Project managers use it to monitor project health, find risks, and keep things on schedule. HR teams get clear views of attendance, leave, and engagement. Executives get a big-picture overview of how the company is doing without constant check-ins. Plus, remote and hybrid teams stay connected and accountable, no matter where they work.",
+      "Whether you are on-site, remote, or hybrid and seek better alignment, DailySync.AI is built for you.",
+  },
+  {
+    value: "3",
+    title: "Which industries can use it?",
+    description:
+      "Any industry, any team - DailySync.AI adapts to your collaboration needs.",
   },
   {
     value: "4",
-    title: "Is my data safe with DailySync.ai?",
+    title: "What's the cost?",
     description:
-      "Absolutely! Your data is safe with DailySync.ai. The platform uses strong encryption to protect your information both while it’s being sent and when it’s stored. Access to data is strictly controlled—only authorized team members and managers can see what they’re supposed to. DailySync also supports secure login methods like Single Sign-On to keep accounts safe. Your organization’s data is kept separate from others to ensure privacy, and DailySync never shares your information with third parties without your clear permission. Overall, it’s built with security and privacy as a top priority.",
+      "Flexible plans for every team size. Visit our pricing page for details.",
+  },
+  {
+    value: "5",
+    title: "Which plan fits my team?",
+    description:
+      "Not sure? Contact our sales team for a tailored recommendation.",
+  },
+  {
+    value: "6",
+    title: "Is my data secure?",
+    description: "Yes, we use top-tier security to keep your information safe.",
   },
 ];
 
 export const FEATURE_CARDS = [
   {
     icon: "hourGlass" as const,
-    title: "Standup Summaries",
-    description:
-      "Automatically capture and summarize daily standup meeting information accessible to everyone",
+    title: "Daily Work Logs",
+    description: "Team-tailored updates, always organized.",
   },
   {
     icon: "note" as const,
+    title: "AI Summaries & Insights",
+    description: "Smart reports that save time and reveal trends.",
+  },
+  {
+    icon: "dashboard" as const,
+    title: "Team Dashboard",
+    description: "See your team's pulse at a glance.",
+  },
+  {
+    icon: "ai" as const,
     title: "AI Chat Assistant",
-    description:
-      "Chat with our AI to get updates about employees, teams, and projects without digging through notes.",
+    description: "Instant answers, no navigation required.",
   },
   {
-    icon: "note" as const,
-    title: "AI Insights",
-    description:
-      "Generate valuable insights about team productivity, blockers, and progress trends over time.",
+    icon: "calendarQuestion" as const,
+    title: "Leave/WFH Tools",
+    description: "Simplify absence tracking and planning.",
+  },
+  // {
+  //   icon: "contract" as const,
+  //   title: "Flexible Configuration",
+  //   description:
+  //     "Create teams and projects that fit your goals.",
+  // },
+  {
+    icon: "calendarEvent" as const,
+    title: "Event Scheduling",
+    description: "Stay on top of deadlines with notifications.",
   },
   {
-    icon: "note" as const,
-    title: "Searchable History",
-    description:
-      "Instant access to past standups and discussions for easy reference and accountability",
+    icon: "news" as const,
+    title: "Company Updates",
+    description: "Share news and keep everyone informed.",
   },
   {
-    icon: "hourGlass" as const,
-    title: "Time-Saving Updates",
-    description:
-      "Eliminate redundant status meetings with instant AI-powered updates that keep your team informed without disrupting their workflow.",
+    icon: "inventory" as const,
+    title: "Inventory Management",
+    description: "Handle office equipment requests seamlessly.",
+  },
+  // {
+  //   icon: "buildings" as const,
+  //   title: "Multi-Org Support",
+  //   description:
+  //     "Manage everything from one account.",
+  // },
+];
+
+export const COMMONS = {
+  GROWTH: "Growth",
+  ADVANCED: "Advanced",
+  ENTERPRISE: "Enterprise",
+};
+
+export const PRICING_PLANS = [
+  {
+    name: "Free",
+    price: "$0",
+    period: "for less than 20 users",
+    features: [
+      "Multiple organizations",
+      "Customizable Standup Notes",
+      "Tag teams, members & projects",
+      "Unlimited projects & teams",
+      "Email & in-app alerts",
+      "Leave/WFH tracking",
+      "Resource requests",
+      "Events calendar & News",
+    ],
   },
   {
-    icon: "handShake" as const,
-    title: "Remote-Ready",
-    description:
-      "Designed for distributed teams with async updates, timezone-friendly summaries, and seamless collaboration across locations.",
+    name: "Growth",
+    price: "$2.99",
+    period: "/ user / month",
+    features: ["Everything in Free", "Summary generation"],
+    highlight: true,
+  },
+  {
+    name: "Advanced",
+    price: "$4.99",
+    period: "/ user / month",
+    features: [
+      "Everything in Growth",
+      "Chat Feature",
+      "Report generation",
+      "Includes AI Insights",
+    ],
+    highlight: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom Pricing",
+    features: [
+      "Everything in Advanced",
+      "Tailored Features & Integrations",
+      "Dedicated Onboarding",
+    ],
   },
 ];
