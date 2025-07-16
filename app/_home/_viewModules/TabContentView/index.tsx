@@ -28,13 +28,13 @@ export const TabContentView = () => {
         tabValue: index.toString(),
         tabContent: (
           <DsmImage
-            h={436}
+            h={630}
             w="100%"
-            fit="cover"
+            fit="contain"
             radius="8px"
             style={{
               filter: "invert(1)",
-              objectPosition: "left",
+              objectPosition: "center",
             }}
             src={HOME_TAB_CONTENT_IMAGE_URL[index]}
           />
@@ -47,7 +47,7 @@ export const TabContentView = () => {
   useEffect(() => {
     let isMounted = true;
     let lastUpdateTime = 0;
-    const UPDATE_INTERVAL = 16;
+    const UPDATE_INTERVAL = 240;
 
     const animate = () => {
       if (!isMounted) return;
@@ -104,7 +104,7 @@ export const TabContentView = () => {
       const isActive = activeTab === tabValue;
       return {
         height: isActive ? `${progress}%` : "0%",
-        transition: isActive ? "height 0.1s linear" : "height 0.2s linear",
+        transition: isActive ? "height 0.2s linear" : "height 0.4s linear",
       };
     },
     [activeTab, progress]
@@ -159,11 +159,13 @@ export const TabContentView = () => {
                 >
                   <DsmCustomIcon size={24} icon={tabIcon} color="#5D3A9B" />
                 </Flex>
-                <Stack gap={0} style={{ width: "100%" }}>
+                <Stack gap="8px" w="100%">
                   <Text fw={600} size="20px">
                     {tabTitle}
                   </Text>
-                  <Text maw="350px">{tabDescription}</Text>
+                  <Text maw="350px" lh={1.3}>
+                    {tabDescription}
+                  </Text>
                 </Stack>
               </Box>
             </Tabs.Tab>
