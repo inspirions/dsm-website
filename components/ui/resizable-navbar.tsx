@@ -159,7 +159,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-xl bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
+        "relative z-[60] mx-auto hidden w-full max-w-[1320px] flex-row items-center justify-between self-start rounded-xl bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
         visible &&
           "bg-gradient-to-b from-[rgba(76,46,130,0.15)] to-[rgba(76,46,130,0.15)] bg-[rgba(255,255,255,0.3)]",
         className
@@ -308,6 +308,9 @@ export const NavbarLogo = () => {
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
       <Image src={DAILY_SYNC_LOGO_URL} alt="logo" width={105} height={38} />
+      <span className="text-white font-semibold text-lg">
+        Never Out of Sync
+      </span>
       {/* <span className="font-medium text-black dark:text-white">Startup</span> */}
     </a>
   );

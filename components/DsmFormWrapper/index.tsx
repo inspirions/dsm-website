@@ -21,7 +21,7 @@ const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
           <p className="text-[var(--mantine-color-dsm-light-0)] text-[36px] font-semibold ">
             {title}
           </p>
-          <Text className="relative">
+          <Text className="relative" size="18px" lh={1.5}>
             <Text
               span
               className={`${classes.quote}  inline-block -scale-y-100 h-10`}
@@ -58,7 +58,7 @@ const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
             <Text className={classes.secTitle}>
               Your daily partner in{" "}
               <Text span className={classes.highlight} inherit>
-                Team productivity
+                Team Productivity
               </Text>
             </Text>
           )}

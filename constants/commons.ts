@@ -49,6 +49,7 @@ export const HOME_TAB_CONTENT_IMAGE_URL = [
   "./HomeTabContent2.png",
   "./HomeTabContent3.png",
   "./HomeTabContent4.png",
+  "./HomeTabContent5.png",
 ];
 
 export const SCREEN_WIDTH = {

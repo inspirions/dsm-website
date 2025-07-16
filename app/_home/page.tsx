@@ -1,4 +1,6 @@
-import { Center, Container, Flex, lighten, Text } from "@mantine/core";
+import Link from "next/link";
+
+import { Badge, Center, Container, Flex, lighten, Text } from "@mantine/core";
 
 import DsmImage from "@/components/DsmImage";
 import { DsmButton } from "@/components/DsmButton";
@@ -7,40 +9,40 @@ import { Navbar } from "@/components/ui/resizable-navbar";
 
 import { HOME_PAGE_IMAGE_URL, STANDUP_IMAGE_URL } from "@/constants/commons";
 
+import { PricingView } from "./_viewModules/PricingView";
 import { FooterLayout } from "../../components/FooterLayout";
 import { AccordionView } from "./_viewModules/AccordionView";
+import { PreFooterView } from "./_viewModules/PreFooterView";
 import { QuoteCardsView } from "./_viewModules/QuoteCardsView";
 import { TabContentView } from "./_viewModules/TabContentView";
 import { HurdleItemsView } from "./_viewModules/HurdleItemsView";
 import { FeatureCardsView } from "./_viewModules/FeatureCardsView";
 import { StandupStepsView } from "./_viewModules/StandupStepsView";
-import { ScrollToTopBtn } from "../../components/ScrollToTopBtn";
+
+import { NAV_ITEMS } from "./_constants";
 
 import classes from "./index.module.css";
-import Link from "next/link";
-import { NAV_ITEMS } from "./_constants";
-import SectionDivider from "@/components/SectionDivider";
 
 const HomePage = () => {
   return (
     <Container
       fluid
       c="white"
-      className="overflow-hidden"
+      className="not-lg:overflow-hidden"
       bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
     >
       <Navbar className="top-[-12]" navItems={NAV_ITEMS} loginHref="/login" />
-      <Container id="home" size="xl" px={0}>
-        <Flex pt="144px" direction="column" gap="48px">
+      <Container px={0} size="xl" id="home">
+        <Flex pt="84px" direction="column" align="center" gap="48px" h="100%">
           <Flex
             direction="column"
             align="center"
             gap={0}
             style={{ width: "100%" }}
           >
-            <Flex justify="center" gap={6} pos="relative" mr={64}>
+            <Flex justify="center" gap={2} pos="relative" mr={96}>
               <Text ta="center" fz={{ base: 24, sm: 32, md: 48 }} fw="bold">
-                See What Your{" "}
+                See How Your{" "}
               </Text>
               <Text
                 span
@@ -51,11 +53,11 @@ const HomePage = () => {
                 <FlipWords
                   duration={4500}
                   words={["Team", "Project", "Employee"]}
-                  className="text-center text-[#F28315] px-0 scale-100 absolute"
+                  className="text-center text-[#F28315] scale-100 absolute"
                 />
               </Text>
             </Flex>
-            <Flex justify="center" gap={6} pos="relative" mr={64}>
+            <Flex justify="center" gap={2} pos="relative" mr={96}>
               <Text ta="center" fz={{ base: 24, sm: 32, md: 48 }} fw="bold">
                 Did Last{" "}
               </Text>
@@ -68,16 +70,16 @@ const HomePage = () => {
                 <FlipWords
                   words={["Sunday", "Week", "Month"]}
                   duration={1500}
-                  className=" text-center text-[#F28315] px-0 scale-100 absolute"
+                  className=" text-center text-[#F28315] scale-100 absolute"
                 />
               </Text>
             </Flex>
           </Flex>
           <Flex direction="column" align="center">
             <Text size="24px" lh={1.5} maw={1137} ta="center">
-              Capture, summarize, and gain valuable insights from your daily
-              standups — all in one place. Let AI handle the repetitive work, so
-              your team can stay focused on what really matters.
+              Effortlessly keep your remote and hybrid teams aligned with
+              asynchronous check-ins and AI-powered summaries, Insights, and
+              reports - no matter the time zone.
             </Text>
           </Flex>
           <Flex justify="center">
@@ -93,20 +95,26 @@ const HomePage = () => {
               </DsmButton>
             </Link>
           </Flex>
-          <DsmImage
-            src={HOME_PAGE_IMAGE_URL}
-            w="100%"
-            radius={12}
-            style={{
-              filter: "invert(1)",
-            }}
-          />
+          <Flex justify="center">
+            <DsmImage
+              src={HOME_PAGE_IMAGE_URL}
+              w="100%"
+              radius={12}
+              style={{ filter: "invert(1)" }}
+            />
+          </Flex>
         </Flex>
       </Container>
-      <SectionDivider />
-      <Container px={0} size="xl">
+      <Container px={0} size="xl" h="100vh">
         <Center h="100%">
-          <Flex direction="column" gap="48px" w="100%">
+          <Flex
+            direction="column"
+            justify="center"
+            align="center"
+            gap="96px"
+            w="100%"
+            h="100%"
+          >
             <Text className={classes.secTitle}>
               Daily{" "}
               <Text span className={classes.highlight} inherit>
@@ -117,32 +125,29 @@ const HomePage = () => {
                 Teams Back
               </Text>
             </Text>
-            <Flex justify="center" pos="relative">
+            <Flex justify="center" pos="relative" w="inherit">
               <DsmImage src={STANDUP_IMAGE_URL} w={620} />
               <HurdleItemsView />
             </Flex>
           </Flex>
         </Center>
       </Container>
-      <SectionDivider />
-      <Container px={0} size="xl">
-        <Flex direction="column" gap="48px">
+      <Container px={0} size="xl" mih="100vh">
+        <Flex direction="column" h="100%" gap="60px">
           <Text className={classes.secTitle}>
-            Streamlined{" "}
+            Benefits That Drive{" "}
             <Text span className={classes.highlight} inherit>
-              Solutions
-            </Text>{" "}
-            for Smarter{" "}
-            <Text span className={classes.highlight} inherit>
-              Teams
+              Results
             </Text>
           </Text>
           <TabContentView />
         </Flex>
       </Container>
-      <SectionDivider />
-      <Container px={0} id="features" size="xl">
-        <Flex direction="column" gap="48px">
+      <Container px={0} size="xl" mih="100vh" id="features">
+        <Flex justify="center" pb="xs">
+          <Badge variant="light">Features</Badge>
+        </Flex>
+        <Flex direction="column" gap="60px">
           <Text className={classes.secTitle}>
             Powerful{" "}
             <Text span className={classes.highlight} inherit>
@@ -153,60 +158,96 @@ const HomePage = () => {
               Teams
             </Text>
           </Text>
-          <Center>
-            <FeatureCardsView />
-          </Center>
+          <FeatureCardsView />
         </Flex>
       </Container>
-      <SectionDivider />
-      <Container px={0} size="xl">
-        <Flex direction="column" gap="48px">
-          <Text className={classes.secTitle}>
-            Your{" "}
-            <Text span className={classes.highlight} inherit>
-              Standup
-            </Text>{" "}
-            ,Supercharged by{" "}
-            <Text span className={classes.highlight} inherit>
-              AI
+      <Container px={0} size="xl" mih="100vh">
+        <Flex direction="column" gap="60px">
+          <Flex direction="column" align="center" gap="24px">
+            <Text className={classes.secTitle}>
+              Why{" "}
+              <Text span className={classes.highlight} inherit>
+                DailySync.AI?
+              </Text>
             </Text>
-          </Text>
+            <Text size="24px">
+              Say goodbye to the chaos of scattered updates and disconnected
+              teams.
+            </Text>
+          </Flex>
           <Center>
             <StandupStepsView />
           </Center>
         </Flex>
       </Container>
-      <SectionDivider />
-      <Container px={0} size="xl">
-        <Flex direction="column" gap="80px">
-          <Text className={classes.secTitle}>
-            See{" "}
-            <Text span className={classes.highlight} inherit>
-              Why
-            </Text>{" "}
-            Teams{" "}
-            <Text span className={classes.highlight} inherit>
-              Rely{" "}
+      <Container px={0} size="xl" mih="100vh" pb={{ base: 48, lg: 0 }}>
+        <Flex justify="center" pb="xs">
+          <Badge color="#7d58bc" variant="light">
+            Testimonial
+          </Badge>
+        </Flex>
+        <Flex direction="column" gap="60px">
+          <Flex direction="column" gap="24px">
+            <Text className={classes.secTitle}>
+              What Our{" "}
+              <Text span className={classes.highlight} inherit>
+                Users
+              </Text>{" "}
+              Say
             </Text>
-            On Us
-          </Text>
+            <Flex direction="column" gap="12px">
+              <Text size="24px" ta="center">
+                Thousands of professionals trust DailySync to boost their
+                productivity and
+              </Text>
+              <Text size="24px" ta="center">
+                achieve their goals.
+              </Text>
+            </Flex>
+          </Flex>
           <Flex
-            direction={{
-              base: "column",
-              md: "row",
-            }}
-            gap={{
-              base: 38,
-              md: 24,
-            }}
+            direction={{ base: "column", md: "row" }}
+            gap={{ base: 38 }}
+            justify="center"
           >
             <QuoteCardsView />
           </Flex>
         </Flex>
       </Container>
-      <SectionDivider />
-      <Container px={0} id="faq" size="xl">
-        <Flex direction="column" gap="48px">
+      <Container
+        px={0}
+        size="xl"
+        mih="100vh"
+        id="pricing"
+        pb={{ base: 48, lg: 0 }}
+      >
+        <Flex justify="center" pb="xs">
+          <Badge color="#7d58bc" variant="light">
+            Pricing
+          </Badge>
+        </Flex>
+        <Flex direction="column" gap="60px">
+          <Flex direction="column" gap="24px">
+            <Text className={classes.secTitle}>
+              Simple, Transparent{" "}
+              <Text span className={classes.highlight} inherit>
+                Pricing
+              </Text>{" "}
+            </Text>
+            <Text size="24px" ta="center">
+              All plans include a 3 months free trial.
+            </Text>
+          </Flex>
+          <PricingView />
+        </Flex>
+      </Container>
+      <Container px={0} size="xl" mih="100vh" id="faq">
+        <Flex justify="center" pb="xs">
+          <Badge color="#7d58bc" variant="light">
+            FAQ
+          </Badge>
+        </Flex>
+        <Flex direction="column" gap="60px">
           <Text className={classes.secTitle}>
             Frequently Asked{" "}
             <Text span className={classes.highlight} inherit>
@@ -219,30 +260,14 @@ const HomePage = () => {
           </Center>
         </Flex>
       </Container>
-      <SectionDivider />
       <Container px={0} size="xl" pb="48px">
-        <Center style={{ flexDirection: "column", gap: "24px" }}>
-          <ScrollToTopBtn />
-          <Text className={classes.secTitle}>
-            Take the{" "}
-            <Text span className={classes.highlight} inherit>
-              Next Step
-            </Text>
-          </Text>
-          <Link href="/sign-up" style={{ textDecoration: "none" }}>
-            <DsmButton
-              size="xl"
-              px="24px"
-              iconProps={{ icon: "chevronRight", position: "right" }}
-              styles={{ section: { scale: 1.2 } }}
-            >
-              Try For Free
-            </DsmButton>
-          </Link>
+        <Center>
+          <Flex py="96px">
+            <PreFooterView />
+          </Flex>
         </Center>
       </Container>
-      <SectionDivider />
-      <Container px={0} size="xl" pb="40px">
+      <Container px={0} size="xl">
         <FooterLayout />
       </Container>
     </Container>
