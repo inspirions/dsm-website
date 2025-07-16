@@ -1,60 +1,45 @@
-import { Avatar, Box, Flex, Text } from "@mantine/core";
+import { Avatar, Box, Divider, Flex, Text } from "@mantine/core";
 
 import { QUOTES } from "../../_constants";
+import { DsmCustomIcon } from "@/components/DsmCustomIcon";
 
 export const QuoteCardsView = () =>
-  QUOTES.map(({ name, image, quote, designation }) => (
+  QUOTES.map(({ name, quote, designation }) => (
     <Box
       key={name}
-      w={{
-        base: "100%",
-        md: 588,
-      }}
-      pos="relative"
+      w={{ base: "100%", md: 588 }}
       bd="1px solid"
+      bg="var(--mantine-color-dsm-dark-primary-0)"
       style={{
         borderRadius: "12px",
-        background:
-          "linear-gradient(273.04deg, rgba(228, 220, 242, 0.12) 7.14%, rgba(93, 58, 155, 0.16) 98.66%), linear-gradient(0deg, rgba(102, 80, 143, 0.15), rgba(102, 80, 143, 0.15))",
         boxShadow: "0 4px 32px 0 rgba(162, 89, 247, 0.15)",
       }}
     >
-      <Avatar
-        h={{
-          base: 40,
-          md: 140,
-        }}
-        w={{
-          base: 40,
-          md: 140,
-        }}
-        src={image}
-        pos="absolute"
-        left="50%"
-        style={{
-          transform: "translate(-50%, -30%)",
-          boxShadow: "0px 4px 10px 0px rgba(0, 0, 0, 0.15)",
-        }}
-      />
-      <Flex
-        direction="column"
-        pt={{ base: 36, md: 120 }}
-        align="center"
-        gap="sm"
-        px={{ base: 18, md: 40 }}
-        pb={{ base: 20, mb: 40 }}
-      >
-        <Flex direction="column" align="center" gap="6px">
-          <Text lh={1.3} size="20px" fw={600}>
-            {name}
-          </Text>
-          <Text fw={500} lh={1.5} ta="center">
-            {designation}
-          </Text>
+      <Flex direction="column" gap="md" p={{ base: 40 }}>
+        <Flex align="center" gap="md">
+          <Avatar size={64} name={name} />
+          <Flex direction="column" gap="6px">
+            <Text lh={1.3} size="20px" fw={600}>
+              {name}
+            </Text>
+            <Text fw={500} lh={1.5}>
+              {designation}
+            </Text>
+          </Flex>
         </Flex>
-        <Text lh={1.5} size="lg" fs="italic" ta="center">
+        <Flex gap="xs">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <DsmCustomIcon key={index} icon="star" size={20} color="yellow" />
+          ))}
+        </Flex>
+        <Text lh={1.5} size="lg">
           {quote}
         </Text>
+        <Divider />
+        <Flex align="center" gap="xs">
+          <DsmCustomIcon icon="verification" size={20} />
+          <Text>Verified Customer</Text>
+        </Flex>
       </Flex>
     </Box>
   ));
