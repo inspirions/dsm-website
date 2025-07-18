@@ -36,7 +36,7 @@ export const FooterLayout = () => {
           <GridCol
             span={{
               xm: 12,
-              md: 6,
+              md: 12,
             }}
           >
             <Flex
@@ -48,42 +48,25 @@ export const FooterLayout = () => {
               justify="space-between"
               gap="md"
             >
-              <Text maw="400px">
+              <Text>
                 DailySync.ai captures, summarizes, and highlights your daily
                 standups using AI, helping teams stay aligned, save time, and
                 focus on meaningful work with greater clarity and speed
               </Text>
               <Flex direction="column" gap="md">
                 <Flex gap="xs" align="center">
-                  <DsmCustomIcon icon="phone" fill="white" />
-                  <Text>9860034555</Text>
-                </Flex>
-                <Flex gap="xs" align="center">
                   <DsmCustomIcon icon="email" fill="white" />
-                  <Text>https://app.dailysync.ai/login</Text>
+                  <Text>support@dailysync.ai</Text>
                 </Flex>
-                <Flex gap="xs" align="center">
+                {/* <Flex gap="xs" align="center">
                   <DsmCustomIcon icon="mapMarker" fill="white" />
                   <Text>Janani Marga, Lalitpur</Text>
-                </Flex>
+                </Flex> */}
               </Flex>
             </Flex>
           </GridCol>
-          <GridCol
-            span={{
-              xm: 12,
-              md: 3,
-            }}
-            // offset={1}
-          >
-            <Flex direction="column" gap="md">
-              <Text>Links</Text>
-              <Text>Home</Text>
-              <Text>Features</Text>
-              <Text>FAQ</Text>
-            </Flex>
-          </GridCol>
-          <GridCol
+
+          {/* <GridCol
             span={{
               xm: 12,
               md: 3,
@@ -93,10 +76,11 @@ export const FooterLayout = () => {
               <Text>Privacy Policy</Text>
               <Text>Terms & Conditions</Text>
             </Flex>
-          </GridCol>
+          </GridCol> */}
         </Grid>
         <Text ta="center">
-          Copyright © 2025 Daily Sync AI. All rights reserved.
+          Copyright © {new Date().getFullYear()} Daily Sync AI. All rights
+          reserved.
         </Text>
       </Flex>
     </DsmContentWrapper>

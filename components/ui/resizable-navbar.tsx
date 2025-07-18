@@ -307,10 +307,12 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <Image src={DAILY_SYNC_LOGO_URL} alt="logo" width={105} height={38} />
-      <span className="text-white font-semibold text-lg">
-        Never Out of Sync
-      </span>
+      <div className="flex flex-col gap-1">
+        <Image src={DAILY_SYNC_LOGO_URL} alt="logo" width={105} height={38} />
+        <span className="text-white font-semibold text-xs">
+          Never Out of Sync
+        </span>
+      </div>
       {/* <span className="font-medium text-black dark:text-white">Startup</span> */}
     </a>
   );

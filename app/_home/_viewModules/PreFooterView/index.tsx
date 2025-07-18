@@ -9,7 +9,7 @@ export const PreFooterView = () => {
   return (
     <Card
       p="48px"
-      miw={900}
+      w="100%"
       c="var(--mantine-color-dsm-light-0)"
       style={{ gap: "40px", alignItems: "center" }}
       bg="linear-gradient(82.21deg, rgba(102, 80, 143, 0.25) 3.26%, rgba(26, 17, 43, 0.25) 105.89%)"
@@ -33,7 +33,7 @@ export const PreFooterView = () => {
           styles={{ section: { scale: 1.2 } }}
           iconProps={{ icon: "chevronRight", position: "right" }}
         >
-          Sign up for DailySync.AI today!
+          Get Started
         </DsmButton>
       </Link>
     </Card>
