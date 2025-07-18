@@ -15,30 +15,40 @@ export const QuoteCardsView = () =>
         boxShadow: "0 4px 32px 0 rgba(162, 89, 247, 0.15)",
       }}
     >
-      <Flex direction="column" gap="md" p={{ base: 40 }}>
-        <Flex align="center" gap="md">
-          <Avatar size={64} name={name} />
-          <Flex direction="column" gap="6px">
-            <Text lh={1.3} size="20px" fw={600}>
-              {name}
-            </Text>
-            <Text fw={500} lh={1.5}>
-              {designation}
-            </Text>
+      <Flex
+        direction="column"
+        h="100%"
+        gap="md"
+        justify="space-between"
+        p={{ base: 40 }}
+      >
+        <Flex direction="column" gap="md">
+          <Flex align="center" gap="md">
+            <Avatar size={64} name={name} />
+            <Flex direction="column" gap="6px">
+              <Text lh={1.3} size="20px" fw={600}>
+                {name}
+              </Text>
+              <Text fw={500} lh={1.5}>
+                {designation}
+              </Text>
+            </Flex>
           </Flex>
+          <Flex gap="xs">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <DsmCustomIcon key={index} icon="star" size={20} color="yellow" />
+            ))}
+          </Flex>
+          <Text lh={1.5} size="lg">
+            {quote}
+          </Text>
         </Flex>
-        <Flex gap="xs">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <DsmCustomIcon key={index} icon="star" size={20} color="yellow" />
-          ))}
-        </Flex>
-        <Text lh={1.5} size="lg">
-          {quote}
-        </Text>
-        <Divider />
-        <Flex align="center" gap="xs">
-          <DsmCustomIcon icon="verification" size={20} />
-          <Text>Verified Customer</Text>
+        <Flex direction="column" gap="md">
+          <Divider />
+          <Flex align="center" gap="xs">
+            <DsmCustomIcon icon="verification" size={20} />
+            <Text>Verified Customer</Text>
+          </Flex>
         </Flex>
       </Flex>
     </Box>
