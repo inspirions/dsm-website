@@ -262,7 +262,7 @@ const HomePage = () => {
       </Container>
       <Container px={0} size="xl" pb="48px">
         <Center>
-          <Flex py="96px">
+          <Flex py="96px" w="100%">
             <PreFooterView />
           </Flex>
         </Center>
