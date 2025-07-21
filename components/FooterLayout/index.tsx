@@ -11,6 +11,7 @@ import {
   YOUTUBE_ICON_URL,
 } from "@/constants/commons";
 import { DsmContentWrapper } from "../DsmContentWrapper";
+import Link from "next/link";
 
 export const FooterLayout = () => {
   return (
@@ -21,15 +22,9 @@ export const FooterLayout = () => {
             src={DAILY_SYNC_LOGO_URL}
             alt="daily-sync-logo"
             width={150}
-            height={150}
+            height={54}
           />
-          <Flex
-            gap={{
-              base: "sm",
-              lg: "lg",
-            }}
-            align="center"
-          >
+          <Flex gap={{ base: "sm", lg: "lg" }} align="center">
             <DsmImage
               src={FACEBOOK_ICON_URL}
               alt="facebook-icon"
@@ -53,18 +48,9 @@ export const FooterLayout = () => {
         </Flex>
         <Divider />
         <Grid columns={12} overflow="hidden" gutter={24}>
-          <GridCol
-            span={{
-              xm: 12,
-              md: 12,
-            }}
-          >
+          <GridCol span={{ xm: 12, md: 6 }}>
             <Flex
-              direction={{
-                base: "column",
-                xs: "row",
-                md: "column",
-              }}
+              direction={{ base: "column", xs: "row", md: "column" }}
               justify="space-between"
               gap="md"
             >
@@ -78,25 +64,20 @@ export const FooterLayout = () => {
                   <DsmCustomIcon icon="email" fill="white" />
                   <Text>support@dailysync.ai</Text>
                 </Flex>
-                {/* <Flex gap="xs" align="center">
-                  <DsmCustomIcon icon="mapMarker" fill="white" />
-                  <Text>Janani Marga, Lalitpur</Text>
-                </Flex> */}
               </Flex>
             </Flex>
           </GridCol>
 
-          {/* <GridCol
-            span={{
-              xm: 12,
-              md: 3,
-            }}
-          >
+          <GridCol span={{ xm: 12, md: 3 }} offset={{ xm: 0, md: 3 }}>
             <Flex direction="column" gap="md">
-              <Text>Privacy Policy</Text>
-              <Text>Terms & Conditions</Text>
+              <Link href="/privacy-policy" className="hover:text-gray-300">
+                <Text>Privacy Policy</Text>
+              </Link>
+              <Link href="/terms" className="hover:text-gray-300">
+                <Text>Terms & Conditions</Text>
+              </Link>
             </Flex>
-          </GridCol> */}
+          </GridCol>
         </Grid>
         <Text ta="center">
           Copyright © {new Date().getFullYear()} DailySync AI. All rights

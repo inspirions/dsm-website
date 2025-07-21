@@ -28,7 +28,7 @@ export const TabContentView = () => {
         tabValue: index.toString(),
         tabContent: (
           <DsmImage
-            width={900}
+            width={979}
             height={630}
             alt={`tab-content-${index}`}
             style={{
