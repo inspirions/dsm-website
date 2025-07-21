@@ -54,13 +54,12 @@ const CreateOrganization = () => (
           </Flex>
         </Flex>
         <DsmImage
-          h="auto"
-          w={{ md: "40%", lg: "60%" }}
-          fit="contain"
-          radius="md"
+          width={400}
+          height={400}
           src={DSM_IMAGE_URL}
-          display={{ base: "none", md: "block" }}
+          alt="get-started-image"
           data-testid={GET_STARTED_PAGE.STAND_UP_IMAGE}
+          className="object-contain lg:w-2/5 xl:w-3/5 lg:h-auto xl:h-[486px] hidden lg:block"
         />
       </Flex>
     </DsmContentWrapper>
