@@ -96,7 +96,12 @@ const Invitation = async ({
           bg="var(--mantine-color-dsm-dark-primary-0)"
         >
           <Flex justify="center">
-            <DsmImage src={INVITE_IMAGE_URL} w="250px" />
+            <DsmImage
+              width={224}
+              height={224}
+              alt="invite-image"
+              src={INVITE_IMAGE_URL}
+            />
           </Flex>
           <Flex direction="column" gap="xl" ta="center">
             <Text size="24px" c="var(--mantine-color-dark-3)" fw={700}>

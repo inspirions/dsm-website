@@ -35,8 +35,9 @@ const ResetPassword = async () => {
         <Flex direction="column" gap="md">
           <Flex justify="center">
             <DsmImage
-              w={100}
-              h={40}
+              alt="logo"
+              width={100}
+              height={40}
               src={LOGO_URL}
               style={{ objectFit: "contain" }}
               data-testid={RESET_PASSWORD_PAGE.LOGO}

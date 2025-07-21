@@ -33,8 +33,9 @@ const Verification = async () => {
         <Flex direction="column" gap="sm">
           <Flex justify="center">
             <DsmImage
-              h={40}
-              w={100}
+              alt="logo"
+              width={100}
+              height={40}
               src={LOGO_URL}
               style={{ objectFit: "contain" }}
               data-testid={VERIFICATION_PAGE.LOGO}
