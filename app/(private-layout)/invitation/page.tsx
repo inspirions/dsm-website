@@ -98,7 +98,7 @@ const Invitation = async ({
           <Flex justify="center">
             <DsmImage
               width={224}
-              height={224}
+              height={196}
               alt="invite-image"
               src={INVITE_IMAGE_URL}
             />

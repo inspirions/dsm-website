@@ -31,7 +31,7 @@ const HomePage = () => {
       className="not-lg:overflow-hidden"
       bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
     >
-      <Navbar className="top-[-12]" navItems={NAV_ITEMS} loginHref="/login" />
+      <Navbar navItems={NAV_ITEMS} hasRootLink={false} />
       <Container px={0} size="xl" id="home">
         <Flex pt="84px" direction="column" align="center" gap="48px" h="100%">
           <Flex
@@ -129,7 +129,7 @@ const HomePage = () => {
             <Flex justify="center" pos="relative" w="inherit">
               <DsmImage
                 width={620}
-                height={620}
+                height={448}
                 alt="standup-image"
                 src={STANDUP_IMAGE_URL}
               />
