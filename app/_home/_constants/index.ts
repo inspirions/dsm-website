@@ -106,10 +106,6 @@ export const TAB_LISTS = [
 
 export const NAV_ITEMS = [
   {
-    name: "Home",
-    link: "#home",
-  },
-  {
     name: "Features",
     link: "#features",
   },

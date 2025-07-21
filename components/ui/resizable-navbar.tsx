@@ -16,6 +16,7 @@ interface NavbarProps {
   className?: string;
   navItems?: { name: string; link: string }[];
   loginHref?: string;
+  hasRootLink?: boolean;
   actionBtn?: React.ReactNode;
 }
 
@@ -52,10 +53,15 @@ interface MobileNavMenuProps {
   onClose: () => void;
 }
 
+interface NavbarLogoProps {
+  hasRootLink?: boolean;
+}
+
 export const Navbar = ({
   className,
   navItems,
   actionBtn,
+  hasRootLink = true,
   loginHref = "/login",
 }: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -77,22 +83,31 @@ export const Navbar = ({
   return (
     <motion.div
       ref={ref}
-      className={cn("sticky inset-x-0 top-5 z-40 w-full", className)}
+      className={cn("sticky inset-x-0 top-[-12] z-40 w-full", className)}
     >
       {/* Desktop Navbar */}
       <NavBody visible={visible}>
-        <NavbarLogo />
+        <NavbarLogo hasRootLink={hasRootLink} />
         <NavItems navItems={navItems ? navItems : []} />
         {actionBtn ? (
           actionBtn
         ) : (
-          <NavbarButton
-            variant="primary"
-            className="bg-[#1A112B] border border-[#F5EFFE] text-[#F5EFFE] rounded-[8px]"
-            href={loginHref}
-          >
-            Login
-          </NavbarButton>
+          <div className="flex gap-3">
+            <NavbarButton
+              variant="primary"
+              className="bg-[#5d3a9b] text-[#F5EFFE] rounded-lg"
+              href="/sign-up"
+            >
+              Sign Up
+            </NavbarButton>
+            <NavbarButton
+              variant="primary"
+              className="bg-[#1A112B] border border-[#F5EFFE] text-[#F5EFFE] rounded-lg"
+              href={loginHref}
+            >
+              Login
+            </NavbarButton>
+          </div>
         )}
       </NavBody>
       {/* Mobile Navbar */}
@@ -301,10 +316,10 @@ export const MobileNavToggle = ({
   );
 };
 
-export const NavbarLogo = () => {
+export const NavbarLogo = ({ hasRootLink }: NavbarLogoProps) => {
   return (
     <a
-      href="#"
+      href={hasRootLink ? "/" : "#"}
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
       <div className="flex flex-col gap-1">
