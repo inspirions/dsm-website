@@ -91,16 +91,17 @@ const HomePage = () => {
                 bg="#5D3A9B"
                 bd="1px solid #A57CED"
               >
-                Get Started
+                Get Started for Free
               </DsmButton>
             </Link>
           </Flex>
           <Flex justify="center">
             <DsmImage
+              width={600}
+              height={600}
+              alt="home-page-image"
               src={HOME_PAGE_IMAGE_URL}
-              w="100%"
-              radius={12}
-              style={{ filter: "invert(1)" }}
+              className="w-full rounded-xl invert"
             />
           </Flex>
         </Flex>
@@ -126,7 +127,12 @@ const HomePage = () => {
               </Text>
             </Text>
             <Flex justify="center" pos="relative" w="inherit">
-              <DsmImage src={STANDUP_IMAGE_URL} w={620} />
+              <DsmImage
+                width={620}
+                height={620}
+                alt="standup-image"
+                src={STANDUP_IMAGE_URL}
+              />
               <HurdleItemsView />
             </Flex>
           </Flex>
