@@ -35,7 +35,7 @@ const Verification = async () => {
             <DsmImage
               alt="logo"
               width={100}
-              height={40}
+              height={36}
               src={LOGO_URL}
               style={{ objectFit: "contain" }}
               data-testid={VERIFICATION_PAGE.LOGO}
