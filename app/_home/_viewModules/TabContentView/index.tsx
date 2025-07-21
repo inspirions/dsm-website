@@ -28,11 +28,14 @@ export const TabContentView = () => {
         tabValue: index.toString(),
         tabContent: (
           <DsmImage
-            h={630}
-            w="100%"
-            fit="contain"
-            radius="8px"
+            width={900}
+            height={630}
+            alt={`tab-content-${index}`}
             style={{
+              height: 630,
+              width: "100%",
+              objectFit: "contain",
+              borderRadius: "8px",
               filter: "invert(1)",
               objectPosition: "center",
             }}
