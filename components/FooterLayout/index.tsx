@@ -17,7 +17,12 @@ export const FooterLayout = () => {
     <DsmContentWrapper>
       <Flex direction="column" gap={24}>
         <Flex gap={18} justify="space-between" className="flex-col sm:flex-row">
-          <DsmImage src={DAILY_SYNC_LOGO_URL} w="150px" />
+          <DsmImage
+            src={DAILY_SYNC_LOGO_URL}
+            alt="daily-sync-logo"
+            width={150}
+            height={150}
+          />
           <Flex
             gap={{
               base: "sm",
@@ -25,10 +30,25 @@ export const FooterLayout = () => {
             }}
             align="center"
           >
-            <DsmImage src={FACEBOOK_ICON_URL} w="32px" h="32px" />
-            <DsmImage src={INSTAGRAM_ICON_URL} w="32px" h="32px" />
-            <DsmImage src={YOUTUBE_ICON_URL} w="32px" h="32px" />
-            <DsmImage src={X_ICON_URL} w="32px" h="32px" />
+            <DsmImage
+              src={FACEBOOK_ICON_URL}
+              alt="facebook-icon"
+              width={32}
+              height={32}
+            />
+            <DsmImage
+              src={INSTAGRAM_ICON_URL}
+              alt="instagram-icon"
+              width={32}
+              height={32}
+            />
+            <DsmImage
+              src={YOUTUBE_ICON_URL}
+              alt="youtube-icon"
+              width={32}
+              height={32}
+            />
+            <DsmImage src={X_ICON_URL} alt="x-icon" width={32} height={32} />
           </Flex>
         </Flex>
         <Divider />
@@ -79,7 +99,7 @@ export const FooterLayout = () => {
           </GridCol> */}
         </Grid>
         <Text ta="center">
-          Copyright © {new Date().getFullYear()} Daily Sync AI. All rights
+          Copyright © {new Date().getFullYear()} DailySync AI. All rights
           reserved.
         </Text>
       </Flex>

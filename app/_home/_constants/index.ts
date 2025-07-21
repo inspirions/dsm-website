@@ -31,14 +31,14 @@ export const HURDLE_ITEMS = [
 
 export const QUOTES = [
   {
+    name: "Raj Sangroula",
+    designation: "CEO at QSystemsAI",
+    quote: `"DailySync transformed how our global team collaborates. Asynchronous updates, AI summaries, and realtime actionable AI insights saves us hours every week, keeping everyone aligned across time zones. I can just ask the bot "give me a report of how my 'Project X' is going on" and I get an insightful report delivered to my email right away. This has saved me hours of time."`,
+  },
+  {
     name: "Sahil Gurung",
     designation: "CTO at Quantum Solutions",
     quote: `“DailySync.AI summaries have completely transformed how we handle team updates. Instead of sifting through lengthy work logs, we get concise, actionable insights that highlight what matters most. It's saved us countless hours and keeps our remote team aligned across three continents.”`,
-  },
-  {
-    name: "Rajesh Pandey",
-    designation: "Product Manager",
-    quote: `“The chat assistant in DailySync.AI is like having a data analyst on speed dial. I can ask for insights on project progress or individual contributions, and it delivers answers instantly without navigating complex dashboards. It's made decision-making faster and smarter for our hybrid team.”`,
   },
   {
     name: "Bikash Shrestha",
