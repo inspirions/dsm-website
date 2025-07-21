@@ -34,7 +34,7 @@ export const AppBarView = ({ children }: { children: React.ReactNode }) => {
       header={{ height: 20 }}
       bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
     >
-      <Navbar className="top-[-12]" actionBtn={actionBtn} />
+      <Navbar actionBtn={actionBtn} hasRootLink={false} />
       <AppShell.Main
         className="w-full"
         style={{ minHeight: "calc(100dvh - 62px)" }}

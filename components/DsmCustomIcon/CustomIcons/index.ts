@@ -26,6 +26,7 @@ const DataBricksIcon = lazy(() => import("./DataBricksIcon"));
 const DashboardIcon = lazy(() => import("./DashboardIcon"));
 const DeleteIcon = lazy(() => import("./DeleteIcon"));
 const DescriptionIcon = lazy(() => import("./DescriptionIcon"));
+const DotIcon = lazy(() => import("./DotIcon"));
 const EmailIcon = lazy(() => import("./EmailIcon"));
 const FilterIcon = lazy(() => import("./FilterIcon"));
 const GridViewIcon = lazy(() => import("./GridViewIcon"));
@@ -67,6 +68,7 @@ const UserIcon = lazy(() => import("./UserIcon"));
 const UserPlusIcon = lazy(() => import("./UserPlusIcon"));
 const UsersIcon = lazy(() => import("./UsersIcon"));
 const VerificationIcon = lazy(() => import("./VerificationIcon"));
+const WorldIcon = lazy(() => import("./WorldIcon"));
 const XIcon = lazy(() => import("./XIcon"));
 
 export const ICON_LIST = {
@@ -96,6 +98,7 @@ export const ICON_LIST = {
   dashboard: DashboardIcon,
   delete: DeleteIcon,
   description: DescriptionIcon,
+  dot: DotIcon,
   email: EmailIcon,
   filter: FilterIcon,
   grid: GridViewIcon,
@@ -137,5 +140,6 @@ export const ICON_LIST = {
   userPlus: UserPlusIcon,
   users: UsersIcon,
   verification: VerificationIcon,
+  world: WorldIcon,
   x: XIcon,
 };
