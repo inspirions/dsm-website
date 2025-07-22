@@ -13,5 +13,5 @@ export const NavigateToHomeBtnView = async () => {
     return null;
   }
 
-  return <DsmNavigateBackBtn />;
+  return <DsmNavigateBackBtn text="Back to Organizations" />;
 };

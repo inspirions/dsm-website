@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useMemo, useCallback } from "react";
+import { useMotionValueEvent, useScroll } from "motion/react";
 
 import { useMediaQuery } from "@mantine/hooks";
 import { Box, Flex, Stack, Tabs, Text } from "@mantine/core";
@@ -18,29 +19,46 @@ const AUTO_SWITCH_INTERVAL = 5000; // 5 seconds
 export const TabContentView = () => {
   const [activeTab, setActiveTab] = useState("0");
   const [progress, setProgress] = useState(0);
-  const animationRef = useRef<number | null>(null);
-  const startTimeRef = useRef<number>(Date.now());
+  const [start, setStart] = useState(false);
   const tablet = useMediaQuery(SCREEN_WIDTH.TABLET);
+
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest < 1320) {
+      setStart(false);
+    } else if (latest >= 3000) {
+      setStart(false);
+    } else {
+      setStart(true);
+    }
+  });
 
   const TAB_CONTENTS = useMemo(
     () =>
       Array.from({ length: TAB_LISTS.length }, (_, index) => ({
         tabValue: index.toString(),
         tabContent: (
-          <DsmImage
-            width={979}
-            height={630}
-            alt={`tab-content-${index}`}
-            style={{
-              height: 630,
-              width: "100%",
-              objectFit: "contain",
-              borderRadius: "8px",
-              filter: "invert(1)",
-              objectPosition: "center",
-            }}
-            src={HOME_TAB_CONTENT_IMAGE_URL[index]}
-          />
+          <Flex h="100%" justify="center" align="center">
+            <Flex w={{ base: 400, sm: 495, md: 680, lg: 941 }}>
+              <DsmImage
+                width={941}
+                height={529}
+                alt={`tab-content-${index}`}
+                style={{
+                  width: "100%",
+                  objectFit: "contain",
+                  borderRadius: "8px",
+                  objectPosition: "center",
+                }}
+                src={HOME_TAB_CONTENT_IMAGE_URL[index]}
+              />
+            </Flex>
+          </Flex>
         ),
       })),
     []
@@ -48,57 +66,32 @@ export const TabContentView = () => {
 
   // biome-ignore lint: useExhaustiveDependencies
   useEffect(() => {
-    let isMounted = true;
-    let lastUpdateTime = 0;
-    const UPDATE_INTERVAL = 240;
+    if (!start) return;
+    const UPDATE_INTERVAL = 500;
+    const startTime = Date.now();
 
-    const animate = () => {
-      if (!isMounted) return;
-
-      const currentTime = Date.now();
-      if (currentTime - lastUpdateTime < UPDATE_INTERVAL) {
-        animationRef.current = requestAnimationFrame(animate);
-        return;
-      }
-
-      lastUpdateTime = currentTime;
-      const elapsed = currentTime - startTimeRef.current;
+    const intervalId = setInterval(() => {
+      const elapsed = Date.now() - startTime;
       const percent = Math.min((elapsed / AUTO_SWITCH_INTERVAL) * 100, 100);
       setProgress(Math.round(percent));
 
-      if (percent >= 100) {
+      if (elapsed >= AUTO_SWITCH_INTERVAL) {
         setActiveTab((prev) => {
           const nextIndex = (parseInt(prev) + 1) % TAB_LISTS.length;
           return nextIndex.toString();
         });
-        startTimeRef.current = Date.now();
         setProgress(0);
-      } else {
-        animationRef.current = requestAnimationFrame(animate);
+        clearInterval(intervalId);
       }
-    };
+    }, UPDATE_INTERVAL);
 
-    const startAnimation = () => {
-      if (isMounted) {
-        animationRef.current = requestAnimationFrame(animate);
-      }
-    };
-
-    startAnimation();
-
-    return () => {
-      isMounted = false;
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, [activeTab]);
+    return () => clearInterval(intervalId);
+  }, [activeTab, start]);
 
   const handleTabChange = useCallback((value: string | null) => {
     if (value) {
       setActiveTab(value);
       setProgress(0);
-      startTimeRef.current = Date.now();
     }
   }, []);
 
@@ -107,7 +100,7 @@ export const TabContentView = () => {
       const isActive = activeTab === tabValue;
       return {
         height: isActive ? `${progress}%` : "0%",
-        transition: isActive ? "height 0.2s linear" : "height 0.4s linear",
+        transition: isActive ? "height 0.5s linear" : "height 0.3s linear",
       };
     },
     [activeTab, progress]
@@ -125,6 +118,7 @@ export const TabContentView = () => {
 
   return (
     <Tabs
+      ref={ref}
       value={activeTab}
       onChange={handleTabChange}
       orientation={tablet ? "vertical" : "horizontal"}

@@ -4,6 +4,7 @@ import DsmImage from "@/components/DsmImage";
 
 import { LOGO_URL } from "@/constants/commons";
 import { NoAccessPage } from "@/components/NoAccessPage";
+import { DsmNavigateBackBtn } from "@/components/DsmNavigateBackBtn";
 
 import { RESET_PASSWORD_PAGE } from "@/constants/dataTestId";
 
@@ -20,10 +21,14 @@ const ResetPassword = async () => {
   return (
     <Center
       h="100vh"
+      pos="relative"
       bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
       style={{ flexDirection: "column", gap: "8px" }}
       data-testid={RESET_PASSWORD_PAGE.ROOT}
     >
+      <div className="absolute top-4 left-2 sm:left-6">
+        <DsmNavigateBackBtn href="/" />
+      </div>
       <Card
         w={500}
         shadow="xl"
