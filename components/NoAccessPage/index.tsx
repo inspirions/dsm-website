@@ -1,9 +1,9 @@
-import Link from "next/link";
-
 import { Center, lighten, Paper, Text } from "@mantine/core";
 
 import { routes } from "@/constants/routeConstants";
 import { NO_ACCESS_PAGE } from "@/constants/dataTestId";
+
+import { DsmNavigateBackBtn } from "../DsmNavigateBackBtn";
 
 import { NoAccessPagePropsType } from "./types";
 
@@ -26,12 +26,7 @@ export const NoAccessPage = (props: NoAccessPagePropsType) => {
         <Text size="lg" c="var(--mantine-color-dsm-light-0)">
           {message}
         </Text>
-        <Link
-          href={redirectTo}
-          style={{ color: "var(--mantine-color-dsm-primary-5)" }}
-        >
-          {redirectText}
-        </Link>
+        <DsmNavigateBackBtn href={redirectTo} text={redirectText} />
       </Center>
     </Paper>
   );
