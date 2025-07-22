@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Anchor, Center, Flex, lighten, Text } from "@mantine/core";
+import { Anchor, Box, Flex, lighten, Text } from "@mantine/core";
 
 import { routes } from "@/constants/routeConstants";
 
@@ -14,7 +14,7 @@ const { LOGIN } = routes;
 const renderFormView = () => (
   <>
     <SignUpFormView />
-    <Flex justify="center" gap={2}>
+    <Flex justify="center" gap={6}>
       <Text>Already have an account?</Text>
       <Anchor
         c="var(--mantine-color-dsm-primary-5)"
@@ -31,10 +31,9 @@ const renderFormView = () => (
 
 const SignUp = () => {
   return (
-    <Center
-      h="100vh"
-      bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
+    <Box
       c="white"
+      bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
       data-testid={SIGN_UP_PAGE.ROOT}
     >
       <DsmFormWrapper
@@ -42,7 +41,7 @@ const SignUp = () => {
         description={SIGN_UP_DESCRIPTION}
         formView={renderFormView}
       />
-    </Center>
+    </Box>
   );
 };
 

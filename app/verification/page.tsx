@@ -2,6 +2,7 @@ import { Flex, Card, Text, Center, lighten } from "@mantine/core";
 
 import DsmImage from "@/components/DsmImage";
 import { NoAccessPage } from "@/components/NoAccessPage";
+import { DsmNavigateBackBtn } from "@/components/DsmNavigateBackBtn";
 
 import { LOGO_URL } from "@/constants/commons";
 import { VERIFICATION_PAGE } from "@/constants/dataTestId";
@@ -19,9 +20,13 @@ const Verification = async () => {
   return (
     <Center
       h="100vh"
+      pos="relative"
       bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
       data-testid={VERIFICATION_PAGE.ROOT}
     >
+      <div className="absolute top-4 left-2 sm:left-6">
+        <DsmNavigateBackBtn href="/" />
+      </div>
       <Card
         w={500}
         shadow="xl"

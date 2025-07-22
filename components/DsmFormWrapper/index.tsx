@@ -6,6 +6,8 @@ import { DAILY_SYNC_LOGO_URL } from "@/constants/commons";
 
 import { DsmFormWrapperPropsType } from "./types";
 
+import { DsmNavigateBackBtn } from "../DsmNavigateBackBtn";
+
 import classes from "./index.module.css";
 
 const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
@@ -13,9 +15,12 @@ const DsmFormWrapper = (props: DsmFormWrapperPropsType) => {
   return (
     <Container
       p={0}
-      miw={{ xl: "100%" }}
-      className="bg-[#160E25] min-h-dvh h-auto"
+      miw="100%"
+      className="bg-[#160E25] min-h-dvh h-auto relative"
     >
+      <div className="absolute top-4 left-2 sm:left-6">
+        <DsmNavigateBackBtn href="/" />
+      </div>
       <div className="flex flex-col-reverse md:flex-row items-center justify-center md:gap-4">
         <div className="flex-1 min-h-dvh bg-[var(--mantine-color-dsm-dark-primary-3)] p-[60px] flex flex-col items-center justify-center">
           <p className="text-[var(--mantine-color-dsm-light-0)] text-[36px] font-semibold ">

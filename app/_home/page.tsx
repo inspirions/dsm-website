@@ -33,67 +33,81 @@ const HomePage = () => {
     >
       <Navbar navItems={NAV_ITEMS} hasRootLink={false} />
       <Container px={0} size="xl" id="home">
-        <Flex pt="84px" direction="column" align="center" gap="48px" h="100%">
-          <Flex
-            direction="column"
-            align="center"
-            gap={0}
-            style={{ width: "100%" }}
-          >
-            <Flex justify="center" gap={2} pos="relative" mr={96}>
-              <Text ta="center" fz={{ base: 24, sm: 32, md: 48 }} fw="bold">
-                See How Your{" "}
-              </Text>
-              <Text
-                span
-                ta="center"
-                fz={{ base: 24, sm: 32, md: 48 }}
-                fw="bold"
+        <Flex pt="64px" direction="column" align="center" gap="48px" h="100%">
+          <Flex direction="column" gap="24px">
+            <Flex direction="column" gap="8px">
+              <Flex
+                direction="column"
+                align="center"
+                gap={0}
+                style={{ width: "100%" }}
               >
-                <FlipWords
-                  duration={4500}
-                  words={["Team", "Project", "Employee"]}
-                  className="text-center text-[#F28315] scale-100 absolute"
-                />
+                <Flex justify="center" gap={2} pos="relative" mr={96}>
+                  <Text
+                    lh={1.3}
+                    ta="center"
+                    fz={{ base: 24, sm: 32, md: 48 }}
+                    fw="bold"
+                  >
+                    See How Your{" "}
+                  </Text>
+                  <Text
+                    span
+                    ta="center"
+                    lh={1.3}
+                    fz={{ base: 24, sm: 32, md: 48 }}
+                    fw="bold"
+                  >
+                    <FlipWords
+                      duration={4500}
+                      words={["Team", "Project", "Employee"]}
+                      className="text-center text-[#F28315] scale-100 absolute"
+                    />
+                  </Text>
+                </Flex>
+                <Flex justify="center" gap={2} pos="relative" mr={96}>
+                  <Text
+                    lh={1.3}
+                    ta="center"
+                    fz={{ base: 24, sm: 32, md: 48 }}
+                    fw="bold"
+                  >
+                    Did Last{" "}
+                  </Text>
+                  <Text
+                    span
+                    lh={1.3}
+                    ta="center"
+                    fz={{ base: 24, sm: 32, md: 48 }}
+                    fw="bold"
+                  >
+                    <FlipWords
+                      words={["Sunday", "Week", "Month"]}
+                      duration={1500}
+                      className=" text-center text-[#F28315] scale-100 absolute"
+                    />
+                  </Text>
+                </Flex>
+              </Flex>
+              <Text size="24px" lh={1.3} maw={1137} ta="center">
+                Effortlessly keep your remote and hybrid teams aligned with
+                asynchronous check-ins and AI-powered summaries, Insights, and
+                reports - no matter the time zone.
               </Text>
             </Flex>
-            <Flex justify="center" gap={2} pos="relative" mr={96}>
-              <Text ta="center" fz={{ base: 24, sm: 32, md: 48 }} fw="bold">
-                Did Last{" "}
-              </Text>
-              <Text
-                span
-                ta="center"
-                fz={{ base: 24, sm: 32, md: 48 }}
-                fw="bold"
-              >
-                <FlipWords
-                  words={["Sunday", "Week", "Month"]}
-                  duration={1500}
-                  className=" text-center text-[#F28315] scale-100 absolute"
-                />
-              </Text>
+            <Flex justify="center">
+              <Link href="/sign-up" style={{ textDecoration: "none" }}>
+                <DsmButton
+                  size="xl"
+                  px="24px"
+                  iconProps={{ icon: "ai" }}
+                  bg="#5D3A9B"
+                  bd="1px solid #A57CED"
+                >
+                  Get Started. It's FREE!
+                </DsmButton>
+              </Link>
             </Flex>
-          </Flex>
-          <Flex direction="column" align="center">
-            <Text size="24px" lh={1.5} maw={1137} ta="center">
-              Effortlessly keep your remote and hybrid teams aligned with
-              asynchronous check-ins and AI-powered summaries, Insights, and
-              reports - no matter the time zone.
-            </Text>
-          </Flex>
-          <Flex justify="center">
-            <Link href="/sign-up" style={{ textDecoration: "none" }}>
-              <DsmButton
-                size="xl"
-                px="24px"
-                iconProps={{ icon: "ai" }}
-                bg="#5D3A9B"
-                bd="1px solid #A57CED"
-              >
-                Get Started for Free
-              </DsmButton>
-            </Link>
           </Flex>
           <Flex justify="center">
             <DsmImage
@@ -101,21 +115,24 @@ const HomePage = () => {
               height={600}
               alt="home-page-image"
               src={HOME_PAGE_IMAGE_URL}
-              className="w-full rounded-xl invert"
+              className="w-full rounded-xl"
             />
           </Flex>
         </Flex>
       </Container>
       <Container px={0} size="xl" h="100vh">
-        <Center h="100%">
-          <Flex
-            direction="column"
-            justify="center"
-            align="center"
-            gap="96px"
-            w="100%"
-            h="100%"
-          >
+        <Flex
+          w="100%"
+          h="100%"
+          gap="96px"
+          align="center"
+          justify="center"
+          direction="column"
+        >
+          <Flex direction="column">
+            <Flex justify="center" pb="md">
+              <Badge variant="light">Hurdles</Badge>
+            </Flex>
             <Text className={classes.secTitle}>
               Daily{" "}
               <Text span className={classes.highlight} inherit>
@@ -126,20 +143,23 @@ const HomePage = () => {
                 Teams Back
               </Text>
             </Text>
-            <Flex justify="center" pos="relative" w="inherit">
-              <DsmImage
-                width={620}
-                height={448}
-                alt="standup-image"
-                src={STANDUP_IMAGE_URL}
-              />
-              <HurdleItemsView />
-            </Flex>
           </Flex>
-        </Center>
+          <Flex justify="center" pos="relative" w="inherit">
+            <DsmImage
+              width={620}
+              height={448}
+              alt="standup-image"
+              src={STANDUP_IMAGE_URL}
+            />
+            <HurdleItemsView />
+          </Flex>
+        </Flex>
       </Container>
       <Container px={0} size="xl" mih="100vh">
-        <Flex direction="column" h="100%" gap="60px">
+        <Flex justify="center" pb="md">
+          <Badge variant="light">Benefits</Badge>
+        </Flex>
+        <Flex direction="column" gap="60px">
           <Text className={classes.secTitle}>
             Benefits That Drive{" "}
             <Text span className={classes.highlight} inherit>
@@ -150,7 +170,7 @@ const HomePage = () => {
         </Flex>
       </Container>
       <Container px={0} size="xl" mih="100vh" id="features">
-        <Flex justify="center" pb="xs">
+        <Flex justify="center" pb="md">
           <Badge variant="light">Features</Badge>
         </Flex>
         <Flex direction="column" gap="60px">
@@ -168,6 +188,9 @@ const HomePage = () => {
         </Flex>
       </Container>
       <Container px={0} size="xl" mih="100vh">
+        <Flex justify="center" pb="md">
+          <Badge variant="light">Why us</Badge>
+        </Flex>
         <Flex direction="column" gap="60px">
           <Flex direction="column" align="center" gap="24px">
             <Text className={classes.secTitle}>
@@ -187,7 +210,7 @@ const HomePage = () => {
         </Flex>
       </Container>
       <Container px={0} size="xl" mih="100vh" pb={{ base: 48, lg: 0 }}>
-        <Flex justify="center" pb="xs">
+        <Flex justify="center" pb="md">
           <Badge color="#7d58bc" variant="light">
             Testimonial
           </Badge>
@@ -227,7 +250,7 @@ const HomePage = () => {
         id="pricing"
         pb={{ base: 48, lg: 0 }}
       >
-        <Flex justify="center" pb="xs">
+        <Flex justify="center" pb="md">
           <Badge color="#7d58bc" variant="light">
             Pricing
           </Badge>
@@ -248,7 +271,7 @@ const HomePage = () => {
         </Flex>
       </Container>
       <Container px={0} size="xl" mih="100vh" id="faq">
-        <Flex justify="center" pb="xs">
+        <Flex justify="center" pb="md">
           <Badge color="#7d58bc" variant="light">
             FAQ
           </Badge>
