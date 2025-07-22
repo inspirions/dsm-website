@@ -15,7 +15,7 @@ const { SIGN_UP } = routes;
 const renderFormView = () => (
   <>
     <LoginFormView />
-    <Flex justify="center" gap={2}>
+    <Flex justify="center" gap={6}>
       <Text>Don't have an account?</Text>
       <Anchor
         fw="bold"
@@ -32,7 +32,11 @@ const renderFormView = () => (
 
 const Login = () => {
   return (
-    <Box bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)} c="white">
+    <Box
+      c="white"
+      bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
+      data-testid={LOGIN_PAGE.ROOT}
+    >
       <DsmFormWrapper
         title={LOGIN_TITLE}
         description={LOGIN_DESCRIPTION}
