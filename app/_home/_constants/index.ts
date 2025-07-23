@@ -36,13 +36,13 @@ export const QUOTES = [
     quote: `"DailySync transformed how our global team collaborates. Asynchronous updates, AI summaries, and realtime actionable AI insights saves us hours every week, keeping everyone aligned across time zones. I can just ask the bot "give me a report of how my 'Project X' is going on" and I get an insightful report delivered to my email right away. This has saved me hours of time."`,
   },
   {
-    name: "Sahil Gurung",
-    designation: "CTO at Quantum Solutions",
-    quote: `“DailySync.AI summaries have completely transformed how we handle team updates. Instead of sifting through lengthy work logs, we get concise, actionable insights that highlight what matters most. It's saved us countless hours and keeps our remote team aligned across three continents.”`,
+    name: "Sanjay Khanal",
+    designation: "CTO at Inspiring Lab",
+    quote: `“The chat assistant in DailySync.AI is like having a data analyst on speed dial. I can ask for insights on project progress or individual contributions, and it delivers answers instantly without navigating complex dashboards. It's made decision-making faster and smarter for our hybrid team.”`,
   },
   {
-    name: "Bikash Shrestha",
-    designation: "Marketing Officer",
+    name: "Risav Karna",
+    designation: "Principal Consultant at Gita Aspirations",
     quote: `“As a global MedTech company with teams spread across multiple time zones, staying aligned used to be a constant struggle. DailySync.AI has streamlined our daily communication, giving us instant visibility into priorities, blockers, and progress—without the need for more meetings. It's become a simple but powerful tool that keeps our engineering, clinical, and regulatory teams connected and focused, no matter where they are.”`,
   },
 ];
@@ -226,9 +226,9 @@ export const COMMONS = {
 
 export const PRICING_PLANS = [
   {
-    name: "Free",
+    name: "Startup",
     price: "$0",
-    period: "for less than 20 users",
+    users: "for less than 20 users",
     features: [
       "Multiple organizations",
       "Customizable Standup Notes",
@@ -239,11 +239,13 @@ export const PRICING_PLANS = [
       "Resource requests",
       "Events calendar & News",
     ],
+    remark: "Flat $20 per month for advanced AI features after trial period",
   },
   {
     name: "Growth",
     price: "$2.99",
     period: "/ user / month",
+    users: "for more than 20 users",
     features: ["Everything in Free", "Summary generation"],
     highlight: true,
   },
@@ -251,6 +253,7 @@ export const PRICING_PLANS = [
     name: "Advanced",
     price: "$4.99",
     period: "/ user / month",
+    users: "for more than 20 users",
     features: [
       "Everything in Growth",
       "Chat Feature",

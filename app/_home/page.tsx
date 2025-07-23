@@ -33,9 +33,15 @@ const HomePage = () => {
     >
       <Navbar navItems={NAV_ITEMS} hasRootLink={false} />
       <Container px={0} size="xl" id="home">
-        <Flex pt="64px" direction="column" align="center" gap="48px" h="100%">
-          <Flex direction="column" gap="24px">
-            <Flex direction="column" gap="8px">
+        <Flex
+          pt={{ base: 140, sm: 120, lg: 64 }}
+          direction="column"
+          align="center"
+          gap="48px"
+          h="100%"
+        >
+          <Flex direction="column" gap={{ base: 32, sm: 24 }}>
+            <Flex direction="column" gap={{ base: 16, sm: 8 }}>
               <Flex
                 direction="column"
                 align="center"
@@ -46,7 +52,7 @@ const HomePage = () => {
                   <Text
                     lh={1.3}
                     ta="center"
-                    fz={{ base: 24, sm: 32, md: 48 }}
+                    fz={{ base: 28, sm: 32, md: 48 }}
                     fw="bold"
                   >
                     See How Your{" "}
@@ -55,7 +61,7 @@ const HomePage = () => {
                     span
                     ta="center"
                     lh={1.3}
-                    fz={{ base: 24, sm: 32, md: 48 }}
+                    fz={{ base: 28, sm: 32, md: 48 }}
                     fw="bold"
                   >
                     <FlipWords
@@ -69,7 +75,7 @@ const HomePage = () => {
                   <Text
                     lh={1.3}
                     ta="center"
-                    fz={{ base: 24, sm: 32, md: 48 }}
+                    fz={{ base: 28, sm: 32, md: 48 }}
                     fw="bold"
                   >
                     Did Last{" "}
@@ -78,7 +84,7 @@ const HomePage = () => {
                     span
                     lh={1.3}
                     ta="center"
-                    fz={{ base: 24, sm: 32, md: 48 }}
+                    fz={{ base: 28, sm: 32, md: 48 }}
                     fw="bold"
                   >
                     <FlipWords
@@ -89,7 +95,7 @@ const HomePage = () => {
                   </Text>
                 </Flex>
               </Flex>
-              <Text size="24px" lh={1.3} maw={1137} ta="center">
+              <Text fz={{ base: 18, sm: 24 }} lh={1.3} maw={1137} ta="center">
                 Effortlessly keep your remote and hybrid teams aligned with
                 asynchronous check-ins and AI-powered summaries, Insights, and
                 reports - no matter the time zone.
@@ -148,6 +154,7 @@ const HomePage = () => {
             <DsmImage
               width={620}
               height={448}
+              className="h-[350px] sm:h-[448px]"
               alt="standup-image"
               src={STANDUP_IMAGE_URL}
             />
@@ -159,7 +166,7 @@ const HomePage = () => {
         <Flex justify="center" pb="md">
           <Badge variant="light">Benefits</Badge>
         </Flex>
-        <Flex direction="column" gap="60px">
+        <Flex direction="column" gap="60px" pb={{ base: 32, md: 0 }}>
           <Text className={classes.secTitle}>
             Benefits That Drive{" "}
             <Text span className={classes.highlight} inherit>
@@ -173,7 +180,7 @@ const HomePage = () => {
         <Flex justify="center" pb="md">
           <Badge variant="light">Features</Badge>
         </Flex>
-        <Flex direction="column" gap="60px">
+        <Flex direction="column" gap="60px" pb={{ base: 32, md: 0 }}>
           <Text className={classes.secTitle}>
             Powerful{" "}
             <Text span className={classes.highlight} inherit>
@@ -199,7 +206,11 @@ const HomePage = () => {
                 DailySync.AI?
               </Text>
             </Text>
-            <Text size="24px">
+            <Text
+              ta="center"
+              fz={{ base: 18, sm: 24 }}
+              lh={{ base: 1.3, sm: 1.5 }}
+            >
               Say goodbye to the chaos of scattered updates and disconnected
               teams.
             </Text>
@@ -224,12 +235,20 @@ const HomePage = () => {
               </Text>{" "}
               Say
             </Text>
-            <Flex direction="column" gap="12px">
-              <Text size="24px" ta="center">
+            <Flex direction="column" gap={{ base: 0, sm: 12 }}>
+              <Text
+                ta="center"
+                fz={{ base: 18, sm: 24 }}
+                lh={{ base: 1.3, sm: 1.5 }}
+              >
                 Thousands of professionals trust DailySync to boost their
                 productivity and
               </Text>
-              <Text size="24px" ta="center">
+              <Text
+                ta="center"
+                fz={{ base: 18, sm: 24 }}
+                lh={{ base: 1.3, sm: 1.5 }}
+              >
                 achieve their goals.
               </Text>
             </Flex>
@@ -263,7 +282,11 @@ const HomePage = () => {
                 Pricing
               </Text>{" "}
             </Text>
-            <Text size="24px" ta="center">
+            <Text
+              ta="center"
+              fz={{ base: 18, sm: 24 }}
+              lh={{ base: 1.3, sm: 1.5 }}
+            >
               All plans include a 3 months free trial.
             </Text>
           </Flex>
