@@ -9,8 +9,7 @@ export const PLACEHOLDER_IMAGE_URL = "./PlaceholderImg.png";
 export const PLACEHOLDER1_IMAGE_URL = "./PlaceholderImg1.png";
 export const FACEBOOK_ICON_URL = "./Facebook.png";
 export const INSTAGRAM_ICON_URL = "./Instagram.png";
-export const YOUTUBE_ICON_URL = "./Youtube.png";
-export const X_ICON_URL = "./X.png";
+export const LINKEDIN_ICON_URL = "./Linkedin.png";
 
 export const DSM_TOKEN = "DSM_TOKEN";
 
