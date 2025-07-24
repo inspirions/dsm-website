@@ -25,7 +25,7 @@
   }
 
   &:hover {
-    background-color: #1a112b;
+    background-color: var(--mantine-color-dsm-light-3);
   }
 }
 

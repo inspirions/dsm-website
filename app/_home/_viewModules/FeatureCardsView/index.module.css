@@ -5,7 +5,7 @@
 
 .card:hover {
   transition: 0.3s ease;
-  background-color: #2d2837;
+  background-color: var(--mantine-color-dsm-light-3);
   box-shadow: rgba(0, 0, 0, 0.05);
   border: 1px solid #a57ced;
 

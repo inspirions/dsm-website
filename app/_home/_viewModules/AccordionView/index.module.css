@@ -1,14 +1,8 @@
 .root {
   width: 1100px;
-  color: white;
-}
-
-.item {
-  border: none;
 }
 
 .label {
-  color: white;
   font-weight: 600;
   font-size: 20px;
 }
@@ -19,7 +13,6 @@
 }
 
 .chevron {
-  color: white;
   width: 32px;
 }
 

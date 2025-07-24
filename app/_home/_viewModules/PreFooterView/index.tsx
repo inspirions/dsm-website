@@ -10,9 +10,8 @@ export const PreFooterView = () => {
     <Card
       p="48px"
       w="100%"
-      c="var(--mantine-color-dsm-light-0)"
       style={{ gap: "40px", alignItems: "center" }}
-      bg="linear-gradient(82.21deg, rgba(102, 80, 143, 0.25) 3.26%, rgba(26, 17, 43, 0.25) 105.89%)"
+      bg="var(--mantine-color-dsm-light-0)"
     >
       <Flex direction="column" gap="24px" align="center">
         <Text className={classes.secTitle}>

@@ -16,11 +16,10 @@
   justify-content: space-between;
   min-height: 520px;
   cursor: pointer;
-  box-shadow: 0 2px 16px #191621;
+  box-shadow: 0 2px 16px var(--mantine-color-dsm-light-2);
   border-radius: 16px;
-  background: var(--mantine-color-dsm-dark-primary-2);
-  color: var(--mantine-color-dsm-light-0);
-  border: 1px solid var(--mantine-color-dsm-dark-primary-4);
+  background: var(--mantine-color-dsm-light-2);
+  border: 1px solid var(--mantine-color-dsm-light-0);
   transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
   z-index: 1;
   width: 100%;
@@ -47,35 +46,34 @@
 }
 
 .pricingCard:hover {
-  box-shadow: 0 4px 32px #191621;
+  box-shadow: 0 4px 32px var(--mantine-color-dsm-light-0);
   border: 1.5px solid #7d58bc;
   transform: scale(1.045);
 }
 
 .pricingCardSemiHighlight {
   border: 1px solid #a78fd2;
-  background: linear-gradient(180deg, #2a2437 0%, #7d58bc22 100%);
-  box-shadow: 0 0 0 1px #a78fd2, 0 1px 18px #4c2e8233;
+  background: linear-gradient(180deg, var(--mantine-color-dsm-light-0) 0%, var(--mantine-color-dsm-light-2) 100%);
+  box-shadow: 0 0 0 1px #a78fd2, 0 1px 18px var(--mantine-color-dsm-light-1);
   z-index: 1;
 }
 
 .pricingCardSemiHighlight:hover {
-  box-shadow: 0 0 0 2px #a78fd2, 0 2px 24px #4c2e8255;
+  box-shadow: 0 0 0 2px #a78fd2, 0 2px 24px var(--mantine-color-dsm-light-1);
   border: 1px solid #7d58bc;
   transform: scale(1.045);
 }
 
 .highlightCard {
-  border: 1px solid #7d58bc;
-  box-shadow: 0 0 0 4px #4c2e82;
-  background: linear-gradient(180deg, #2a2437 0%, #4c2e82 100%);
-  color: #fff;
+  border: 1px solid var(--mantine-color-dsm-light-0);
+  box-shadow: 0 0 0 2px var(--mantine-color-dsm-primary-1);
+  background: linear-gradient(180deg, var(--mantine-color-dsm-light-0) 0%, var(--mantine-color-dsm-primary-2) 100%);
   z-index: 2;
   transform: scale(1.04);
 }
 
 .highlightCard:hover {
-  box-shadow: 0 0 0 8px #2a2437, 0 4px 32px #4c2e82;
+  box-shadow: 0 0 0 2px var(--mantine-color-dsm-primary-2), 0 2px 16px #4c2e82;
   border: 2px solid #a78fd2;
   transform: scale(1.045);
 }

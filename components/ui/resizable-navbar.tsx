@@ -196,7 +196,7 @@ export const NavItems = ({
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-white transition duration-200 hover:text-white lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium transition duration-200 lg:flex lg:space-x-2",
         className
       )}
     >
@@ -204,7 +204,7 @@ export const NavItems = ({
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-white"
+          className="relative px-4 py-2"
           key={`link-${idx}`}
           href={indvNavItem.link}
         >
@@ -324,9 +324,7 @@ export const NavbarLogo = ({ hasRootLink }: NavbarLogoProps) => {
     >
       <div className="flex flex-col gap-1">
         <Image src={DAILY_SYNC_LOGO_URL} alt="logo" width={105} height={38} />
-        <span className="text-white font-semibold text-xs">
-          Never Out of Sync
-        </span>
+        <span className="font-semibold text-xs">Never Out of Sync</span>
       </div>
       {/* <span className="font-medium text-black dark:text-white">Startup</span> */}
     </a>

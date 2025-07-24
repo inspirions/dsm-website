@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Badge, Center, Container, Flex, lighten, Text } from "@mantine/core";
+import { Badge, Center, Container, Flex, Text } from "@mantine/core";
 
 import DsmImage from "@/components/DsmImage";
 import { DsmButton } from "@/components/DsmButton";
@@ -27,9 +27,10 @@ const HomePage = () => {
   return (
     <Container
       fluid
-      c="white"
+      // c="white"
       className="not-lg:overflow-hidden"
-      bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
+      // bg="var(--mantine-color-dsm-light-8)"
+      // bg={lighten("var(--mantine-color-dsm-dark-primary-3)", 0.1)}
     >
       <Navbar navItems={NAV_ITEMS} hasRootLink={false} />
       <Container px={0} size="xl" id="home">

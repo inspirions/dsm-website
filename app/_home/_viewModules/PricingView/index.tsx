@@ -63,9 +63,7 @@ export const PricingView = () => {
                       size={20}
                       style={{ color: "#54e382" }}
                     />
-                    <Text fz={16} c="#fff">
-                      {feature}
-                    </Text>
+                    <Text fz={16}>{feature}</Text>
                   </Flex>
                 ))}
                 {remark && (

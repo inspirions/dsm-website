@@ -74,7 +74,7 @@ export const HurdleItemsView = () => {
                   w={28}
                   style={{ borderRadius: "50%" }}
                 >
-                  <DsmCustomIcon size={20} strokeWidth={2} />
+                  <DsmCustomIcon size={20} strokeWidth={2} color="white" />
                 </Flex>
                 <Text
                   fz={{

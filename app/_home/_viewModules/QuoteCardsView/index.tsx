@@ -9,7 +9,7 @@ export const QuoteCardsView = () =>
       key={name}
       w={{ base: "100%", md: 588 }}
       bd="1px solid"
-      bg="var(--mantine-color-dsm-dark-primary-0)"
+      bg="var(--mantine-color-dsm-light-0)"
       style={{
         borderRadius: "12px",
         boxShadow: "0 4px 32px 0 rgba(162, 89, 247, 0.15)",

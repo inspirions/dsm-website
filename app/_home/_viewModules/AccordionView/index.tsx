@@ -12,9 +12,7 @@ export const AccordionView = () => {
       key={item.value}
       value={item.value}
       style={{
-        color: "white",
-        background:
-          "linear-gradient(82.21deg, rgba(102, 80, 143, 0.25) 3.26%, rgba(26, 17, 43, 0.25) 105.89%)",
+        background: "var(--mantine-color-dsm-light-3)",
       }}
     >
       <Accordion.Control>{item.title}</Accordion.Control>
