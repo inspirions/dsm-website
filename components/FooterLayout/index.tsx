@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Divider, Flex, Grid, GridCol, Text } from "@mantine/core";
 
 import DsmImage from "@/components/DsmImage";
@@ -7,11 +8,29 @@ import {
   DAILY_SYNC_LOGO_URL,
   FACEBOOK_ICON_URL,
   INSTAGRAM_ICON_URL,
-  X_ICON_URL,
-  YOUTUBE_ICON_URL,
+  LINKEDIN_ICON_URL,
 } from "@/constants/commons";
+
+import { DsmButton } from "../DsmButton";
 import { DsmContentWrapper } from "../DsmContentWrapper";
-import Link from "next/link";
+
+const SOCIAL_MEDIA_LINKS = [
+  {
+    src: FACEBOOK_ICON_URL,
+    alt: "facebook-icon",
+    href: "https://www.facebook.com/profile.php?id=61578277686766",
+  },
+  {
+    src: INSTAGRAM_ICON_URL,
+    alt: "instagram-icon",
+    href: "https://www.instagram.com/dailysync.ai",
+  },
+  {
+    src: LINKEDIN_ICON_URL,
+    alt: "linkedin-icon",
+    href: "https://www.linkedin.com/company/dailysync-ai",
+  },
+];
 
 export const FooterLayout = () => {
   return (
@@ -25,25 +44,18 @@ export const FooterLayout = () => {
             height={54}
           />
           <Flex gap={{ base: "sm", lg: "lg" }} align="center">
-            <DsmImage
-              src={FACEBOOK_ICON_URL}
-              alt="facebook-icon"
-              width={32}
-              height={32}
-            />
-            <DsmImage
-              src={INSTAGRAM_ICON_URL}
-              alt="instagram-icon"
-              width={32}
-              height={32}
-            />
-            <DsmImage
-              src={YOUTUBE_ICON_URL}
-              alt="youtube-icon"
-              width={32}
-              height={32}
-            />
-            <DsmImage src={X_ICON_URL} alt="x-icon" width={32} height={32} />
+            {SOCIAL_MEDIA_LINKS.map((indvLink) => (
+              <Link href={indvLink.href} key={indvLink.alt} target="_blank">
+                <DsmButton hideIcon variant="transparent" p={0}>
+                  <DsmImage
+                    width={32}
+                    height={32}
+                    src={indvLink.src}
+                    alt={indvLink.alt}
+                  />
+                </DsmButton>
+              </Link>
+            ))}
           </Flex>
         </Flex>
         <Divider />
@@ -55,7 +67,7 @@ export const FooterLayout = () => {
               gap="md"
             >
               <Text>
-                DailySync.ai captures, summarizes, and highlights your daily
+                DailySync.AI captures, summarizes, and highlights your daily
                 standups using AI, helping teams stay aligned, save time, and
                 focus on meaningful work with greater clarity and speed
               </Text>
