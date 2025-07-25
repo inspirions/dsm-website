@@ -16,6 +16,7 @@ export const API_ROUTES = {
   LOGIN_API: `${API_URL}/api/login`,
   USER_INFO_API: `${API_URL}/api/me`,
   RESEND_OTP_API: `${API_URL}/api/resend-otp`,
+  ORGANIZATION_ROLE_API: `${API_URL}/api/role`,
   SIGN_UP_API: `${API_URL}/api/register-admin`,
   VERIFY_OTP_API: `${API_URL}/api/account-verify`,
   GET_INVITATION_API: `${API_URL}/api/invitation`,
