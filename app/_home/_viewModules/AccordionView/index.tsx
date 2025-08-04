@@ -24,7 +24,14 @@ export const AccordionView = () => {
 
   return (
     <Accordion
-      chevron={<DsmCustomIcon icon="chevronUp" size={32} strokeWidth={2} />}
+      chevron={
+        <DsmCustomIcon
+          icon="chevronUp"
+          size={32}
+          strokeWidth={2}
+          style={{ transform: "rotate(180deg)" }}
+        />
+      }
       variant="separated"
       defaultValue="0"
       classNames={classes}

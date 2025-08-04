@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "StandupAI",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/HomePage.png",
         width: 1200,
         height: 630,
         alt: "StandupAI - Transform Your Daily Standups with AI",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "StandupAI - Transform Your Daily Standups with AI",
     description:
       "Capture, summarize, and gain insights from your daily standups. Let AI do the heavy lifting for your team meetings.",
-    images: ["/twitter-image.jpg"],
+    images: ["/HomePage.png"],
   },
   generator: "v0.dev",
 };
